@@ -1,0 +1,369 @@
+\documentclass[11pt]{article}
+
+% ---------- Paquetes ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{attachfile}
+\usepackage{amsmath}
+
+% ---------- Colores ----------
+\definecolor{principal}{HTML}{2E6B5E}
+\definecolor{suave}{HTML}{E8F1EE}
+\definecolor{acento}{HTML}{E0A458}
+\definecolor{gris}{HTML}{5F6B6A}
+\definecolor{colR}{HTML}{4F9D8A}
+\definecolor{colA}{HTML}{2E6B5E}
+\definecolor{colC}{HTML}{E0A458}
+\definecolor{colI}{HTML}{C9D6D3}
+
+
+% ---------- Títulos de sección ----------
+\titleformat{\section}
+    {\Large\bfseries\color{principal}}
+    {}{0pt}
+    {}[\vspace{-0.6em}\textcolor{acento}{\rule{\linewidth}{1.2pt}}]
+\titlespacing*{\section}{0pt}{1.4em}{0.3em}
+
+% ---------- Encabezado y pie ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{gris}Envejecer mejor}
+\fancyhead[R]{\small\color{gris}Planificación del proyecto}
+\fancyfoot[C]{\small\color{gris}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{suave}\hrule height 0.8pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7em}
+
+% ---------- Celdas de la matriz RACI ----------
+\newcommand{\R}{\cellcolor{colR}\textcolor{white}{\textbf{R}}}
+\newcommand{\A}{\cellcolor{colA}\textcolor{white}{\textbf{A}}}
+\newcommand{\AR}{\cellcolor{colA}\textcolor{white}{\textbf{A/R}}}
+\newcommand{\C}{\cellcolor{colC}\textbf{C}}
+\newcommand{\I}{\cellcolor{colI}\textbf{I}}
+
+% ---------- Encabezado de tabla ----------
+\newcommand{\encab}[1]{\textcolor{white}{\textbf{#1}}}
+
+\begin{document}
+
+% ---------- Portada ----------
+\begin{tcolorbox}[
+    enhanced, colback=principal, colframe=principal,
+    arc=4pt, boxrule=0pt, left=14pt, right=14pt, top=14pt, bottom=14pt
+]
+    {\color{white}\small PLANIFICACIÓN DEL PROYECTO}\\[0.4em]
+    {\color{white}\Huge\bfseries Envejecer mejor}\\[0.6em]
+    {\color{suave}\large Tareas, tiempos, Matriz RACI y presupuesto}
+\end{tcolorbox}
+
+\vspace{0.6em}
+
+{\color{gris}\textbf{Integrantes:} Ulysses, Maximiliano, Fabián, Valentina y Lucas.}
+
+% ---------- Objetivo ----------
+\begin{tcolorbox}[
+    enhanced, colback=suave, colframe=suave,
+    borderline west={4pt}{0pt}{acento},
+    arc=2pt, left=12pt, right=12pt, top=8pt, bottom=8pt
+]
+    {\color{principal}\bfseries Objetivo del trabajo}\\[0.3em]
+    Informar y generar conciencia sobre cómo llegar a la tercera edad de forma
+    saludable, mostrando qué hábitos ayudan a prevenir las enfermedades y
+    afecciones más comunes de la vejez. Para eso haremos afiches y folletos
+    impresos, publicaciones en redes sociales y una página web informativa.
+\end{tcolorbox}
+
+% ---------- Fechas clave ----------
+\begin{tcolorbox}[
+    enhanced, colback=white, colframe=suave, boxrule=1pt,
+    arc=2pt, left=12pt, right=12pt, top=8pt, bottom=8pt
+]
+    {\color{principal}\bfseries Fechas clave}\\[0.3em]
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{@{}ll}
+        Inicio del trabajo & miércoles 30 de septiembre \\
+        Presentación de avances & lunes 2 de noviembre \\
+        Término de las tareas & martes 17 de noviembre \\
+        Holgura (5 días) & 18 al 22 de noviembre \\
+        Entrega del informe final y propuesta & lunes 23 de noviembre \\
+    \end{tabular}\\[0.3em]
+    {\small\color{gris}Además, cada semana se mostrará un avance del trabajo.}
+\end{tcolorbox}
+
+% ---------- Listado de tareas ----------
+\clearpage
+\section{Listado de tareas}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.7}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.8cm}
+                                  >{\raggedright\arraybackslash}p{5.4cm}
+                                  >{\raggedright\arraybackslash}X}
+        \rowcolor{principal}
+        \encab{N°} & \encab{Tarea} & \encab{Descripción} \\
+        \rowcolor{suave}
+        1 & Definir el rango etario &
+            Investigar en qué edades conviene enfocar el mensaje y elegir el grupo objetivo. \\
+        \rowcolor{white}
+        2 & Investigar hábitos y enfermedades &
+            Reunir información confiable sobre enfermedades de la vejez y los hábitos que ayudan a prevenirlas. \\
+        \rowcolor{suave}
+        3 & Definir mensajes y formato &
+            Elegir las ideas principales que queremos transmitir y cómo se verán en cada material. \\
+        \rowcolor{white}
+        4 & Diseñar afiches, folletos y publicaciones &
+            Crear los 10 afiches y folletos impresos y las publicaciones para redes sociales. \\
+        \rowcolor{suave}
+        5 & Desarrollar la página web &
+            Programar una página informativa con HTML, CSS y JavaScript. \\
+        \rowcolor{white}
+        6 & Preparar la presentación de avances &
+            Armar la presentación del 2 de noviembre. \\
+        \rowcolor{suave}
+        7 & Revisar contenidos y fuentes &
+            Corregir errores y comprobar que la información esté bien respaldada. \\
+        \rowcolor{white}
+        8 & Difundir el material &
+            Repartir los afiches y folletos, publicar en redes y compartir la página web. \\
+        \rowcolor{suave}
+        9 & Redactar el informe final y la propuesta &
+            Escribir el informe con los resultados del proyecto y la propuesta final. \\
+    \end{tabularx}
+\end{center}
+
+% ---------- Estimación de tiempo ----------
+\clearpage
+\section{Estimación de tiempo de cada tarea}
+
+Cada integrante puede dedicar entre 3 y 5 horas a la semana, es decir, el
+grupo cuenta con 15 a 25 horas semanales. Entre el 30 de septiembre y el 17 de
+noviembre son 7 semanas, lo que da entre 105 y 175 horas disponibles.
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.7}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X
+                                  >{\centering\arraybackslash}p{3.4cm}
+                                  >{\centering\arraybackslash}p{1.4cm}
+                                  >{\centering\arraybackslash}p{2.2cm}}
+        \rowcolor{principal}
+        \encab{Tarea} & \encab{Fechas} & \encab{Días} & \encab{Horas} \\
+        \rowcolor{suave}
+        1. Definir el rango etario & 30 sep -- 6 oct & 7 & 6 \\
+        \rowcolor{white}
+        2. Investigar hábitos y enfermedades & 5 oct -- 18 oct & 14 & 20 \\
+        \rowcolor{suave}
+        3. Definir mensajes y formato & 14 oct -- 21 oct & 8 & 8 \\
+        \rowcolor{white}
+        4. Diseñar afiches, folletos y publicaciones & 21 oct -- 1 nov & 12 & 15 \\
+        \rowcolor{suave}
+        5. Desarrollar la página web & 21 oct -- 10 nov & 21 & 30 \\
+        \rowcolor{white}
+        6. Preparar la presentación de avances & 26 oct -- 1 nov & 7 & 8 \\
+        \rowcolor{suave}
+        7. Revisar contenidos y fuentes & 3 nov -- 10 nov & 8 & 10 \\
+        \rowcolor{white}
+        8. Difundir el material & 4 nov -- 15 nov & 12 & 8 \\
+        \rowcolor{suave}
+        9. Redactar el informe final y la propuesta & 5 nov -- 17 nov & 13 & 20 \\
+        \rowcolor{principal}
+        \encab{Total} & & & \encab{125 horas} \\
+    \end{tabularx}
+\end{center}
+
+{\small\color{gris}Las 125 horas quedan dentro de lo que el grupo puede dedicar. Algunas tareas se hacen en paralelo.}
+
+% ---------- Matriz RACI ----------
+\clearpage
+\section{Matriz RACI}
+
+Cada tarea tiene una sola persona que responde por el resultado (A), que en
+algunos casos también es quien la ejecuta (A/R).
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.8}
+    \setlength{\tabcolsep}{4pt}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X
+                                  *{5}{>{\centering\arraybackslash}p{1.75cm}}}
+        \rowcolor{principal}
+        \encab{Tarea}
+            & \textcolor{white}{\small\textbf{Ulysses}}
+            & \textcolor{white}{\small\textbf{Maximiliano}}
+            & \textcolor{white}{\small\textbf{Fabián}}
+            & \textcolor{white}{\small\textbf{Valentina}}
+            & \textcolor{white}{\small\textbf{Lucas}} \\
+        \rowcolor{suave}
+        1. Definir el rango etario                   & \AR & \R  & \C  & \C  & \I  \\
+        \rowcolor{white}
+        2. Investigar hábitos y enfermedades         & \C  & \AR & \R  & \C  & \I  \\
+        \rowcolor{suave}
+        3. Definir mensajes y formato                & \C  & \C  & \C  & \AR & \R  \\
+        \rowcolor{white}
+        4. Diseñar afiches, folletos y publicaciones & \I  & \C  & \R  & \R  & \AR \\
+        \rowcolor{suave}
+        5. Desarrollar la página web                 & \C  & \AR & \R  & \I  & \C  \\
+        \rowcolor{white}
+        6. Preparar la presentación de avances       & \AR & \R  & \C  & \R  & \C  \\
+        \rowcolor{suave}
+        7. Revisar contenidos y fuentes              & \R  & \R  & \AR & \C  & \C  \\
+        \rowcolor{white}
+        8. Difundir el material                      & \R  & \C  & \R  & \AR & \R  \\
+        \rowcolor{suave}
+        9. Redactar el informe final y la propuesta  & \R  & \R  & \C  & \C  & \AR \\
+    \end{tabularx}
+\end{center}
+
+\begin{center}
+    \setlength{\tabcolsep}{6pt}
+    \renewcommand{\arraystretch}{1.5}
+    \arrayrulecolor{white}
+    \begin{tabular}{cl@{\hspace{1.2em}}cl}
+        \R & \small Responsable: hace la tarea &
+        \A & \small Aprobador: responde por el resultado \\[2pt]
+        \C & \small Consultado: opina antes de decidir &
+        \I & \small Informado: se entera del avance \\
+    \end{tabular}
+\end{center}
+
+% ---------- Carta Gantt ----------
+\section{Carta Gantt}
+
+La Carta Gantt se encuentra en el archivo Excel adjunto (\texttt{carta\_gantt.xlsx}),
+con las mismas tareas, fechas y responsables de este documento.
+El archivo de la Carta Gantt en Excel se encuentra en el Anexo.
+
+\begin{center}
+    \includegraphics[width=\textwidth]{gantt.jpeg}
+\end{center}
+
+% ---------- Presupuesto ----------
+\clearpage
+\section{Presupuesto}
+
+Valores referenciales en pesos chilenos. El presupuesto considera dos partes:
+las horas hombre (HH) del equipo, valorizadas, y los gastos en materiales.
+
+\textbf{Valor de la hora hombre.} Se usa como referencia el ingreso mínimo
+mensual vigente desde el 1 de mayo de 2026, de \$553.553 para una jornada de
+42 horas semanales (Ley N.º 21.830). El valor de la hora se calcula con la
+fórmula de la Dirección del Trabajo:
+\[
+\text{Valor HH} = \frac{\$553.553}{30} \times \frac{28}{42} \approx \$12.301
+\]
+
+\subsection*{Horas hombre por tarea}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X
+                                  >{\centering\arraybackslash}p{1.6cm}
+                                  >{\raggedleft\arraybackslash}p{2.4cm}
+                                  >{\raggedleft\arraybackslash}p{2.6cm}}
+        \rowcolor{principal}
+        \encab{Tarea} & \encab{HH} & \encab{Valor HH} & \encab{Total} \\
+        \rowcolor{suave}
+        1. Definir el rango etario & 6 & \$12.301 & \$73.806 \\
+        \rowcolor{white}
+        2. Investigar hábitos y enfermedades & 20 & \$12.301 & \$246.020 \\
+        \rowcolor{suave}
+        3. Definir mensajes y formato & 8 & \$12.301 & \$98.408 \\
+        \rowcolor{white}
+        4. Diseñar afiches, folletos y publicaciones & 15 & \$12.301 & \$184.515 \\
+        \rowcolor{suave}
+        5. Desarrollar la página web & 30 & \$12.301 & \$369.030 \\
+        \rowcolor{white}
+        6. Preparar la presentación de avances & 8 & \$12.301 & \$98.408 \\
+        \rowcolor{suave}
+        7. Revisar contenidos y fuentes & 10 & \$12.301 & \$123.010 \\
+        \rowcolor{white}
+        8. Difundir el material & 8 & \$12.301 & \$98.408 \\
+        \rowcolor{suave}
+        9. Redactar el informe final y la propuesta & 20 & \$12.301 & \$246.020 \\
+        \rowcolor{principal}
+        \encab{Total horas hombre} & \encab{125} & & \encab{\$1.537.625} \\
+    \end{tabularx}
+\end{center}
+
+\subsection*{Materiales y otros gastos}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X
+                                  >{\centering\arraybackslash}p{2cm}
+                                  >{\raggedleft\arraybackslash}p{2.6cm}
+                                  >{\raggedleft\arraybackslash}p{2.4cm}}
+        \rowcolor{principal}
+        \encab{Ítem} & \encab{Cantidad} & \encab{Valor unitario} & \encab{Total} \\
+        \rowcolor{suave}
+        Impresión a color de afiches y folletos & 10 & \$1.000 & \$10.000 \\
+        \rowcolor{white}
+        Página web (HTML, CSS y JavaScript, publicada en un hosting gratuito) & 1 & \$0 & \$0 \\
+        \rowcolor{suave}
+        Publicaciones en redes sociales & -- & \$0 & \$0 \\
+        \rowcolor{white}
+        Transporte & -- & \$0 & \$0 \\
+        \rowcolor{principal}
+        \encab{Total materiales} & & & \encab{\$10.000} \\
+    \end{tabularx}
+\end{center}
+
+\subsection*{Resumen}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \arrayrulecolor{white}
+    \setlength{\arrayrulewidth}{1.5pt}
+    \begin{tabularx}{0.75\textwidth}{>{\raggedright\arraybackslash}X
+                                      >{\raggedleft\arraybackslash}p{3cm}}
+        \rowcolor{principal}
+        \encab{Concepto} & \encab{Monto} \\
+        \rowcolor{suave}
+        Horas hombre (125 HH) & \$1.537.625 \\
+        \rowcolor{white}
+        Materiales y otros gastos & \$10.000 \\
+        \rowcolor{suave}
+        Subtotal & \$1.547.625 \\
+        \rowcolor{white}
+        Imprevistos (10\,\% del subtotal) & \$154.763 \\
+        \rowcolor{principal}
+        \encab{Total del proyecto} & \encab{\$1.702.388} \\
+    \end{tabularx}
+\end{center}
+
+{\small\color{gris}Las horas hombre son una valorización del trabajo del
+equipo y no implican un pago. El gasto real en dinero es solo el de
+materiales más sus imprevistos (\$10.000 + \$1.000 = \$11.000), por lo que
+cada integrante aportaría aproximadamente \$2.200.}
+
+% ---------- Anexo ----------
+\clearpage
+\section{Anexo: Carta Gantt}
+
+Archivo original en Excel:
+\textattachfile{carta_gantt.xlsx}{\textcolor{principal}{\textbf{carta\_gantt.xlsx}}}
+(haz clic para abrirlo).
+\end{document}
