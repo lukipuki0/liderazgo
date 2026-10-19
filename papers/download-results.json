@@ -1,0 +1,387 @@
+[
+  {
+    "number": 1,
+    "title": "Optimal dietary patterns for healthy aging.",
+    "authors": "Tessier AJ, Wang F, Korat AA, Eliassen AH, Chavarro J, Grodstein F, Li J, Liang L, Willett WC, Sun Q, Stampfer MJ, Hu FB, Guasch-Ferré M.",
+    "year": "2025",
+    "doi": "10.1038/s41591-025-03570-5",
+    "pmcid": "PMC12092270",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC12092270?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41591-025-03570-5.pdf",
+        "error": "Response is not a complete PDF"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12092270/pdf/41591_2025_Article_3570.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/12092270/bin/41591_2025_3570_MOESM1_ESM.pdf",
+        "error": "Not a PDF"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Dietary protein intake in midlife in relation to healthy aging - results from the prospective Nurses' Health Study cohort.",
+    "authors": "Ardisson Korat AV, Shea MK, Jacques PF, Sebastiani P, Wang M, Eliassen AH, Willett WC, Sun Q.",
+    "year": "2024",
+    "doi": "10.1016/j.ajcnut.2023.11.010",
+    "pmcid": "PMC10884611",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC10884611?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10884611/pdf/main.pdf",
+        "error": "Not a PDF"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "title": "Sedentary Behaviors, Light-Intensity Physical Activity, and Healthy Aging.",
+    "authors": "Shi H, Hu FB, Huang T, Schernhammer ES, Willett WC, Sun Q, Wang M.",
+    "year": "2024",
+    "doi": "10.1001/jamanetworkopen.2024.16300",
+    "pmcid": null,
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11167497/pdf/",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://jamanetwork.com/journals/jamanetworkopen/articlepdf/2819832/shi_2024_oi_240515_1717166470.97236.pdf",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/11167497/bin/jamanetwopen-e2416300-s001.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/11167497/bin/jamanetwopen-e2416300-s002.pdf",
+        "error": "Not a PDF"
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Physical activity and successful aging among middle-aged and older adults: a systematic review and meta-analysis of cohort studies.",
+    "authors": "Lin YH, Chen YC, Tseng YC, Tsai ST, Tseng YH.",
+    "year": "2020",
+    "doi": "10.18632/aging.103057",
+    "pmcid": "PMC7244057",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC7244057?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7244057/pdf/aging-12-103057.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://www.aarp.org/content/dam/aarp/ppi/2017-01/Fact%20Sheet%20Long-Term%20Support%20and%20Services.pdf",
+        "error": "Could not confirm title or DOI"
+      },
+      {
+        "url": "https://www.aging-us.com/article/103057/pdf",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Association between physical activity trajectories and successful aging in middle-aged and elderly Chinese individuals: a longitudinal study.",
+    "authors": "Zhang X, Niu X, Wang M, Li Q, Feng H, Wang Y, Ma J.",
+    "year": "2025",
+    "doi": "10.1186/s12889-025-23021-7",
+    "pmcid": "PMC12082857",
+    "status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC12082857?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://link.springer.com/content/pdf/10.1186/s12889-025-23021-7.pdf",
+        "error": "Response is not a complete PDF"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12082857/pdf/12889_2025_Article_23021.pdf",
+        "error": "Not a PDF"
+      }
+    ],
+    "file": "05-2025-association-between-physical-activity-trajectories-and-successful-aging-in-middle-aged-and-elderly-chinese-ind.pdf",
+    "source": "https://bmcpublichealth.biomedcentral.com/counter/pdf/10.1186/s12889-025-23021-7.pdf",
+    "bytes": 1273554,
+    "sha256": "a9dc51c37c77f5a5cb0143d5c0a344db1346743c05142788339801a70719249c",
+    "pages": 11,
+    "identity_verified": true
+  },
+  {
+    "number": 6,
+    "title": "The impact of physical activity on healthy ageing trajectories: evidence from eight cohort studies.",
+    "authors": "Moreno-Agostino D, Daskalopoulou C, Wu YT, Koukounari A, Haro JM, Tyrovolas S, Panagiotakos DB, Prince M, Prina AM.",
+    "year": "2020",
+    "doi": "10.1186/s12966-020-00995-8",
+    "pmcid": "PMC7364650",
+    "status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC7364650?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://link.springer.com/content/pdf/10.1186/s12966-020-00995-8.pdf",
+        "error": "Response is not a complete PDF"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7364650/",
+        "error": "No PDF link in returned page"
+      }
+    ],
+    "file": "06-2020-the-impact-of-physical-activity-on-healthy-ageing-trajectories-evidence-from-eight-cohort-studies.pdf",
+    "source": "https://ijbnpa.biomedcentral.com/counter/pdf/10.1186/s12966-020-00995-8.pdf",
+    "bytes": 758934,
+    "sha256": "6bc016e20ffc2663245b4943e7821e04f646c66a0f250e9f6de47d5614f5fdc8",
+    "pages": 12,
+    "identity_verified": true
+  },
+  {
+    "number": 7,
+    "title": "Nutrition and Healthy Ageing in Asia: A Systematic Review.",
+    "authors": "Zhou YF, Song XY, Pan A, Koh WP.",
+    "year": "2023",
+    "doi": "10.3390/nu15143153",
+    "pmcid": "PMC10383719",
+    "status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC10383719?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      }
+    ],
+    "file": "07-2023-nutrition-and-healthy-ageing-in-asia-a-systematic-review.pdf",
+    "source": "https://www.mdpi.com/2072-6643/15/14/3153/pdf?version=1689583652",
+    "bytes": 976385,
+    "sha256": "43030fbcbc26d21933ee3f50eeade6a4480fa73cfe81cc88d428153ec464ccd6",
+    "pages": 18,
+    "identity_verified": true
+  },
+  {
+    "number": 8,
+    "title": "Healthy Aging-Nutrition Matters: Start Early and Screen Often.",
+    "authors": "Roberts SB, Silver RE, Das SK, Fielding RA, Gilhooly CH, Jacques PF, Kelly JM, Mason JB, McKeown NM, Reardon MA, Rowan S, Saltzman E, Shukitt-Hale B, Smith CE, Taylor AA, Wu D, Zhang FF, Panetta K, Booth S.",
+    "year": "2021",
+    "doi": "10.1093/advances/nmab032",
+    "pmcid": "PMC8994693",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC8994693?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8994693/pdf/nmab032.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://scholar.google.com/scholar_lookup?World%20Health%20Organization%20.%20Global%20strategy%20on%20diet,%20physical%20activity%20and%20health.%20[Internet].%202004;%20[cited%2015%20Jan%202021].%20Available%20from:%20https://www.who.int/dietphysicalactivity/strategy/eb11344/strategy_english_web.pdf",
+        "error": "curl: (3) bad range in URL position 151:\r\nhttps://scholar.google.com/scholar_lookup?World%20Health%20Organization%20.%20Global%20strategy%20on%20diet,"
+      },
+      {
+        "url": "https://www.cdc.gov/aging/pdf/healthy-aging-in-action508.pdf",
+        "error": "curl: (22) The requested URL returned error: 404\r\n"
+      },
+      {
+        "url": "https://scholar.google.com/scholar_lookup?National%20Prevention%20Council%20.%20Healthy%20aging%20in%20action.%20[Internet].%202016;%20[cited%2015%20Jan%202021].%20Available%20from:%20https://www.cdc.gov/aging/pdf/healthy-aging-in-action508.pdf",
+        "error": "curl: (3) bad range in URL position 115:\r\nhttps://scholar.google.com/scholar_lookup?National%20Prevention%20Council%20.%20Healthy%20aging%20in%20actio"
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "title": "Dietary patterns in middle age: effects on concurrent neurocognition and risk of age-related cognitive decline.",
+    "authors": "Gauci S, Young LM, Arnoldy L, Lassemillante AC, Scholey A, Pipingas A.",
+    "year": "2022",
+    "doi": "10.1093/nutrit/nuab047",
+    "pmcid": "PMC8990759",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC8990759?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8990759/pdf/nuab047.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://jbi.global/sites/default/files/2019-05/JBI_RCTs_Appraisal_tool2017_0.pdf",
+        "error": "Could not confirm title or DOI"
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "title": "Nutrition and cognitive health: A life course approach.",
+    "authors": "Puri S, Shaheen M, Grover B.",
+    "year": "2023",
+    "doi": "10.3389/fpubh.2023.1023907",
+    "pmcid": "PMC10083484",
+    "status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC10083484?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.frontiersin.org/articles/10.3389/fpubh.2023.1023907/pdf",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1023907/pdf",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10083484/pdf/fpubh-11-1023907.pdf",
+        "error": "Not a PDF"
+      }
+    ],
+    "file": "10-2023-nutrition-and-cognitive-health-a-life-course-approach.pdf",
+    "source": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1023907/pdf",
+    "bytes": 692890,
+    "sha256": "0eef277da15dbca477c3148a810359eddea2c715e932e6eac70602a7f098d468",
+    "pages": 11,
+    "identity_verified": true
+  },
+  {
+    "number": 11,
+    "title": "Healthy Aging and Dietary Patterns.",
+    "authors": "Dominguez LJ, Veronese N, Baiamonte E, Guarrera M, Parisi A, Ruffolo C, Tagliaferri F, Barbagallo M.",
+    "year": "2022",
+    "doi": "10.3390/nu14040889",
+    "pmcid": "PMC8879056",
+    "status": "downloaded",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC8879056?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8879056/pdf/nutrients-14-00889.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "https://www.mdpi.com/2072-6643/14/4/889/pdf",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ],
+    "file": "11-2022-healthy-aging-and-dietary-patterns.pdf",
+    "source": "https://mdpi-res.com/d_attachment/nutrients/nutrients-14-00889/article_deploy/nutrients-14-00889.pdf",
+    "bytes": 358095,
+    "sha256": "9f70be0667fc9fe41b94197432445d2afec294367fea5d63a1789ebed85117e5",
+    "pages": 23,
+    "identity_verified": true
+  },
+  {
+    "number": 12,
+    "title": "Individual sedentary activities and cognitive function in middle-aged and older adults: A systematic review.",
+    "authors": "Chen J, Dillon-Rossiter K, Grigsby-Duffy L, Morava A, Novic A, Salmani B, Smith S, Prapavessis H, Gardiner PA.",
+    "year": "2026",
+    "doi": "10.1177/13872877251394751",
+    "pmcid": "PMC12932704",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC12932704?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12932704/pdf/10.1177_13872877251394751.pdf",
+        "error": "Not a PDF"
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "title": "Healthy lifestyle and life expectancy free of cancer, cardiovascular disease, and type 2 diabetes: prospective cohort study.",
+    "authors": "Li Y, Schoufour J, Wang DD, Dhana K, Pan A, Liu X, Song M, Liu G, Shin HJ, Sun Q, Al-Shaar L, Wang M, Rimm EB, Hertzmark E, Stampfer MJ, Willett WC, Franco OH, Hu FB.",
+    "year": "2020",
+    "doi": "10.1136/bmj.l6669",
+    "pmcid": "PMC7190036",
+    "status": "unavailable",
+    "attempts": [
+      {
+        "url": "https://europepmc.org/articles/PMC7190036?pdf=render",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://www.bmj.com/content/bmj/368/bmj.l6669.full.pdf",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "NCBI OA package",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>"
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/7190036/bin/liy050725.ww1.pdf",
+        "error": "Not a PDF"
+      },
+      {
+        "url": "http://www.icmje.org/coi_disclosure.pdf",
+        "error": "Not a PDF"
+      }
+    ]
+  }
+]

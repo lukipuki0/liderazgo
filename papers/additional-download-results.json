@@ -1,0 +1,206 @@
+[
+  {
+    "number": 14,
+    "title": "The proportion of plant-based food consumption during midlife and cognitive health in later life in Australian women: data from the Women's Healthy Ageing Project (WHAP).",
+    "authors": "Le P, Szoeke C, Day K, Conduit R, Carter S, Itsiopoulos C.",
+    "year": "2025",
+    "doi": "10.1007/s00394-025-03786-8",
+    "pmcid": "PMC12511269",
+    "journal": "European journal of nutrition",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 25,
+    "attempts": [],
+    "file": "14-2025-the-proportion-of-plant-based-food-consumption-during-midlife-and-cognitive-health-in-later-life-in-australian.pdf",
+    "source": "https://link.springer.com/content/pdf/10.1007/s00394-025-03786-8.pdf",
+    "bytes": 1137865,
+    "sha256": "d7e0b3a0c7686c8af1bb0ff8118811ae7c93393d4dd98a2681a30c1758850ddd",
+    "pages": 12,
+    "identity_verified": true
+  },
+  {
+    "number": 15,
+    "title": "Association between higher eating frequency and lower odds of low muscle mass in Koreans.",
+    "authors": "Chun M, Lee SR.",
+    "year": "2025",
+    "doi": "10.3389/fmed.2025.1663242",
+    "pmcid": "PMC12864403",
+    "journal": "Frontiers in medicine",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 37,
+    "attempts": [],
+    "file": "15-2025-association-between-higher-eating-frequency-and-lower-odds-of-low-muscle-mass-in-koreans.pdf",
+    "source": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1663242/pdf",
+    "bytes": 462442,
+    "sha256": "b7d6cc70414043afce080cfac324c42b55619014ad90e6c569416b9c2ce64d6b",
+    "pages": 7,
+    "identity_verified": true
+  },
+  {
+    "number": 16,
+    "title": "Dynamic cross-lagged effects between healthy lifestyles and multimorbidity among middle-aged and older adults in China.",
+    "authors": "Zhu X, Ma H, Zhang H, Zhang Y, Tang S, Xiong J.",
+    "year": "2025",
+    "doi": "10.1186/s12889-025-23397-6",
+    "pmcid": "PMC12144725",
+    "journal": "BMC public health",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 42,
+    "attempts": [],
+    "file": "16-2025-dynamic-cross-lagged-effects-between-healthy-lifestyles-and-multimorbidity-among-middle-aged-and-older-adults-.pdf",
+    "source": "https://bmcpublichealth.biomedcentral.com/counter/pdf/10.1186/s12889-025-23397-6.pdf",
+    "bytes": 1980757,
+    "sha256": "51ccebb83aacf960014870e81994c873e9ce76b7ec8c8fb4af11a0c8506c4ef8",
+    "pages": 13,
+    "identity_verified": true
+  },
+  {
+    "number": 17,
+    "title": "Protein Intake and Diet Quality Mediate the Relationship Between Sleep and Handgrip Strength in Adults in the HANDLS Study.",
+    "authors": "Kuczmarski MF, Orsega-Smith E, Beydoun MA, Evans MK, Zonderman AB.",
+    "year": "2025",
+    "doi": "10.3390/nu17111900",
+    "pmcid": "PMC12157243",
+    "journal": "Nutrients",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 47,
+    "attempts": [],
+    "file": "17-2025-protein-intake-and-diet-quality-mediate-the-relationship-between-sleep-and-handgrip-strength-in-adults-in-the-.pdf",
+    "source": "https://mdpi-res.com/d_attachment/nutrients/nutrients-17-01900/article_deploy/nutrients-17-01900.pdf",
+    "bytes": 551110,
+    "sha256": "d25342ec3cba4ff8946f878f4228a06de1567150c371e42c16def9a1f6a70ab0",
+    "pages": 17,
+    "identity_verified": true
+  },
+  {
+    "number": 18,
+    "title": "Impact of physical activity on disability-free and disabled life expectancies in middle-aged and older adults: Data from the healthy aging longitudinal study in Taiwan.",
+    "authors": "Chuang SC, Chang YH, Wu IC, Fang YH, Chan HT, Wu RC, Lee MM, Chiu CT, Chang HY, Hsiung CA, Hsu CC.",
+    "year": "2024",
+    "doi": "10.1111/ggi.14796",
+    "pmcid": "PMC11503563",
+    "journal": "Geriatrics & gerontology international",
+    "status": "unavailable",
+    "selection": "additional",
+    "search_index": 54,
+    "attempts": [
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/ggi.14796",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "title": "Association Between Healthy Lifestyle and Cognitive Function in Middle-Aged and Older Adults.",
+    "authors": "Naaman RK, Alashmali S, Bakhsh MA, Alneami SA, Algamdi ES, Al-Ghamdi GA, Alqarni SM.",
+    "year": "2025",
+    "doi": "10.3390/healthcare13101140",
+    "pmcid": "PMC12110782",
+    "journal": "Healthcare (Basel, Switzerland)",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 61,
+    "attempts": [],
+    "file": "19-2025-association-between-healthy-lifestyle-and-cognitive-function-in-middle-aged-and-older-adults.pdf",
+    "source": "https://mdpi-res.com/d_attachment/healthcare/healthcare-13-01140/article_deploy/healthcare-13-01140.pdf",
+    "bytes": 497234,
+    "sha256": "72cc6912ea030d7cdbed04911c93d9a5b1fd5628dc83948873cc9b2cc1bdc431",
+    "pages": 15,
+    "identity_verified": true
+  },
+  {
+    "number": 20,
+    "title": "Lifestyle predictors of successful aging: A 20-year prospective HUNT study.",
+    "authors": "Bosnes I, Nordahl HM, Stordal E, Bosnes O, Myklebust TÅ, Almkvist O.",
+    "year": "2019",
+    "doi": "10.1371/journal.pone.0219200",
+    "pmcid": "PMC6622492",
+    "journal": "PloS one",
+    "status": "downloaded",
+    "selection": "additional",
+    "search_index": 62,
+    "attempts": [],
+    "file": "20-2019-lifestyle-predictors-of-successful-aging-a-20-year-prospective-hunt-study.pdf",
+    "source": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0219200&type=printable",
+    "bytes": 416674,
+    "sha256": "637daba8d19f948d9055af26b39a4f59ef7b19e094ff19c32926be2f37e0a519",
+    "pages": 12,
+    "identity_verified": true
+  },
+  {
+    "number": 21,
+    "title": "Association Between Combined Lifestyle Factors and Healthy Ageing in Chinese Adults: The Singapore Chinese Health Study.",
+    "authors": "Zhou YF, Song XY, Pan XF, Feng L, Luo N, Yuan JM, Pan A, Koh WP.",
+    "year": "2021",
+    "doi": "10.1093/gerona/glab033",
+    "pmcid": "PMC8436980",
+    "journal": "The journals of gerontology. Series A, Biological sciences and medical sciences",
+    "status": "unavailable",
+    "selection": "additional",
+    "search_index": 63,
+    "attempts": [
+      {
+        "url": "https://doi.org/10.1093/gerona/glab033",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  },
+  {
+    "number": 22,
+    "title": "Combinations of light, moderate, and vigorous physical activity in midlife and old age: implications for healthy cognitive aging.",
+    "authors": "Hamm JM, Lachman ME, McGrath R, Duggan KA, Parker K.",
+    "year": "2025",
+    "doi": "10.1093/abm/kaaf064",
+    "pmcid": "PMC12367223",
+    "journal": "Annals of behavioral medicine : a publication of the Society of Behavioral Medicine",
+    "status": "unavailable",
+    "selection": "additional",
+    "search_index": 64,
+    "attempts": [
+      {
+        "url": "https://doi.org/10.1093/abm/kaaf064",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "title": "Promoting Successful Cognitive Aging: A Ten-Year Update.",
+    "authors": "Krivanek TJ, Gale SA, McFeeley BM, Nicastri CM, Daffner KR.",
+    "year": "2021",
+    "doi": "10.3233/jad-201462",
+    "pmcid": "PMC8293659",
+    "journal": "Journal of Alzheimer's disease : JAD",
+    "status": "unavailable",
+    "selection": "additional",
+    "search_index": 65,
+    "attempts": [
+      {
+        "url": "https://doi.org/10.3233/jad-201462",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  },
+  {
+    "number": 24,
+    "title": "Long-Term Trajectories of Body Weight, Diet, and Physical Activity From Midlife Through Late Life and Subsequent Cognitive Decline in Women.",
+    "authors": "Wagner M, Grodstein F, Proust-Lima C, Samieri C.",
+    "year": "2020",
+    "doi": "10.1093/aje/kwz262",
+    "pmcid": "PMC7443200",
+    "journal": "American journal of epidemiology",
+    "status": "unavailable",
+    "selection": "additional",
+    "search_index": 66,
+    "attempts": [
+      {
+        "url": "https://doi.org/10.1093/aje/kwz262",
+        "error": "curl: (22) The requested URL returned error: 403\r\n"
+      }
+    ]
+  }
+]
