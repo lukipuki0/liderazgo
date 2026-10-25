@@ -59,3 +59,10 @@ Consumir alimentos saludables y seguir patrones dietarios saludables en la media
 - Respalda acciones concretas y accesibles: más verduras, frutas, legumbres, pescado, frutos secos y lácteos; variedad en la dieta; y menos carnes procesadas y alimentos muy salados o en conserva.
 - La **diversidad dietaria** es una métrica fácil de explicar y medir en una intervención (por ejemplo, contar grupos de alimentos por día).
 - Cuidado al extrapolar a Chile: la evidencia es asiática y las dietas difieren. Conviene adaptar los mensajes a alimentos locales (por ejemplo, legumbres chilenas o pescados disponibles).
+
+## Dato citable para la presentación
+
+- **Dato:** en cohortes asiáticas, quienes mejoraron su puntaje DASH (un índice de dieta saludable) en más de 10 % entre la mediana edad y la vejez aumentaron su probabilidad de envejecer saludablemente. Mensaje: «nunca es tarde para comer sano».
+- **Fuente:** Zhou et al., *Nutrients*, 2023.
+- **Lámina:** 5, «Principales datos de la investigación».
+- **Ojo:** es una revisión sistemática sin metaanálisis, y sus estudios no se limitan a personas de 40 a 64 años.

@@ -73,3 +73,10 @@ Junto con la actividad física y el buen sueño, estos patrones pueden frenar el
 - Muestra que **la alimentación es también cultura y vida social** (comer en familia, alimentos locales y de temporada). Esto permite diseñar intervenciones que rescaten la cocina tradicional chilena saludable (legumbres, pescados, verduras de temporada) en lugar de importar una dieta extranjera.
 - Datos concretos y comunicables: 3,7 meses más de vida sin discapacidad por cada mejora de 1 DE en la dieta japonesa, y 4 % menos de mortalidad por cada punto del índice nórdico.
 - Advierte sobre los riesgos de las dietas restrictivas en personas mayores (déficits, pérdida ósea), algo importante si el proyecto da recomendaciones alimentarias.
+
+## Dato citable para la presentación
+
+- **Dato:** los patrones de las poblaciones más longevas (mediterráneo, japonés, okinawense, nórdico y vegetariano) comparten una base vegetal, grasas insaturadas, poca carne roja y pocos ultraprocesados.
+- **Fuente:** Dominguez et al., *Nutrients*, 2022.
+- **Lámina:** 3, «Temática», o en afiches y folletos como mensaje práctico. No sirve como cifra para la lámina 5.
+- **Ojo:** es una revisión narrativa, así que es evidencia más débil; presentarla como contexto, no como prueba.

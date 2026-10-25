@@ -52,3 +52,10 @@ Tras el ajuste completo, el consumo de AOV en la mediana edad no mostró asociac
 - Sugiere que **la calidad de los alimentos vegetales importa más que la cantidad**, y que «más» no siempre es mejor (Q3 rindió mejor que Q4).
 - Pone el foco en **las mujeres en la transición menopáusica** como grupo prioritario para intervenciones tempranas de salud cerebral.
 - Recuerda que la genética (APOE ε4) y la educación también pesan en la cognición. Un proyecto integral puede sumar la estimulación cognitiva y el aprendizaje continuo, no solo la dieta.
+
+## Dato citable para la presentación
+
+- **Dato:** en 186 mujeres australianas seguidas de 1998 a 2012, las que tenían un consumo vegetal medio-alto en la mediana edad (52–59,4 % de la dieta) mostraron mejor cognición global que las del cuartil más bajo (B = 0,39; p = 0,004; Tabla 2).
+- **Lámina:** 5 (datos de la investigación), como apoyo al mensaje sobre alimentación.
+- **Ojo:** al ajustar por todos los factores, la diferencia deja de ser significativa (p = 0,07). Hay que decirlo como "asociación prometedora", no como efecto probado.
+- **Fuente:** Le, Szoeke et al., *European Journal of Nutrition* 2025.

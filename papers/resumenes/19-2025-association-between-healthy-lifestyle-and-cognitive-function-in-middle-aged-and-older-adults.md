@@ -60,3 +60,10 @@ Un estilo de vida saludable, en especial la actividad física y la dieta, se aso
 - Muestra la **alta prevalencia de malos hábitos** incluso en una población con educación e ingresos altos (68 % con mala dieta, 49 % poco activos). Sugiere que el problema no es solo de acceso, sino también de conductas y entorno.
 - Su metodología es sencilla y replicable: un puntaje de estilo de vida de 0 a 3 y el MoCA. Podría inspirar una encuesta o un diagnóstico breve dentro del proyecto.
 - Respalda el enfoque **multidominio** (dieta, ejercicio y participación social) y los programas en centros comunitarios.
+
+## Dato citable para la presentación
+
+- **Dato:** en 176 adultos de 45 años o más, la actividad física moderada o alta se asoció a un mejor puntaje en el MoCA, el test de evaluación cognitiva (p = 0,04; Tabla 3). Solo el 14 % cumplía los tres hábitos saludables (buena dieta, actividad física y no fumar).
+- **Lámina:** 5 (datos de la investigación). Es el dato principal de salud cognitiva.
+- **Ojo:** el estudio es transversal, así que muestra una asociación y no una causa. Además, no tiene tope de edad, lo que importa para el criterio de 40 a 64 años.
+- **Fuente:** Naaman et al., *Healthcare* 2025.

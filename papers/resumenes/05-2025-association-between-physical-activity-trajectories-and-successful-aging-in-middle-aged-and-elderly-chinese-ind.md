@@ -52,3 +52,9 @@ La trayectoria de AF creciente se asocia con una mayor prevalencia de envejecimi
 - Da rangos concretos y comunicables (sesiones de 30 a 119 minutos y unos 150 a 300 minutos o más por semana) para diseñar campañas o rutinas.
 - Ojo al usar la evidencia: la ventaja de la trayectoria creciente no fue significativa. Lo más sólido es la asociación entre nivel medio/alto de AF y envejecimiento exitoso.
 - La definición de envejecimiento exitoso incluye lo social (participación comunitaria). Eso justifica proponer actividad física grupal o comunitaria que sume ejercicio y vínculo social.
+
+## Dato citable para la presentación
+
+- **Dato:** los niveles medio y alto de actividad física se asociaron a más envejecimiento exitoso que el nivel bajo (CHARLS, China, 1.413 personas de 45 años o más). Ojo: la ventaja de la trayectoria en aumento (17,1 % contra 14,0 %) **no fue significativa**, así que no se usa como "nunca es tarde".
+- **Lámina:** 5 (datos de la investigación), como apoyo. Para los afiches: sesiones de 30 a 119 minutos, 3 o más días por semana.
+- **Fuente:** Zhang et al., *BMC Public Health* 2025.

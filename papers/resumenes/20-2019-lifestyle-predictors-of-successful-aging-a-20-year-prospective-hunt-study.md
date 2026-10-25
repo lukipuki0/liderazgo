@@ -68,3 +68,9 @@ Los factores de estilo de vida en la mediana edad predicen el envejecimiento exi
 - Su mensaje es claro y comunicable: **sumar hábitos sanos multiplica las probabilidades**. Con los 5 factores favorables, la probabilidad de envejecimiento exitoso es unas 4 veces mayor que con 0 o 1.
 - El seguimiento de 20 años refuerza que **la prevención debe empezar entre los 45 y los 60 años**.
 - Justifica intervenciones que combinen redes de apoyo (grupos, voluntariado, actividades comunitarias), prevención del tabaquismo y actividad física, y que aborden la soledad como un problema de salud.
+
+## Dato citable para la presentación
+- **Dato:** en 4.497 noruegos seguidos desde los 45–59 años durante unos 22 años, tener 5 factores de estilo de vida favorables frente a 0–1 se asoció a mayor probabilidad de envejecer exitosamente (OR 4,27; IC 95 % 2,41–7,59). Los predictores más fuertes fueron nunca haber fumado (OR 1,74) y el buen apoyo social (OR 1,54).
+- **Fuente:** Bosnes et al., *PLoS ONE* 2019;14(7):e0219200 (estudio HUNT, Tabla 3 y Tabla 4).
+- **Lámina:** 5 (principales datos de la investigación). Respalda un mensaje de "sumar hábitos" y la inclusión del tabaco y el apoyo social en los afiches.
+- **Ojo:** el OR se dice "mayor probabilidad", no "% más"; el alcohol no fue significativo y no se midió la dieta.

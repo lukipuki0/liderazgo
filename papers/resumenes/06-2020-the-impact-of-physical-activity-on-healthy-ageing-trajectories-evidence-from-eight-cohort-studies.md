@@ -53,3 +53,9 @@ Cualquier nivel de AF se asocia con trayectorias de salud más favorables: un pu
 - Su mensaje es muy útil para comunicar: **«algo es mejor que nada»**. Incluso una sesión semanal de actividad se asocia con menor riesgo de deterioro, lo que sirve para personas sedentarias.
 - Usa la definición de la OMS de envejecimiento saludable (capacidad funcional para hacer lo que uno valora), coherente con un enfoque de proyecto centrado en la autonomía.
 - Apoya propuestas a nivel de entorno y comunidad (espacios y programas para personas mayores), no solo individuales.
+
+## Dato citable para la presentación
+
+- **Dato:** en 130.521 adultos de 26 países, hacer cualquier nivel de actividad física se asoció a menor probabilidad de envejecer con salud baja (OR 0,18) o con deterioro rápido (OR 0,44). Mensaje: «algo es mejor que nada». Decirlo como "menos probabilidad", no como "% menos de riesgo".
+- **Lámina:** 5 (dato principal de actividad física).
+- **Fuente:** Moreno-Agostino et al., *IJBNPA* 2020 (ATHLOS, 8 cohortes).

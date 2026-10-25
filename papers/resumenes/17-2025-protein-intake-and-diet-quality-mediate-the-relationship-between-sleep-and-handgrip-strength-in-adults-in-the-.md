@@ -65,3 +65,10 @@ La ingesta de proteína y una dieta de buena calidad median la relación entre e
 - La **fuerza de prensión** es un indicador simple y barato de capacidad física (se correlacionó con pruebas como pararse de la silla o el equilibrio). Un proyecto podría usarla para medir el antes y el después de una intervención.
 - Sugiere mensajes prácticos: dormir 7 horas o más, cuidar la calidad de la dieta y asegurar suficiente proteína en cada etapa. La recomendación mínima de 0,8 g/kg/día podría ser insuficiente para el músculo, según los autores.
 - La muestra es de poblaciones en desventaja socioeconómica. Eso es relevante para pensar intervenciones en contextos vulnerables, donde coexisten mal sueño, mala dieta y poca actividad.
+
+## Dato citable para la presentación
+
+- **Dato:** en 1.308 adultos de mediana edad (edad media de 56 años), la ingesta de proteína y la calidad de la dieta explican en parte por qué dormir mejor se asocia a más fuerza de prensión (la fuerza de la mano).
+- **Fuente:** Fanelli Kuczmarski et al., *Nutrients*, 2025.
+- **Lámina:** 5, o como idea para unir hábitos: sueño y alimentación se refuerzan entre sí.
+- **Ojo:** es un estudio transversal y los efectos indirectos son pequeños, así que conviene contarlo como relación entre hábitos, sin cifras.

@@ -67,3 +67,10 @@ Es mejor un enfoque de **«dieta completa»** que uno centrado en nutrientes ais
 - Reúne **recomendaciones de la OMS concretas y cuantificadas** (400 g de frutas y verduras, < 5 g de sal, < 10 % de azúcares), útiles para material educativo.
 - Conecta salud cerebral con salud cardiovascular. Un mismo mensaje de alimentación sirve para varios objetivos, lo que permite integrar la prevención en programas existentes (por ejemplo, la atención primaria).
 - Por ser una revisión narrativa, conviene usarla como contexto y respaldar las afirmaciones clave con los estudios de cohorte del set.
+
+## Dato citable para la presentación
+
+- **Dato:** la revisión propone que la prevención de la demencia empiece en personas de 40 y 50 años y que la demencia se sume a los programas de enfermedades no transmisibles (pp. 1 y 8). Como apoyo: una dieta rica en flavanoles de cacao se asoció a un 41 % menos de riesgo de deterioro cognitivo (pp. 5–6).
+- **Lámina:** 3 (temática, para justificar por qué el público es de 40 a 59 años) o 5 (datos de la investigación).
+- **Ojo:** es una revisión narrativa. Sobre las dietas altas en proteína se contradice, así que conviene citar la versión cautelosa ("evidencia no consistente").
+- **Fuente:** Puri, Shaheen y Grover, *Frontiers in Public Health* 2023.

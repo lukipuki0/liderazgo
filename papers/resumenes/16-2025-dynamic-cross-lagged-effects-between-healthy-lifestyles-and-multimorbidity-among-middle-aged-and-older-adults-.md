@@ -64,3 +64,9 @@ La relación entre estilo de vida y enfermedad es dinámica. **En las etapas tem
 - Muestra un **círculo vicioso** que el proyecto puede ayudar a romper: las personas con varias enfermedades crónicas tienen más dificultad para mantener hábitos. Necesitan apoyo adicional (autoeficacia, apoyo social y familiar, acompañamiento).
 - Identifica **grupos prioritarios** (mujeres, zonas rurales, personas mayores), pertinentes también para pensar en desigualdades territoriales en Chile.
 - Ofrece ideas de intervención aplicables y de bajo costo: talleres grupales, mensajes culturalmente adaptados, herramientas digitales simples (por ejemplo, WhatsApp) e incentivos con participación familiar.
+
+## Dato citable para la presentación
+- **Dato:** en 6.852 adultos chinos de 45 años o más, la multimorbilidad (2 o más enfermedades crónicas) subió de 9,2 % a 29,1 % entre 2014 y 2020. Primero los hábitos sanos predijeron menos enfermedad (β = −0,106 y −0,111; P < 0,001) y después la enfermedad predijo peores hábitos (β = −0,160; P < 0,001).
+- **Fuente:** Zhu et al., *BMC Public Health* 2025;25:2132.
+- **Lámina:** 5 (principales datos de la investigación). Sirve para justificar que el público sea de 40 a 59 años: hay que intervenir antes de que aparezcan las enfermedades.
+- **Ojo:** la muestra no tiene límite superior de edad y el estilo de vida no incluye la dieta.

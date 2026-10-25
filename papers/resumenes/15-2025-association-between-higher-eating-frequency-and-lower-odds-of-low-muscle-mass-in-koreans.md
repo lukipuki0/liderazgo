@@ -54,3 +54,10 @@ Comer 3 o más comidas al día se asocia de forma independiente con menor probab
 - Aporta una **idea simple y práctica**: mantener comidas regulares (3 al día) puede ser parte del cuidado de la masa muscular, junto con la proteína y el ejercicio.
 - Es especialmente pertinente para **personas mayores con poco apetito o que se saltan comidas** (por soledad, problemas digestivos o bajos recursos). Un proyecto podría promover comidas compartidas o comedores comunitarios.
 - Hay que comunicarlo con cautela: es evidencia transversal, el resultado no es sarcopenia completa y la asociación desaparece sin ajustar por IMC. Conviene presentarlo como una hipótesis prometedora, no como un hecho comprobado.
+
+## Dato citable para la presentación
+
+- **Dato:** en 6.427 adultos coreanos de 40 a 69 años, comer 3 o más veces al día se asoció con menor probabilidad de baja masa muscular (OR 0,685; IC 95 %: 0,566–0,828).
+- **Fuente:** Chun y Lee, *Frontiers in Medicine*, 2025 (publicado en enero de 2026).
+- **Lámina:** 5, como dato de respaldo, no como dato principal.
+- **Ojo:** es un estudio transversal, y sin ajustar por IMC la asociación deja de ser significativa (OR 0,853; p = 0,083). Decir «se asoció con menor probabilidad», nunca «reduce el riesgo».
