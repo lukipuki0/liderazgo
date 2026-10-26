@@ -124,8 +124,6 @@
 \newcommand{\datosPortada}[1]{#1}
 \newcommand{\fechaPortada}[1]{\fontsize{14}{18}\selectfont\noindent #1}
 
-\newcommand{\palabrasClave}[1]{\noindent \textbf{Palabras clave: }\textit{#1}}
-
 % Imágenes: \imagen{ruta}{título}{label}
 \newcommand{\leyendaFont}[1]{\fontsize{10}{12}\selectfont #1}
 
@@ -207,39 +205,6 @@
 \tableofcontents
 \clearpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\pagenumbering{Roman}
-\setcounter{page}{1}
-\phantomsection
-\addcontentsline{toc}{section}{Resumen}
-\section*{Resumen}
-
-Envejecer mejor es un proyecto que busca que las personas de 40 a 59 años conozcan los hábitos que ayudan a llegar sanas a la tercera edad y a prevenir las enfermedades más comunes de la vejez. Elegimos este rango porque es la etapa en que empiezan a aparecer las enfermedades crónicas y, al mismo tiempo, la etapa en que cambiar los hábitos todavía hace una diferencia.
-
-La investigación combinó dos fuentes. La primera fue la literatura científica: de 24 artículos identificados se analizaron a texto completo los 11 a los que tuvimos acceso, todos publicados entre 2019 y 2025 y centrados en hábitos modificables. La segunda fue una encuesta propia de 26 preguntas, aplicada a personas de 40 a 59 años, sobre su rutina, sus barreras para hacer ejercicio, sus fuentes de información y lo que les preocupa de envejecer.
-
-La evidencia coincide en cuatro ideas: moverse, aunque sea poco, se asocia con envejecer con mejor salud; nunca es tarde para mejorar la alimentación; el apoyo social y no fumar están entre los mejores predictores de un envejecimiento exitoso; y los hábitos tienen más efecto si se adoptan antes de que se acumulen las enfermedades. \pendiente{agregar en una o dos frases el hallazgo principal de la encuesta, por ejemplo la barrera más mencionada y el canal de información más usado}.
-
-Con esos resultados diseñamos una propuesta de difusión con siete mensajes clave, distribuidos en afiches y folletos impresos, publicaciones en redes sociales y una página web. El informe también describe cómo nos organizamos como equipo, las dificultades que tuvimos y lo que aprendimos en el proceso.
-
-\phantomsection
-\addcontentsline{toc}{subsection}{Palabras clave}
-\palabrasClave{envejecimiento saludable, mediana edad, actividad física, alimentación, apoyo social, prevención, difusión, trabajo en equipo.}
-\clearpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\phantomsection
-\addcontentsline{toc}{section}{Lista de figuras}
-\listoffigures
-
-\clearpage
-\phantomsection
-\addcontentsline{toc}{section}{Lista de tablas}
-\listoftables
-\clearpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUCCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagenumbering{arabic}
@@ -297,7 +262,7 @@ Lo que nos une es una idea común: la forma en que envejecemos depende mucho de 
     \item Organizar el trabajo del equipo con una planificación, roles claros y seguimiento del avance.
 \end{enumerate}
 
-El informe sigue el orden del proyecto. La sección~\ref{sec:proceso} describe el proceso investigativo: cómo definimos el público, qué herramienta usamos para recolectar datos y cómo buscamos y seleccionamos la información. La sección~\ref{sec:levantamiento} presenta lo que encontramos en los artículos y en la encuesta. La sección~\ref{sec:desarrollo} contiene la propuesta de difusión y los detalles del trabajo en equipo. Al final se presentan las conclusiones generales y las conclusiones específicas de cada objetivo.
+El informe sigue el orden del proyecto. La sección~\ref{sec:proceso} describe el proceso investigativo: cómo definimos el público, qué herramienta usamos para recolectar datos, cómo buscamos y seleccionamos la información, y lo que encontramos en los artículos y en la encuesta. La sección~\ref{sec:desarrollo} contiene la propuesta de difusión y los detalles del trabajo en equipo. Al final se presentan las conclusiones generales y las conclusiones específicas de cada objetivo.
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PROCESO INVESTIGATIVO %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,7 +270,7 @@ El informe sigue el orden del proyecto. La sección~\ref{sec:proceso} describe e
 \section{Proceso investigativo}
 \label{sec:proceso}
 
-El proceso tuvo cinco pasos: definir a quién le hablamos, diseñar la herramienta de recolección de datos, buscar y seleccionar artículos científicos, diseñar y aplicar una encuesta, y cruzar ambas fuentes. Cada paso se explica a continuación.
+El proceso tuvo cinco pasos: definir a quién le hablamos, diseñar la herramienta de recolección de datos, buscar y seleccionar artículos científicos, diseñar y aplicar una encuesta, y cruzar ambas fuentes. Las primeras secciones explican cómo se hizo cada paso; las siguientes presentan la información que levantamos y que respalda el proyecto.
 
 \subsection{Definición del público objetivo}
 
@@ -426,17 +391,12 @@ La Tabla~\ref{tab:bloques} muestra los bloques de la encuesta y para qué sirve 
 
 \textbf{Resguardo de los datos.} El formulario pide nombre, apellido y correo. Esos datos no se publican ni se usan en el análisis, y los resultados se presentan solo de forma agregada.
 
-\subsection{Cómo cruzamos las dos fuentes}
-
-Las dos fuentes responden preguntas distintas. Los artículos dicen qué hábitos sirven, y la encuesta dice qué le cuesta a la gente, qué le preocupa y dónde se informa. Cuando ambas coinciden, el mensaje va con más seguridad. Cuando no coinciden, lo anotamos como una limitación o como algo que el material tiene que explicar mejor. El cruce completo está en la sección~\ref{sec:cruce}.
-\clearpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEVANTAMIENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Levantamiento de la información}
+\subsection{Levantamiento de la información: evidencia científica}
 \label{sec:levantamiento}
 
-\subsection{Panorama de la evidencia}
+\subsubsection{Panorama de la evidencia}
 
 La Tabla~\ref{tab:papers} resume los 11 artículos analizados, con los campos principales de la ficha. Cinco tratan sobre alimentación, dos sobre actividad física y cuatro sobre varios hábitos a la vez. En cuanto al diseño, hay cinco estudios longitudinales (cuatro cohortes y un análisis de ocho cohortes armonizadas), tres revisiones (una sistemática y dos narrativas) y tres estudios transversales.
 
@@ -468,7 +428,7 @@ La Tabla~\ref{tab:papers} resume los 11 artículos analizados, con los campos pr
 
 En la tabla, OR (\textit{odds ratio}) compara la probabilidad de un resultado entre dos grupos: un OR mayor que 1 indica más probabilidad y uno menor que 1 indica menos. Por eso, en el material de difusión hablamos de ``más'' o ``menos probabilidad'' y no de porcentajes de riesgo.
 
-\subsection{Actividad física}
+\subsubsection{Actividad física}
 
 La actividad física es el hábito con la evidencia más consistente. En el estudio más grande del conjunto, con más de 130 mil adultos de 26 países, cualquier nivel de actividad física se asoció a una menor probabilidad de envejecer con salud baja (OR 0,18) o con un deterioro rápido (OR 0,44), en comparación con las personas inactivas \parencite{morenoagostino2020}. Los autores destacan que incluso poca actividad se asocia con un mejor recorrido de salud. De ahí sale uno de nuestros mensajes: algo es mejor que nada.
 
@@ -478,7 +438,7 @@ La actividad física también se relaciona con la cognición. En adultos saudita
 
 Para traducir esto en una meta concreta usamos la recomendación de la Organización Mundial de la Salud para adultos: entre 150 y 300 minutos a la semana de actividad moderada, o entre 75 y 150 minutos de actividad vigorosa, más ejercicios de fuerza al menos dos días por semana \parencite{oms2020}. La pregunta 26 de la encuesta mide si las personas conocen esta meta.
 
-\subsection{Alimentación}
+\subsubsection{Alimentación}
 
 En alimentación, la evidencia apunta más a patrones completos que a alimentos aislados. Una revisión sistemática de 71 estudios en cohortes asiáticas encontró que una dieta saludable en la mediana edad, rica en verduras, frutas, pescado, frutos secos y legumbres, se asocia con envejecer saludablemente. Además, quienes mejoraron en más de 10\,\% su puntaje en la dieta DASH, un índice de alimentación saludable, entre la mediana edad y la vejez aumentaron su probabilidad de envejecimiento saludable. Los autores lo resumen como ``nunca es tarde para comer sano'' \parencite{zhou2023}.
 
@@ -488,11 +448,11 @@ Dos estudios nos obligan a ser cuidadosos. En mujeres australianas, comer una ma
 
 Casi toda esta evidencia viene de Asia, Europa y Oceanía. Para nuestro público conviene aterrizarla a alimentos conocidos en Chile, como las legumbres, el pescado y las verduras de temporada.
 
-\subsection{Sueño, proteína y fuerza muscular}
+\subsubsection{Sueño, proteína y fuerza muscular}
 
 En 1.308 adultos de mediana edad de Estados Unidos, la ingesta de proteína y la calidad de la dieta explicaron en parte por qué dormir mejor se asocia con más fuerza de prensión, es decir, la fuerza de la mano \parencite{kuczmarski2025}. En esa muestra, el 61\,\% dormía mal y solo el 18\,\% cumplía la meta de 150 minutos de actividad física a la semana. El estudio es transversal y los efectos son pequeños, pero muestra que los hábitos se refuerzan entre sí: dormir, comer y moverse no son temas separados. Por eso nuestra propuesta trata los hábitos en conjunto y no como campañas aisladas.
 
-\subsection{Combinación de hábitos, apoyo social y momento para actuar}
+\subsubsection{Combinación de hábitos, apoyo social y momento para actuar}
 
 El estudio noruego HUNT siguió durante cerca de 22 años a 4.497 personas que tenían entre 45 y 59 años al inicio \parencite{bosnes2019}. Al final del seguimiento, solo el 15,6\,\% cumplía todos los criterios de envejecimiento exitoso. Los mejores predictores fueron no haber fumado nunca (OR 1,74) y tener buen apoyo social, es decir, no sentirse solo y contar con ayuda si uno se enferma (OR 1,54). También ayudaron no tener obesidad (OR 1,39) y hacer actividad física (OR 1,25). Lo más llamativo es que los hábitos se suman: las personas con los cinco factores favorables tuvieron un OR de 4,27 frente a las que tenían cero o uno.
 
@@ -502,11 +462,11 @@ Sobre el momento para actuar, el estudio de \textcite{zhu2025} muestra una relac
 
 La falta de hábitos sanos es común incluso en poblaciones con buen nivel educativo: en el estudio saudita, el 68\,\% tenía una dieta de mala calidad y solo el 14\,\% cumplía los tres hábitos evaluados \parencite{naaman2025}. El problema no es solo de acceso a la información, sino también de llevarla a la práctica.
 
-\subsection{Límites de la evidencia}
+\subsubsection{Límites de la evidencia}
 
 Hay que leer estos resultados con cuidado. La mayoría de los estudios son observacionales: muestran asociaciones, no prueban que un hábito cause un resultado. Tres son transversales y dos son revisiones narrativas, que sirven como contexto pero no como prueba. Casi no hay estudios de Latinoamérica (solo México aparece dentro del estudio de 26 países), y ninguno es de Chile. Además, 13 de los 24 artículos identificados no se pudieron leer completos. Por eso en el material usamos verbos como ``se asocia'' o ``ayuda'', y no prometemos resultados.
 
-\subsection{Resultados de la encuesta}
+\subsection{Levantamiento de la información: resultados de la encuesta}
 \label{sec:encuesta}
 
 % Para agregar un gráfico de Google Forms: guardar la imagen en assets/images/
@@ -590,6 +550,8 @@ El \pend\,\% dice conocer la recomendación de actividad física para su edad, e
 
 \subsection{Cruce entre la evidencia y la encuesta}
 \label{sec:cruce}
+
+Las dos fuentes responden preguntas distintas. Los artículos dicen qué hábitos sirven, y la encuesta dice qué le cuesta a la gente, qué le preocupa y dónde se informa. Cuando ambas coinciden, el mensaje va con más seguridad. Cuando no coinciden, lo anotamos como una limitación o como algo que el material tiene que explicar mejor.
 
 La Tabla~\ref{tab:cruce} pone lado a lado lo que dice la evidencia y lo que respondió el público, y lo que eso implica para el material de difusión. La última columna ya está escrita según lo que esperamos encontrar; si los resultados muestran otra cosa, se ajusta.
 
@@ -818,12 +780,8 @@ En una dinámica de mímica tuvimos que transmitir un mensaje solo con gestos. N
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONCLUSIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \phantomsection
-\addcontentsline{toc}{section}{Conclusiones}
-\section*{Conclusiones}
-
-\phantomsection
-\addcontentsline{toc}{subsection}{Conclusiones generales}
-\subsection*{Conclusiones generales}
+\addcontentsline{toc}{section}{Conclusiones generales}
+\section*{Conclusiones generales}
 
 El proyecto partió de una intuición que compartíamos los cinco: la forma en que envejecemos depende de los hábitos que tenemos antes de llegar a la vejez. La investigación respaldó esa idea. Los estudios que revisamos, algunos con seguimientos de más de 20 años y otros con más de 100 mil personas, coinciden en que lo que se hace en la mediana edad se asocia con cómo se envejece después.
 
@@ -835,9 +793,10 @@ Aprendimos a ser cuidadosos con la evidencia. No todo lo que se repite sobre sal
 
 Por último, el proyecto fue también un ejercicio de liderazgo y trabajo en equipo. Definir responsables claros, planificar con holgura y escuchar todas las ideas antes de decidir nos permitió avanzar con poco tiempo disponible y adaptarnos cuando algo no resultó como esperábamos.
 
+\clearpage
 \phantomsection
-\addcontentsline{toc}{subsection}{Conclusiones específicas}
-\subsection*{Conclusiones específicas}
+\addcontentsline{toc}{section}{Conclusiones específicas}
+\section*{Conclusiones específicas}
 
 \textbf{Objetivo 1: definir y justificar el público objetivo.} Elegir a personas de 40 a 59 años fue una decisión acertada. Es la etapa en que empiezan a acumularse las enfermedades crónicas y en que los hábitos todavía tienen el mayor efecto protector. Los estudios de Noruega y China lo muestran desde dos ángulos: los hábitos de la mediana edad predicen el envejecimiento décadas después, y cuando las enfermedades ya se acumularon cuesta más mantenerlos.
 
