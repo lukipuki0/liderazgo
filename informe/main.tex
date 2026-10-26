@@ -1,0 +1,987 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ------------------------------ %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | Formato escuela - INF PUCV | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | by Sebastian Garcia        | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | @sebaignacioo              | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% |                            | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% |            2023            | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ------------------------------ %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Lo que falta completar está marcado con \pendiente{...} (texto) y \pend
+% (celdas de tablas). Ambos se ven en rojo en el PDF; para encontrarlos todos
+% basta con buscar "pend" en este archivo.
+
+\documentclass[12pt, letterpaper, table, xcdraw]{extarticle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PAQUETES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[a-1b]{pdfx}
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla,es-noshorthands]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{pgfgantt}
+\usepackage{paracol}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{calc}
+
+% Definiendo márgenes
+\usepackage[left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{accsupp}
+\usepackage{csquotes}
+\usepackage[style=apa, citestyle=apa, backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage[fixed]{fontawesome5}
+\usepackage{ifxetex,ifluatex}
+\usepackage{scrlfile}
+\usepackage{xparse}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{chngcntr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{array,tabularx}
+\usepackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTILOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{width=15cm, compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns, positioning, arrows.meta, calc}
+\tikzstyle{arrow} = [very thick,->,>=stealth]
+
+\definecolor{DarkGrey}{gray}{0.075}
+\definecolor{LightGrey}{gray}{0.925}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black,
+    citebordercolor=white,
+    linktoc=all
+}
+
+% Índice y listados
+\renewcommand{\cftsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftfigleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cfttableader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftdotsep}{4}
+\renewcommand{\cftfigpresnum}{\bfseries Figura }
+\cftsetindents{figure}{0em}{5.5em}
+\renewcommand{\cfttabpresnum}{\bfseries Tabla }
+\cftsetindents{table}{0em}{5.5em}
+
+\renewcommand{\arraystretch}{2}
+
+% Leyendas y numeración de figuras y tablas
+\captionsetup{
+  labelfont={bf,small},
+  singlelinecheck=false,
+  justification=centering
+}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+% Listas
+\setlist{noitemsep}
+
+% Párrafos: sangría de 1cm y 1em de espacio entre ellos
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{1em}
+\titlespacing{\section}{0pt}{0pt}{1em-\parskip}
+\titlespacing{\subsection}{0pt}{0pt}{0.8em-\parskip}
+\titlespacing{\subsubsection}{0pt}{0pt}{0.65em-\parskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Marcas de contenido pendiente
+\newcommand{\pendiente}[1]{\textcolor{red}{\textbf{[PENDIENTE: #1]}}}
+\newcommand{\pend}{\textcolor{red}{\textbf{XX}}}
+
+% Portada
+\newcommand{\membrete}[1]{\fontsize{12}{16}\selectfont\noindent #1}
+\newcommand{\tituloPortada}[1]{\fontsize{18}{22}\selectfont\noindent {\bfseries #1}\\}
+\newcommand{\alumnos}[1]{\fontsize{12}{16}\selectfont\noindent \textbf{#1}}
+\newcommand{\datoPortada}[2]{\fontsize{12}{16}\selectfont\noindent #1: \textbf{#2}\\}
+\newcommand{\datosPortada}[1]{#1}
+\newcommand{\fechaPortada}[1]{\fontsize{14}{18}\selectfont\noindent #1}
+
+\newcommand{\palabrasClave}[1]{\noindent \textbf{Palabras clave: }\textit{#1}}
+
+% Imágenes: \imagen{ruta}{título}{label}
+\newcommand{\leyendaFont}[1]{\fontsize{10}{12}\selectfont #1}
+
+\newcommand{\imagen}[3]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{#1}
+        \caption{\leyendaFont{#2}}
+        \label{fig:#3}
+    \end{figure}
+}
+
+% Tablas: \tabla{título}{label}{columnas}{filas}
+\newcommand{\filaTabla}[1]{#1\\\hline}
+
+\newcommand{\tabla}[4]{%
+    \begin{table}[!htbp]
+        \centering
+        \caption{\leyendaFont{#1}}
+        \label{tab:#2}
+        {\scriptsize
+            \begin{tabular}{#3}
+                \hline #4
+            \end{tabular}
+        }
+    \end{table}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\pagenumbering{gobble}
+
+\begin{center}
+    \membrete{%
+        PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO\\
+        FACULTAD DE INGENIERÍA\\
+        ESCUELA DE INGENIERÍA INFORMÁTICA\\
+    }
+
+    \vspace*{4cm}
+
+    \tituloPortada{%
+        Envejecer mejor\\
+        Informe de investigación
+    }
+
+    \vspace*{3cm}
+
+    \alumnos{%
+        Ulysses Barreto\\
+        Lucas Erazo\\
+        Valentina Guzmán\\
+        Maximiliano Miño\\
+        Fabián Solís\\
+    }
+
+    \vspace*{2.5cm}
+
+    \datosPortada{%
+        \datoPortada{Asignatura}{ICI5476 -- Taller de Liderazgo y Trabajo en Equipo}
+        \datoPortada{Profesora}{María José Herrera}
+        \datoPortada{Paralelo y grupo}{Paralelo 1, Grupo 11}
+        \datoPortada{Fecha de entrega}{23 de noviembre de 2026}
+    }
+
+    \vspace*{3cm}
+
+    \fechaPortada{Noviembre de 2026}
+\end{center}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ÍNDICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\phantomsection
+\addcontentsline{toc}{section}{Resumen}
+\section*{Resumen}
+
+Envejecer mejor es un proyecto que busca que las personas de 40 a 59 años conozcan los hábitos que ayudan a llegar sanas a la tercera edad y a prevenir las enfermedades más comunes de la vejez. Elegimos este rango porque es la etapa en que empiezan a aparecer las enfermedades crónicas y, al mismo tiempo, la etapa en que cambiar los hábitos todavía hace una diferencia.
+
+La investigación combinó dos fuentes. La primera fue la literatura científica: de 24 artículos identificados se analizaron a texto completo los 11 a los que tuvimos acceso, todos publicados entre 2019 y 2025 y centrados en hábitos modificables. La segunda fue una encuesta propia de 26 preguntas, aplicada a personas de 40 a 59 años, sobre su rutina, sus barreras para hacer ejercicio, sus fuentes de información y lo que les preocupa de envejecer.
+
+La evidencia coincide en cuatro ideas: moverse, aunque sea poco, se asocia con envejecer con mejor salud; nunca es tarde para mejorar la alimentación; el apoyo social y no fumar están entre los mejores predictores de un envejecimiento exitoso; y los hábitos tienen más efecto si se adoptan antes de que se acumulen las enfermedades. \pendiente{agregar en una o dos frases el hallazgo principal de la encuesta, por ejemplo la barrera más mencionada y el canal de información más usado}.
+
+Con esos resultados diseñamos una propuesta de difusión con siete mensajes clave, distribuidos en afiches y folletos impresos, publicaciones en redes sociales y una página web. El informe también describe cómo nos organizamos como equipo, las dificultades que tuvimos y lo que aprendimos en el proceso.
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Palabras clave}
+\palabrasClave{envejecimiento saludable, mediana edad, actividad física, alimentación, apoyo social, prevención, difusión, trabajo en equipo.}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Lista de figuras}
+\listoffigures
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Lista de tablas}
+\listoftables
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUCCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\phantomsection
+\addcontentsline{toc}{section}{Introducción}
+\section*{Introducción}
+
+La población envejece y cada vez más personas llegan a la vejez con enfermedades crónicas. Las enfermedades no transmisibles, como las cardiovasculares, el cáncer y la diabetes, explican cerca del 70\,\% de la mortalidad mundial cada año, y en 2019 los factores de riesgo de la dieta se asociaron a 7,9 millones de muertes \parencite{dominguez2022}. Buena parte de ese riesgo depende de hábitos que se pueden cambiar, y lo que una persona hace en la mediana edad se asocia con cómo envejece veinte años después \parencite{bosnes2019}.
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Cómo elegimos el tema}
+\subsection*{Cómo elegimos el tema}
+
+Para elegir el tema hicimos una lluvia de ideas. Buscábamos un tema de salud y bienestar que nos interesara a todos, que se pudiera trabajar como proyecto y que le sirviera a otras personas. Antes de empezar acordamos una regla: ninguna propuesta se descartaba de entrada. Cada uno propuso los temas que quiso y explicó por qué le interesaban, y solo después de escucharlos todos empezamos a evaluar. También anotamos las ideas que no elegimos, porque compararlas nos ayudó a ver qué temas nos motivaban más.
+
+Salieron tres temas: la prevención del consumo de drogas en jóvenes, el estrés estudiantil y sus efectos en la salud, y el envejecimiento saludable. Al conversar sobre el envejecimiento aparecieron varios enfoques posibles: la alimentación desde la juventud y sus consecuencias a largo plazo, la prevención de enfermedades crónicas como la diabetes y la hipertensión, la actividad física y la pérdida de movilidad, la salud cognitiva, la soledad de los adultos mayores y lo que significa para la sociedad que la población envejezca. La Tabla~\ref{tab:viabilidad} resume cómo evaluamos las tres ideas.
+
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Evaluación de las ideas propuestas en la lluvia de ideas}}
+    \label{tab:viabilidad}
+    {\small
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}p{2.2cm}|}
+        \hline
+        \textbf{Idea} & \textbf{Interés del grupo} & \textbf{Viabilidad} & \textbf{Decisión} \\ \hline
+        Prevención de drogas en jóvenes & Bajo & Media: es un tema muy trabajado y cuesta aportar algo nuevo & Descartada \\ \hline
+        Estrés estudiantil & Medio & Alta, pero no nos entusiasmó lo suficiente & Descartada \\ \hline
+        Envejecimiento saludable & Alto: conecta con las motivaciones de los cinco & Alta: hay bastante información y el tema es cada vez más relevante & Seleccionada \\ \hline
+    \end{tabularx}
+    }
+\end{table}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Motivaciones}
+\subsection*{Motivaciones}
+
+Cada integrante llegó al tema por un camino distinto. A Lucas le preocupa lo que pueda pasar con su salud más adelante, porque durante gran parte de su vida ha comido mucha comida chatarra. Los padres de Ulysses y de Valentina son adultos mayores, y ambos han visto de cerca cómo la salud se va deteriorando con los años; les habría gustado que sus padres llegaran a esta etapa con mejor calidad de vida y quieren entender qué se puede hacer para que otras personas sí lo logren. Maximiliano llegó por curiosidad: le llama la atención que la población envejezca cada vez más, porque eso significa que el problema va a afectar a más gente con el tiempo. Fabián está entre los dos casos: comparte la preocupación de Lucas por la mala alimentación y el interés de Maximiliano por el envejecimiento de la sociedad.
+
+Lo que nos une es una idea común: la forma en que envejecemos depende mucho de los hábitos que tenemos antes de llegar a la vejez. Algunos lo vemos por experiencia propia, otros por lo que pasa en nuestras familias y otros mirando a la sociedad, pero es un tema que nos toca a todos.
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Objetivos}
+\subsection*{Objetivos}
+
+\textbf{Objetivo general.} Informar y generar conciencia en personas de 40 a 59 años sobre los hábitos que ayudan a llegar sanas a la tercera edad y a prevenir las enfermedades más comunes de la vejez, mediante material de difusión respaldado por evidencia científica.
+
+\textbf{Objetivos específicos.}
+\begin{enumerate}
+    \item Definir el público objetivo del proyecto y justificar el rango etario elegido.
+    \item Identificar, a partir de literatura científica, los hábitos modificables que se asocian con un envejecimiento saludable.
+    \item Conocer la rutina, las barreras, las motivaciones y las fuentes de información del público objetivo mediante una encuesta.
+    \item Diseñar una propuesta de difusión que traduzca la evidencia en mensajes simples, adaptados a lo que muestra la encuesta.
+    \item Organizar el trabajo del equipo con una planificación, roles claros y seguimiento del avance.
+\end{enumerate}
+
+El informe sigue el orden del proyecto. La sección~\ref{sec:proceso} describe el proceso investigativo: cómo definimos el público, qué herramienta usamos para recolectar datos y cómo buscamos y seleccionamos la información. La sección~\ref{sec:levantamiento} presenta lo que encontramos en los artículos y en la encuesta. La sección~\ref{sec:desarrollo} contiene la propuesta de difusión y los detalles del trabajo en equipo. Al final se presentan las conclusiones generales y las conclusiones específicas de cada objetivo.
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PROCESO INVESTIGATIVO %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Proceso investigativo}
+\label{sec:proceso}
+
+El proceso tuvo cinco pasos: definir a quién le hablamos, diseñar la herramienta de recolección de datos, buscar y seleccionar artículos científicos, diseñar y aplicar una encuesta, y cruzar ambas fuentes. Cada paso se explica a continuación.
+
+\subsection{Definición del público objetivo}
+
+El proyecto se dirige a personas de 40 a 59 años y, de forma secundaria, a las mayores de 60. Elegimos ese rango por tres razones.
+
+La primera es que en esa etapa empiezan a aparecer las enfermedades crónicas. En una cohorte de 6.852 adultos chinos de 45 años o más, la proporción de personas con dos o más enfermedades crónicas subió de 9,2\,\% a 29,1\,\% en solo seis años \parencite{zhu2025}. En estudios con personas de edad media cercana a los 55 años, casi la mitad o más ya tenía alguna enfermedad crónica, como hipertensión o diabetes \parencite{naaman2025,kuczmarski2025}.
+
+La segunda es que los hábitos de la mediana edad predicen cómo se envejece después. En Noruega, los hábitos de personas de 45 a 59 años predijeron su envejecimiento exitoso más de 20 años después \parencite{bosnes2019}, y una revisión sobre nutrición y salud cognitiva propone que la prevención de la demencia se dirija a personas de 40 y 50 años, mucho antes de que aparezca \parencite{puri2023}.
+
+La tercera es práctica: es un grupo que sigue activo, por lo que se le puede llegar con afiches, redes sociales y una página web. Este último punto era un supuesto del equipo, y por eso la encuesta incluye preguntas sobre cómo se informan.
+
+\subsection{Herramienta de recolección de datos}
+
+El 5 de octubre, en clase, armamos la herramienta de recolección de datos. Tiene dos partes: una estrategia de búsqueda de artículos científicos, con sus criterios de selección, y una ficha común para registrar cada artículo. El enfoque es cualitativo y descriptivo.
+
+\textbf{Ecuación de búsqueda.} Combina cuatro grupos de palabras: mediana edad, envejecimiento saludable, hábitos y enfermedades. Se limita a artículos y revisiones publicados desde 2019, en inglés o español. La ecuación completa está en el Anexo~A. Acordamos ajustarla según los resultados: si salían muy pocos, quitar el último grupo de palabras; si salían demasiados, agregar ``Chile'' o ``Latinoamérica''.
+
+\textbf{Criterios de inclusión.} Estudios con personas de 40 a 64 años, o que incluyeran ese rango, que analizaran un hábito modificable (actividad física, alimentación, sedentarismo, sueño u otro) y su efecto en la salud. Si era posible, preferimos revisiones sistemáticas, metaanálisis o revistas de los cuartiles Q1 y Q2.
+
+\textbf{Criterios de exclusión.} Estudios solo con mayores de 65 años o solo con personas que tienen una enfermedad específica, artículos sin texto completo y artículos repetidos.
+
+\textbf{Ficha de registro.} Todos usamos la misma ficha para cada artículo (Tabla~\ref{tab:ficha}). El campo ``Dato útil'' sirve para llevar la evidencia directamente a los afiches, los folletos y la web.
+
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Campos de la ficha de registro de artículos}}
+    \label{tab:ficha}
+    {\small
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}X|}
+        \hline
+        \textbf{Campo} & \textbf{Qué se anota} \\ \hline
+        Referencia & Autores, año, revista y base de datos \\ \hline
+        País y población & Dónde se hizo, edades y número de personas \\ \hline
+        Diseño & Revisión, metaanálisis, cohorte, ensayo, transversal, etc. \\ \hline
+        Hábito & Actividad física, alimentación, sedentarismo, sueño u otro \\ \hline
+        Resultado & Qué efecto tiene el hábito en la salud a esta edad \\ \hline
+        Aplicabilidad & Alta, media o baja para nuestro mensaje \\ \hline
+        Dato útil & Algo que podamos poner en el afiche, el folleto o la web \\ \hline
+        Limitaciones & Sesgos o problemas del estudio \\ \hline
+    \end{tabularx}
+    }
+\end{table}
+
+\subsection{Búsqueda y selección de artículos}
+
+La ecuación se pensó para Scopus y Web of Science. En la práctica, la usamos como guía para buscar en otras dos herramientas: primero Consensus, un buscador de artículos académicos, y después Europe PMC, una base de datos de literatura biomédica de acceso abierto. \pendiente{explicar en una o dos frases por qué se buscó en Consensus y Europe PMC en vez de Scopus o Web of Science}.
+
+De la búsqueda inicial seleccionamos 13 artículos. Como complemento revisamos 67 registros de Europe PMC y agregamos 11 más, con lo que llegamos a 24 artículos que cumplían el tema de la búsqueda. Pudimos obtener el texto completo de 11 de ellos (5 de la selección inicial y 6 de la complementaria). Los otros 13 no se usaron como evidencia, porque no pudimos leerlos completos; quedan registrados en el Anexo~C. La Figura~\ref{fig:flujo} resume el proceso.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        caja/.style={draw, rounded corners=2pt, align=flush center, font=\footnotesize, inner sep=5pt},
+        flecha/.style={-{Stealth}, thick}
+    ]
+        \node[caja, fill=gray!10, text width=12.5cm] (eq)
+            {Base: ecuación de búsqueda con cuatro grupos de palabras (mediana edad,\\envejecimiento saludable, hábitos y enfermedades), artículos desde 2019};
+        \node[caja, text width=5.6cm, below=0.8cm of eq.south west, anchor=north west] (a)
+            {Búsqueda inicial en Consensus\\\textbf{13 artículos seleccionados}};
+        \node[caja, text width=6cm, below=0.8cm of eq.south east, anchor=north east] (b)
+            {Búsqueda complementaria\\en Europe PMC: 67 registros\\\textbf{11 seleccionados}};
+        \node[caja, text width=5.8cm, below=1cm of eq.south |- b.south] (c)
+            {\textbf{24 artículos identificados}};
+        \node[caja, text width=5.8cm, below=1.4cm of c] (d)
+            {\textbf{11 artículos con texto completo}\\(5 iniciales y 6 complementarios)};
+        \coordinate (mid) at ($(c.south)!0.5!(d.north)$);
+        \node[caja, fill=gray!10, text width=3.6cm, anchor=west] (x) at ([xshift=0.8cm]mid -| c.east)
+            {13 sin acceso al texto\\completo (Anexo C)};
+        \node[caja, text width=9cm, below=0.8cm of d] (e)
+            {Registro en la ficha común y síntesis por tema (sección~\ref{sec:levantamiento})};
+        \draw[flecha] (a.north |- eq.south) -- (a.north);
+        \draw[flecha] (b.north |- eq.south) -- (b.north);
+        \draw[flecha] (a.south) |- (c.west);
+        \draw[flecha] (b.south) |- (c.east);
+        \draw[flecha] (c.south) -- (d.north);
+        \draw[flecha] (mid) -- (x.west);
+        \draw[flecha] (d.south) -- (e.north);
+    \end{tikzpicture}
+    \caption{\leyendaFont{Búsqueda y selección de los artículos}}
+    \label{fig:flujo}
+\end{figure}
+
+Durante la selección fuimos algo flexibles con el criterio de edad. Varios estudios incluyen a personas de 45 años o más sin un límite superior; los mantuvimos porque la mayor parte de su muestra está en la mediana edad o porque miden los hábitos en esa etapa y los resultados después. Cada artículo se leyó y se registró en la ficha común, y las cifras que citamos en este informe se verificaron en el texto original.
+
+\subsection{Encuesta al público objetivo}
+
+Para saber qué le pasa a la gente real diseñamos una encuesta en Google Forms titulada \textit{Actividad física, salud y tecnología (40 a 59 años)}. Tiene 26 preguntas y responderla toma unos 10 minutos. La participación es voluntaria y al inicio se explica que los datos se usarán solo para este proyecto.
+
+En el avance del 5 de octubre habíamos considerado reutilizar entrevistas semiestructuradas de un trabajo anterior en el que participó Maximiliano. Lo descartamos porque eran pocas, no eran representativas y sus preguntas respondían a otro proyecto. En su lugar hicimos una encuesta propia, dirigida directamente a nuestro público y que retoma los mismos temas: rutina, barreras, fuentes de información y salud al envejecer.
+
+La Tabla~\ref{tab:bloques} muestra los bloques de la encuesta y para qué sirve cada uno. El cuestionario completo está en el Anexo~B. Algunas secciones aparecen solo según la respuesta anterior. Por ejemplo, la pregunta sobre qué enfermedades crónicas tiene la persona solo se muestra a quien responde que sí tiene alguna, y la pregunta sobre las razones de su estilo de vida solo aparece a quien siente que su rutina no es suficiente o no está seguro.
+
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Bloques de la encuesta y su propósito}}
+    \label{tab:bloques}
+    {\small
+    \renewcommand{\arraystretch}{1.35}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}X|}
+        \hline
+        \textbf{Bloque} & \textbf{Preguntas} & \textbf{Para qué sirve} \\ \hline
+        Identificación & 1 a 3 & Contacto. No se publica ni se usa en el análisis. \\ \hline
+        Perfil & 4 a 6 & Edad y enfermedades crónicas: describe la muestra. \\ \hline
+        Actividad principal & 7 & Cuánto tiempo libre tiene la persona. \\ \hline
+        Rutina y sedentarismo & 8 a 10 & Cuánto tiempo pasa sentada y en qué momentos: dónde se puede sumar movimiento. \\ \hline
+        Percepción y barreras & 11, 12 y 14 & Si siente que su rutina basta y qué le impide moverse más. \\ \hline
+        Motivación & 13 & Qué argumentos le harían empezar: define el enfoque de los mensajes. \\ \hline
+        Fuentes de información & 15 y 16 & Dónde busca información de salud y cuánto confía en ella: define los canales. \\ \hline
+        Cambios percibidos & 17 a 20 & Si ya nota pérdida de fuerza, equilibrio o energía. \\ \hline
+        Preocupaciones y prevención & 21 a 23 & Qué le preocupa de envejecer y qué hace hoy para prevenirlo. \\ \hline
+        Conocimiento de la recomendación & 24 a 26 & Si sabe cuánta actividad física se recomienda: mide la brecha con la recomendación de la OMS. \\ \hline
+    \end{tabularx}
+    }
+\end{table}
+
+\textbf{Aplicación.} El formulario se difundió entre el \pendiente{fecha de inicio} y el \pendiente{fecha de cierre} a través de \pendiente{canales: por ejemplo WhatsApp, redes sociales, familiares y conocidos}. Se recibieron \pendiente{número total de respuestas} respuestas, de las cuales \pendiente{número} fueron válidas \pendiente{criterio: por ejemplo, edad dentro del rango y formulario completo}. Como el formulario se difundió por redes cercanas al equipo, se trata de una muestra por conveniencia: sirve para conocer al público, pero no representa a toda la población de 40 a 59 años.
+
+\textbf{Resguardo de los datos.} El formulario pide nombre, apellido y correo. Esos datos no se publican ni se usan en el análisis, y los resultados se presentan solo de forma agregada.
+
+\subsection{Cómo cruzamos las dos fuentes}
+
+Las dos fuentes responden preguntas distintas. Los artículos dicen qué hábitos sirven, y la encuesta dice qué le cuesta a la gente, qué le preocupa y dónde se informa. Cuando ambas coinciden, el mensaje va con más seguridad. Cuando no coinciden, lo anotamos como una limitación o como algo que el material tiene que explicar mejor. El cruce completo está en la sección~\ref{sec:cruce}.
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEVANTAMIENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Levantamiento de la información}
+\label{sec:levantamiento}
+
+\subsection{Panorama de la evidencia}
+
+La Tabla~\ref{tab:papers} resume los 11 artículos analizados, con los campos principales de la ficha. Cinco tratan sobre alimentación, dos sobre actividad física y cuatro sobre varios hábitos a la vez. En cuanto al diseño, hay cinco estudios longitudinales (cuatro cohortes y un análisis de ocho cohortes armonizadas), tres revisiones (una sistemática y dos narrativas) y tres estudios transversales.
+
+{\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.3cm}|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2.15cm}|>{\raggedright\arraybackslash}p{3.95cm}|>{\centering\arraybackslash}p{1.1cm}|}
+    \caption{\leyendaFont{Resumen de los 11 artículos analizados}}
+    \label{tab:papers}\\
+    \hline
+    \textbf{Estudio} & \textbf{País y muestra} & \textbf{Diseño} & \textbf{Hábito} & \textbf{Hallazgo principal} & \textbf{Aplic.} \\ \hline
+    \endfirsthead
+    \hline
+    \textbf{Estudio} & \textbf{País y muestra} & \textbf{Diseño} & \textbf{Hábito} & \textbf{Hallazgo principal} & \textbf{Aplic.} \\ \hline
+    \endhead
+    \textcite{zhang2025} & China; 1.413 personas de 45 años o más & Cohorte, 7 años & Actividad física & Un nivel medio (OR 2,16) o alto (OR 2,22) de actividad física se asoció a más envejecimiento exitoso & Alta \\ \hline
+    \textcite{morenoagostino2020} & 26 países; 130.521 adultos & Ocho cohortes armonizadas, hasta 10 años & Actividad física & Cualquier nivel de actividad se asoció a menor probabilidad de salud baja (OR 0,18) o de deterioro rápido (OR 0,44) & Alta \\ \hline
+    \textcite{zhou2023} & Asia; 71 estudios de 24 cohortes & Revisión sistemática & Alimentación & Comer sano en la mediana edad, y mejorar la dieta después, se asocia a envejecer saludablemente & Alta \\ \hline
+    \textcite{puri2023} & Varios países; 125 artículos & Revisión narrativa & Alimentación y cognición & Las dietas completas (mediterránea, DASH, MIND, nórdica) protegen la cognición; prevenir desde los 40 y 50 años & Media \\ \hline
+    \textcite{dominguez2022} & Varios países & Revisión narrativa & Patrones de alimentación & Las dietas de las poblaciones más longevas comparten base vegetal, grasas insaturadas y poca carne procesada & Media \\ \hline
+    \textcite{le2025} & Australia; 186 mujeres & Cohorte, 14 años & Alimentos vegetales & Sin asociación significativa con la cognición tras el ajuste completo (p = 0,07) & Baja \\ \hline
+    \textcite{chun2025} & Corea; 6.427 adultos de 40 a 69 años & Transversal & Frecuencia de comidas & Comer tres o más veces al día se asoció a menor probabilidad de baja masa muscular (OR 0,685) & Media \\ \hline
+    \textcite{zhu2025} & China; 6.852 personas de 45 años o más & Panel, 2014--2020 & Estilo de vida combinado & Los hábitos sanos protegen al principio; después, la enfermedad dificulta mantenerlos & Alta \\ \hline
+    \textcite{kuczmarski2025} & EE.\,UU.; 1.308 adultos, edad media 56 & Transversal & Sueño, proteína y dieta & La proteína y la calidad de la dieta explican en parte la relación entre dormir bien y tener más fuerza & Media \\ \hline
+    \textcite{naaman2025} & Arabia Saudita; 176 personas de 45 años o más & Transversal & Estilo de vida combinado & La actividad física moderada o alta se asoció a mejor puntaje cognitivo (p = 0,04) & Media \\ \hline
+    \textcite{bosnes2019} & Noruega; 4.497 personas de 45 a 59 años & Cohorte, cerca de 22 años & Estilo de vida y apoyo social & No fumar (OR 1,74) y el buen apoyo social (OR 1,54) fueron los mejores predictores de envejecimiento exitoso & Alta \\ \hline
+\end{longtable}
+}
+
+En la tabla, OR (\textit{odds ratio}) compara la probabilidad de un resultado entre dos grupos: un OR mayor que 1 indica más probabilidad y uno menor que 1 indica menos. Por eso, en el material de difusión hablamos de ``más'' o ``menos probabilidad'' y no de porcentajes de riesgo.
+
+\subsection{Actividad física}
+
+La actividad física es el hábito con la evidencia más consistente. En el estudio más grande del conjunto, con más de 130 mil adultos de 26 países, cualquier nivel de actividad física se asoció a una menor probabilidad de envejecer con salud baja (OR 0,18) o con un deterioro rápido (OR 0,44), en comparación con las personas inactivas \parencite{morenoagostino2020}. Los autores destacan que incluso poca actividad se asocia con un mejor recorrido de salud. De ahí sale uno de nuestros mensajes: algo es mejor que nada.
+
+En China, las personas con un nivel medio o alto de actividad física tuvieron una probabilidad bastante mayor de envejecer exitosamente que las de nivel bajo (OR 2,16 y 2,22). Las sesiones de 30 a 119 minutos al día de actividad moderada o vigorosa se asociaron a mejores resultados \parencite{zhang2025}. El mismo estudio mostró que las personas cuya actividad aumentó con los años no tuvieron una ventaja significativa frente a las demás, así que no usamos ese dato para decir que ``nunca es tarde para empezar''.
+
+La actividad física también se relaciona con la cognición. En adultos sauditas de 45 años o más, la actividad moderada o alta se asoció a un mejor puntaje en el MoCA, una prueba breve de función cognitiva \parencite{naaman2025}. En Noruega, la actividad física en la mediana edad se asoció con todos los componentes del envejecimiento exitoso: menos enfermedad, mejor funcionalidad y más participación en la vida social \parencite{bosnes2019}.
+
+Para traducir esto en una meta concreta usamos la recomendación de la Organización Mundial de la Salud para adultos: entre 150 y 300 minutos a la semana de actividad moderada, o entre 75 y 150 minutos de actividad vigorosa, más ejercicios de fuerza al menos dos días por semana \parencite{oms2020}. La pregunta 26 de la encuesta mide si las personas conocen esta meta.
+
+\subsection{Alimentación}
+
+En alimentación, la evidencia apunta más a patrones completos que a alimentos aislados. Una revisión sistemática de 71 estudios en cohortes asiáticas encontró que una dieta saludable en la mediana edad, rica en verduras, frutas, pescado, frutos secos y legumbres, se asocia con envejecer saludablemente. Además, quienes mejoraron en más de 10\,\% su puntaje en la dieta DASH, un índice de alimentación saludable, entre la mediana edad y la vejez aumentaron su probabilidad de envejecimiento saludable. Los autores lo resumen como ``nunca es tarde para comer sano'' \parencite{zhou2023}.
+
+Las dietas de las poblaciones más longevas (mediterránea, japonesa, de Okinawa, nórdica y vegetariana) comparten rasgos: abundantes alimentos vegetales e integrales, grasas insaturadas, proteína moderada y sobre todo vegetal, y poca carne roja o procesada, poca azúcar y pocos ultraprocesados \parencite{dominguez2022}. Las recomendaciones de la OMS que recoge \textcite{puri2023} se pueden comunicar casi tal cual: al menos 400 gramos de frutas y verduras al día (unas cinco porciones) y menos de 5 gramos de sal (una cucharadita).
+
+Dos estudios nos obligan a ser cuidadosos. En mujeres australianas, comer una mayor proporción de alimentos vegetales en la mediana edad no tuvo una asociación significativa con la cognición años después, una vez considerados todos los factores \parencite{le2025}. Y en adultos coreanos, comer tres o más veces al día se asoció a menor probabilidad de baja masa muscular (OR 0,685), pero es un estudio transversal y la asociación depende de cómo se ajusta por el peso \parencite{chun2025}. Por eso no decimos que ``más vegetales mejora la memoria'' ni que ``comer tres veces al día previene la sarcopenia''; los usamos solo como apoyo a un mensaje general de comer variado y regular.
+
+Casi toda esta evidencia viene de Asia, Europa y Oceanía. Para nuestro público conviene aterrizarla a alimentos conocidos en Chile, como las legumbres, el pescado y las verduras de temporada.
+
+\subsection{Sueño, proteína y fuerza muscular}
+
+En 1.308 adultos de mediana edad de Estados Unidos, la ingesta de proteína y la calidad de la dieta explicaron en parte por qué dormir mejor se asocia con más fuerza de prensión, es decir, la fuerza de la mano \parencite{kuczmarski2025}. En esa muestra, el 61\,\% dormía mal y solo el 18\,\% cumplía la meta de 150 minutos de actividad física a la semana. El estudio es transversal y los efectos son pequeños, pero muestra que los hábitos se refuerzan entre sí: dormir, comer y moverse no son temas separados. Por eso nuestra propuesta trata los hábitos en conjunto y no como campañas aisladas.
+
+\subsection{Combinación de hábitos, apoyo social y momento para actuar}
+
+El estudio noruego HUNT siguió durante cerca de 22 años a 4.497 personas que tenían entre 45 y 59 años al inicio \parencite{bosnes2019}. Al final del seguimiento, solo el 15,6\,\% cumplía todos los criterios de envejecimiento exitoso. Los mejores predictores fueron no haber fumado nunca (OR 1,74) y tener buen apoyo social, es decir, no sentirse solo y contar con ayuda si uno se enferma (OR 1,54). También ayudaron no tener obesidad (OR 1,39) y hacer actividad física (OR 1,25). Lo más llamativo es que los hábitos se suman: las personas con los cinco factores favorables tuvieron un OR de 4,27 frente a las que tenían cero o uno.
+
+El apoyo social aparece también en la definición de envejecimiento exitoso del estudio chino, que incluye la participación en actividades sociales \parencite{zhang2025}. Para nosotros es un hallazgo importante, porque permite proponer actividad física en compañía, que suma ejercicio y vínculo social.
+
+Sobre el momento para actuar, el estudio de \textcite{zhu2025} muestra una relación que cambia en el tiempo. Al principio, un estilo de vida más sano predijo menos enfermedad en los años siguientes. Pero cuando las enfermedades se acumularon, fueron ellas las que hicieron más difícil mantener los hábitos. Esto respalda dirigir el proyecto a la mediana edad: es más fácil adoptar hábitos antes de que aparezcan las enfermedades que después.
+
+La falta de hábitos sanos es común incluso en poblaciones con buen nivel educativo: en el estudio saudita, el 68\,\% tenía una dieta de mala calidad y solo el 14\,\% cumplía los tres hábitos evaluados \parencite{naaman2025}. El problema no es solo de acceso a la información, sino también de llevarla a la práctica.
+
+\subsection{Límites de la evidencia}
+
+Hay que leer estos resultados con cuidado. La mayoría de los estudios son observacionales: muestran asociaciones, no prueban que un hábito cause un resultado. Tres son transversales y dos son revisiones narrativas, que sirven como contexto pero no como prueba. Casi no hay estudios de Latinoamérica (solo México aparece dentro del estudio de 26 países), y ninguno es de Chile. Además, 13 de los 24 artículos identificados no se pudieron leer completos. Por eso en el material usamos verbos como ``se asocia'' o ``ayuda'', y no prometemos resultados.
+
+\subsection{Resultados de la encuesta}
+\label{sec:encuesta}
+
+% Para agregar un gráfico de Google Forms: guardar la imagen en assets/images/
+% y escribir, por ejemplo: \imagen{assets/images/edad.png}{Edad de los encuestados}{edad}
+\pendiente{Esta sección se completa cuando se cierre la encuesta. En cada subsección hay que reemplazar las XX por los valores y, si se quiere, agregar el gráfico que entrega Google Forms (ver el comentario en el código). Los porcentajes se calculan sobre las respuestas válidas o, si la pregunta es condicional, sobre quienes la vieron.}
+
+\subsubsection{Perfil de la muestra}
+
+Respondieron \pend{} personas. La Tabla~\ref{tab:edad} muestra su distribución por edad. Del total, \pend\,\% declaró tener alguna enfermedad crónica; las más frecuentes fueron \pendiente{las 2 o 3 más marcadas en la pregunta 6}. En cuanto a su actividad principal, \pendiente{resumir la pregunta 7, por ejemplo qué porcentaje trabaja a tiempo completo}.
+
+\tabla{Distribución de la muestra por edad (pregunta 4)}{edad}{|l|c|c|}{%
+    \filaTabla{\textbf{Rango de edad} & \textbf{n} & \textbf{\%}}
+    \filaTabla{40 a 44 años & \pend & \pend}
+    \filaTabla{45 a 49 años & \pend & \pend}
+    \filaTabla{50 a 54 años & \pend & \pend}
+    \filaTabla{55 a 59 años & \pend & \pend}
+    \filaTabla{\textbf{Total} & \pend & 100}
+}
+
+\subsubsection{Rutina y sedentarismo}
+
+La Tabla~\ref{tab:sentado} muestra cuánto tiempo pasan sentadas las personas en un día normal. Los momentos en que más ocurre son \pendiente{las opciones más marcadas en la pregunta 10, por ejemplo en el trabajo o frente a pantallas}. \pendiente{Opcional: dos o tres ejemplos breves y anónimos de cómo describen su día en la pregunta 8.}
+
+\tabla{Tiempo diario sentado o en reposo, sin contar el sueño (pregunta 9)}{sentado}{|l|c|c|}{%
+    \filaTabla{\textbf{Tiempo} & \textbf{n} & \textbf{\%}}
+    \filaTabla{Menos de 4 horas & \pend & \pend}
+    \filaTabla{Entre 4 y 6 horas & \pend & \pend}
+    \filaTabla{Entre 7 y 9 horas & \pend & \pend}
+    \filaTabla{10 horas o más & \pend & \pend}
+}
+
+\subsubsection{Barreras y motivaciones}
+
+El \pend\,\% siente que su rutina actual no es suficiente para mantenerse saludable y el \pend\,\% no está seguro (pregunta 11). La Tabla~\ref{tab:impedimento} muestra el mayor impedimento que mencionan para empezar a hacer más ejercicio. Entre las razones de su estilo de vida (pregunta 12), las más marcadas fueron \pendiente{2 o 3 razones con su porcentaje}. Lo que más los motivaría a moverse sería \pendiente{las 3 opciones más marcadas en la pregunta 13}.
+
+\tabla{Mayor impedimento para empezar a hacer más ejercicio (pregunta 14)}{impedimento}{|l|c|c|}{%
+    \filaTabla{\textbf{Impedimento} & \textbf{n} & \textbf{\%}}
+    \filaTabla{Falta de tiempo & \pend & \pend}
+    \filaTabla{No sé bien qué ejercicios hacer & \pend & \pend}
+    \filaTabla{Cansancio o falta de energía & \pend & \pend}
+    \filaTabla{Falta de motivación & \pend & \pend}
+    \filaTabla{Dolor, lesiones o problemas de salud & \pend & \pend}
+    \filaTabla{Costo (gimnasio, clases, implementos) & \pend & \pend}
+    \filaTabla{No tengo lugares cercanos o seguros & \pend & \pend}
+    \filaTabla{No tengo con quién hacerlo & \pend & \pend}
+    \filaTabla{Otro & \pend & \pend}
+}
+
+\subsubsection{Fuentes de información}
+
+La Tabla~\ref{tab:fuentes} muestra dónde buscan información cuando tienen una duda de salud o quieren aprender una rutina. Se podía marcar más de una opción, así que los porcentajes no suman 100. Sobre la confianza en esa información (pregunta 16), \pendiente{resumir, por ejemplo qué porcentaje la considera muy o bastante confiable}.
+
+\tabla{Fuentes de información sobre salud y ejercicio (pregunta 15, selección múltiple)}{fuentes}{|l|c|c|}{%
+    \filaTabla{\textbf{Fuente} & \textbf{n} & \textbf{\%}}
+    \filaTabla{Médico u otro profesional de salud & \pend & \pend}
+    \filaTabla{Google & \pend & \pend}
+    \filaTabla{YouTube & \pend & \pend}
+    \filaTabla{Redes sociales (Facebook, Instagram, TikTok) & \pend & \pend}
+    \filaTabla{Familiares o amigos & \pend & \pend}
+    \filaTabla{Aplicaciones de salud o ejercicio & \pend & \pend}
+    \filaTabla{Asistente de inteligencia artificial & \pend & \pend}
+    \filaTabla{No suelo buscar información & \pend & \pend}
+}
+
+\subsubsection{Cambios percibidos, preocupaciones y prevención}
+
+El \pend\,\% ha notado cambios en su fuerza, su equilibrio o su energía en los últimos años, sobre todo en \pendiente{la opción más marcada en la pregunta 18}. Para el \pend\,\% esos cambios afectan bastante o les impiden hacer algunas cosas (pregunta 19). Cuando piensan en envejecer, lo que más les preocupa es \pendiente{las 2 opciones más elegidas en la pregunta 21}. El \pend\,\% dice estar tomando medidas para prevenirlo, principalmente \pendiente{las medidas más marcadas en la pregunta 23}.
+
+\subsubsection{Conocimiento de la recomendación de actividad física}
+
+El \pend\,\% dice conocer la recomendación de actividad física para su edad, el \pend\,\% tiene una idea general y el \pend\,\% no la conoce (pregunta 24). La Tabla~\ref{tab:ideal} compara lo que las personas creen que es el tiempo ideal con la recomendación de la OMS, que corresponde a la opción ``entre 2 horas y media y 5 horas a la semana'' \parencite{oms2020}.
+
+\tabla{Tiempo de actividad física que se considera ideal (pregunta 26)}{ideal}{|l|c|c|}{%
+    \filaTabla{\textbf{Respuesta} & \textbf{n} & \textbf{\%}}
+    \filaTabla{Menos de 1 hora a la semana & \pend & \pend}
+    \filaTabla{Entre 1 y 2 horas a la semana & \pend & \pend}
+    \filaTabla{Entre 2 horas y media y 5 horas a la semana (recomendación OMS) & \pend & \pend}
+    \filaTabla{Más de 5 horas a la semana & \pend & \pend}
+    \filaTabla{No sé & \pend & \pend}
+}
+
+\subsection{Cruce entre la evidencia y la encuesta}
+\label{sec:cruce}
+
+La Tabla~\ref{tab:cruce} pone lado a lado lo que dice la evidencia y lo que respondió el público, y lo que eso implica para el material de difusión. La última columna ya está escrita según lo que esperamos encontrar; si los resultados muestran otra cosa, se ajusta.
+
+{\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{4.4cm}|}
+    \caption{\leyendaFont{Cruce entre la evidencia, la encuesta y el material de difusión}}
+    \label{tab:cruce}\\
+    \hline
+    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Implicancia para el material} \\ \hline
+    \endfirsthead
+    \hline
+    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Implicancia para el material} \\ \hline
+    \endhead
+    Cualquier nivel de actividad física ayuda \parencite{morenoagostino2020} & 9, 10 y 11 & \pendiente{tiempo sentado y si sienten que su rutina basta} & Mensaje ``algo es mejor que nada'' y propuestas para moverse en los momentos en que más se está sentado. \\ \hline
+    La meta es de 150 a 300 minutos semanales \parencite{oms2020} & 24 a 26 & \pendiente{qué porcentaje conoce la meta} & Si pocos la conocen, el afiche la dice en horas: ``2 horas y media a la semana, en partes''. \\ \hline
+    Incluso poca actividad se asocia a beneficios \parencite{morenoagostino2020}, y conviene aumentarla de forma gradual y con orientación \parencite{zhang2025} & 12 y 14 & \pendiente{barrera principal} & Si es la falta de tiempo, proponer sesiones cortas; si es no saber qué hacer, incluir una rutina guiada en la web. \\ \hline
+    El apoyo social predice envejecer bien \parencite{bosnes2019} & 12 y 13 & \pendiente{cuántos marcan ``no tengo con quién'' o ``hacerlo acompañado''} & Invitar a hacer actividad con otras personas y mostrar el apoyo social como parte de la salud. \\ \hline
+    Los hábitos tienen más efecto antes de que se acumulen las enfermedades \parencite{zhu2025} & 5, 6, 17 a 19 & \pendiente{porcentaje con enfermedad crónica y con cambios percibidos} & Mensaje ``empieza ahora'', conectado con los cambios que la persona ya nota. \\ \hline
+    Nunca es tarde para mejorar la alimentación \parencite{zhou2023} & 22 y 23 & \pendiente{cuántos cuidan su alimentación como medida de prevención} & Consejos concretos con alimentos locales: legumbres, pescado, verduras, menos sal. \\ \hline
+    Canales de difusión & 15 y 16 & \pendiente{fuentes más usadas y confianza} & Priorizar los canales más usados y mostrar siempre las fuentes para ganar confianza. \\ \hline
+\end{longtable}
+}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESARROLLO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Desarrollo}
+\label{sec:desarrollo}
+
+\subsection{Propuesta de difusión}
+
+\subsubsection{Objetivo y público}
+
+El objetivo de la difusión es que personas de 40 a 59 años conozcan los hábitos que más se asocian con envejecer bien y se animen a empezar por uno. No buscamos que cambien todo de una vez, sino que den un primer paso concreto. El público secundario son las personas mayores de 60 años y las familias que conviven con adultos mayores.
+
+\subsubsection{Mensajes clave}
+
+A partir del levantamiento definimos siete mensajes. Cada uno tiene respaldo en la evidencia y se asigna al canal donde mejor funciona (Tabla~\ref{tab:mensajes}).
+
+{\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{4.6cm}|>{\raggedright\arraybackslash}p{5.6cm}|>{\raggedright\arraybackslash}p{3.4cm}|}
+    \caption{\leyendaFont{Mensajes clave de la propuesta de difusión}}
+    \label{tab:mensajes}\\
+    \hline
+    \textbf{Mensaje} & \textbf{Respaldo} & \textbf{Canal principal} \\ \hline
+    \endfirsthead
+    \hline
+    \textbf{Mensaje} & \textbf{Respaldo} & \textbf{Canal principal} \\ \hline
+    \endhead
+    1. Moverse, aunque sea poco, ya suma. & Cualquier nivel de actividad se asoció a mejor salud al envejecer \parencite{morenoagostino2020}. & Afiche y redes sociales \\ \hline
+    2. La meta: 2 horas y media a 5 horas de actividad a la semana, más fuerza dos días. & Recomendación de la OMS \parencite{oms2020}; niveles medio y alto de actividad asociados a envejecimiento exitoso \parencite{zhang2025}. & Afiche, folleto y web \\ \hline
+    3. Nunca es tarde para comer mejor: más verduras, legumbres y pescado; menos sal y ultraprocesados. & Mejorar la dieta entre la mediana edad y la vejez también suma \parencite{zhou2023}; rasgos de las dietas longevas \parencite{dominguez2022}; metas de la OMS \parencite{puri2023}. & Folleto y web \\ \hline
+    4. Dormir bien también cuida tus músculos. & Sueño, proteína, calidad de la dieta y fuerza están relacionados \parencite{kuczmarski2025}. & Redes sociales y web \\ \hline
+    5. Cada hábito suma: no fumar, moverse y mantener un peso saludable. & Con cinco factores favorables, la probabilidad de envejecer exitosamente fue bastante mayor \parencite{bosnes2019}. & Afiche y redes sociales \\ \hline
+    6. Acompáñate: la compañía también es salud. & El buen apoyo social es uno de los mejores predictores de envejecer bien \parencite{bosnes2019}. & Afiche y redes sociales \\ \hline
+    7. Empieza hoy: lo que haces entre los 40 y los 59 se nota después. & Los hábitos de la mediana edad predicen la salud 20 años después \parencite{bosnes2019} y protegen más antes de que aparezcan las enfermedades \parencite{zhu2025}. & Todas las piezas \\ \hline
+\end{longtable}
+}
+
+\subsubsection{Cómo comunicamos}
+
+Para que el mensaje se entienda sin ambigüedades seguimos cinco criterios:
+\begin{itemize}
+    \item Una idea por pieza. Cada afiche o publicación desarrolla un solo mensaje.
+    \item Lenguaje simple y positivo. Hablamos de lo que se gana, no de culpas ni de miedo.
+    \item Cifras que se entienden. Usamos horas y porciones, no \textit{odds ratios}. Decimos ``más probabilidad'' y no inventamos porcentajes de riesgo.
+    \item Sin promesas. Usamos ``ayuda'' o ``se asocia'', nunca ``previene'' o ``cura''.
+    \item Fuentes visibles. Cada pieza impresa lleva un código QR a la página web, donde están las referencias.
+\end{itemize}
+
+\subsubsection{Canales y piezas}
+
+\textbf{Afiches y folletos impresos.} Diez piezas impresas, cada una con uno de los mensajes clave y un código QR a la página web. Se distribuirán en \pendiente{lugares concretos, por ejemplo CESFAM, juntas de vecinos, ferias, lugares de trabajo o la universidad}.
+
+\textbf{Redes sociales.} Publicaciones en \pendiente{red social y nombre de la cuenta}, con carruseles que explican un hábito por publicación e historias con preguntas o datos breves. Se publicará \pendiente{frecuencia, por ejemplo dos veces por semana} durante el período de difusión.
+
+\textbf{Página web.} Un sitio informativo programado con HTML, CSS y JavaScript y publicado en un hosting gratuito, disponible en \pendiente{URL de la página}. Reúne los siete mensajes, explica cada hábito con más detalle, incluye \pendiente{secciones finales del sitio, por ejemplo una rutina guiada y una sección de mitos} y muestra las referencias de este informe.
+
+\pendiente{Ajustar la prioridad de los canales según la pregunta 15 de la encuesta: si la mayoría se informa por profesionales de salud, reforzar los afiches en centros de salud; si es por redes o YouTube, reforzar las publicaciones y videos cortos.}
+
+\subsubsection{Calendario e indicadores}
+
+Según la carta Gantt, el diseño de afiches, folletos y publicaciones va del 21 de octubre al 1 de noviembre; la página web, del 21 de octubre al 10 de noviembre; la revisión de contenidos y fuentes, del 3 al 10 de noviembre; y la difusión, del 4 al 15 de noviembre. Para saber si la difusión funcionó, seguiremos los indicadores de la Tabla~\ref{tab:indicadores}.
+
+\tabla{Indicadores de la difusión}{indicadores}{|l|c|c|}{%
+    \filaTabla{\textbf{Indicador} & \textbf{Meta} & \textbf{Resultado}}
+    \filaTabla{Afiches y folletos impresos distribuidos & 10 & \pend}
+    \filaTabla{Lugares donde se distribuyeron & \pend & \pend}
+    \filaTabla{Publicaciones en redes sociales & \pend & \pend}
+    \filaTabla{Alcance o visualizaciones en redes sociales & \pend & \pend}
+    \filaTabla{Visitas a la página web & \pend & \pend}
+}
+
+\pendiente{Describir cómo resultó la difusión: qué se alcanzó a hacer, qué cambió respecto del plan y, si se puede, agregar fotos de los afiches instalados o capturas de las publicaciones y de la web.}
+
+\subsection{Detalles del trabajo}
+
+\subsubsection{Organización del equipo}
+
+Repartimos el trabajo en nueve tareas y usamos una matriz RACI para que cada tarea tuviera una sola persona que responde por el resultado (A). En algunos casos esa misma persona también ejecuta la tarea (A/R). Así cada integrante quedó a cargo de al menos una tarea y sabíamos a quién preguntarle por cada parte (Tabla~\ref{tab:raci}).
+
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Matriz RACI del proyecto}}
+    \label{tab:raci}
+    {\footnotesize
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|*{5}{>{\centering\arraybackslash}p{2.1cm}|}}
+        \hline
+        \textbf{Tarea} & \textbf{Ulysses} & \textbf{Maximiliano} & \textbf{Fabián} & \textbf{Valentina} & \textbf{Lucas} \\ \hline
+        1. Definir el rango etario & A/R & R & C & C & I \\ \hline
+        2. Investigar hábitos y enfermedades & C & A/R & R & C & I \\ \hline
+        3. Definir mensajes y formato & C & C & C & A/R & R \\ \hline
+        4. Diseñar afiches, folletos y publicaciones & I & C & R & R & A/R \\ \hline
+        5. Desarrollar la página web & C & A/R & R & I & C \\ \hline
+        6. Preparar la presentación de avances & A/R & R & C & R & C \\ \hline
+        7. Revisar contenidos y fuentes & R & R & A/R & C & C \\ \hline
+        8. Difundir el material & R & C & R & A/R & R \\ \hline
+        9. Redactar el informe final y la propuesta & R & R & C & C & A/R \\ \hline
+    \end{tabularx}
+
+    \smallskip
+    {\scriptsize R: responsable, hace la tarea. A: aprobador, responde por el resultado. C: consultado, opina antes de decidir. I: informado, se entera del avance.}
+    }
+\end{table}
+
+\subsubsection{Planificación y tiempos}
+
+Cada integrante puede dedicar entre 3 y 5 horas a la semana, es decir, el grupo cuenta con 15 a 25 horas semanales. Entre el 30 de septiembre y el 17 de noviembre hay siete semanas, lo que da entre 105 y 175 horas disponibles. Estimamos que el proyecto requiere 56 horas de trabajo (Tabla~\ref{tab:horas}), así que la carga queda dentro de lo posible. El presupuesto se expresó en horas de trabajo del equipo y no en dinero. Dejamos cinco días de holgura, del 18 al 22 de noviembre, antes de la entrega del 23 de noviembre. La Figura~\ref{fig:gantt} muestra la carta Gantt.
+
+\tabla{Tareas, fechas y horas estimadas}{horas}{|l|c|c|c|}{%
+    \filaTabla{\textbf{Tarea} & \textbf{Fechas} & \textbf{Días} & \textbf{Horas}}
+    \filaTabla{1. Definir el rango etario & 30 sep -- 6 oct & 7 & 2}
+    \filaTabla{2. Investigar hábitos y enfermedades & 5 oct -- 18 oct & 14 & 15}
+    \filaTabla{3. Definir mensajes y formato & 14 oct -- 21 oct & 8 & 5}
+    \filaTabla{4. Diseñar afiches, folletos y publicaciones & 21 oct -- 1 nov & 12 & 6}
+    \filaTabla{5. Desarrollar la página web & 21 oct -- 10 nov & 21 & 6}
+    \filaTabla{6. Preparar la presentación de avances & 26 oct -- 1 nov & 7 & 4}
+    \filaTabla{7. Revisar contenidos y fuentes & 3 nov -- 10 nov & 8 & 7}
+    \filaTabla{8. Difundir el material & 4 nov -- 15 nov & 12 & 4}
+    \filaTabla{9. Redactar el informe final y la propuesta & 5 nov -- 17 nov & 13 & 7}
+    \filaTabla{\textbf{Total} & & & \textbf{56}}
+}
+
+\begin{figure}[H]
+    \centering
+    \begin{ganttchart}[
+        time slot format=isodate,
+        x unit=0.185cm,
+        y unit title=0.5cm,
+        y unit chart=0.55cm,
+        hgrid style/.style={draw=black!15},
+        hgrid,
+        vgrid={*{6}{draw=none}, dotted},
+        title label font=\scriptsize\bfseries,
+        bar label font=\scriptsize,
+        milestone label font=\scriptsize\itshape,
+        bar/.append style={fill=teal!45},
+        bar height=0.55,
+        milestone/.append style={fill=orange},
+        milestone height=0.55
+    ]{2026-09-30}{2026-11-23}
+        \gantttitle{}{1}
+        \gantttitle{Octubre 2026}{31}
+        \gantttitle{Noviembre 2026}{23} \\
+        \ganttbar{1. Definir el rango etario}{2026-09-30}{2026-10-06} \\
+        \ganttbar{2. Investigar hábitos y enfermedades}{2026-10-05}{2026-10-18} \\
+        \ganttbar{3. Definir mensajes y formato}{2026-10-14}{2026-10-21} \\
+        \ganttbar{4. Diseñar afiches y publicaciones}{2026-10-21}{2026-11-01} \\
+        \ganttbar{5. Desarrollar la página web}{2026-10-21}{2026-11-10} \\
+        \ganttbar{6. Preparar presentación de avances}{2026-10-26}{2026-11-01} \\
+        \ganttbar{7. Revisar contenidos y fuentes}{2026-11-03}{2026-11-10} \\
+        \ganttbar{8. Difundir el material}{2026-11-04}{2026-11-15} \\
+        \ganttbar{9. Redactar el informe final}{2026-11-05}{2026-11-17} \\
+        \ganttbar[bar/.append style={fill=gray!30}]{Holgura}{2026-11-18}{2026-11-22} \\
+        \ganttmilestone{Presentación de avances (2 nov)}{2026-11-02} \\
+        \ganttmilestone{Entrega del informe (23 nov)}{2026-11-23}
+    \end{ganttchart}
+    \caption{\leyendaFont{Carta Gantt del proyecto}}
+    \label{fig:gantt}
+\end{figure}
+
+\subsubsection{Hitos y avance}
+
+La Tabla~\ref{tab:hitos} resume los hitos del proyecto y su estado.
+
+\tabla{Hitos del proyecto}{hitos}{|l|p{8cm}|c|}{%
+    \filaTabla{\textbf{Fecha} & \textbf{Hito} & \textbf{Estado}}
+    \filaTabla{\pendiente{fecha} & Lluvia de ideas y elección del tema & Logrado}
+    \filaTabla{30 de septiembre & Inicio del trabajo planificado & Logrado}
+    \filaTabla{\pendiente{fecha} & Planificación: tareas, carta Gantt, matriz RACI y horas & Logrado}
+    \filaTabla{5 de octubre & Público objetivo (40 a 59 años) y herramienta de recolección & Logrado}
+    \filaTabla{19 de octubre & 11 artículos reunidos y registrados en la ficha & Logrado}
+    \filaTabla{\pendiente{fecha} & Encuesta diseñada y publicada & Logrado}
+    \filaTabla{2 de noviembre & Presentación de avances & \pend}
+    \filaTabla{10 de noviembre & Página web terminada & \pend}
+    \filaTabla{15 de noviembre & Término de la difusión & \pend}
+    \filaTabla{23 de noviembre & Entrega del informe final y la propuesta & \pend}
+}
+
+Según la carta Gantt, al 2 de noviembre debían estar terminadas las tareas 1, 2, 3, 4 y 6, y la página web debía ir a la mitad. Eso equivale a unas 35 de las 56 horas, cerca del 62\,\% del proyecto. \pendiente{Indicar el avance real a esa fecha y al cierre (por ejemplo, ``al 2 de noviembre llevábamos un XX\,\%''), qué tareas se atrasaron, por qué y cómo se recuperaron; mencionar si se usó la holgura.}
+
+\subsubsection{Dificultades y cómo las resolvimos}
+
+\begin{itemize}
+    \item \textbf{La búsqueda daba muy pocos o demasiados resultados.} Ajustamos la ecuación por bloques: si salían pocos, quitábamos el último grupo de palabras; si salían demasiados, acotábamos. Al final complementamos la búsqueda inicial con una segunda base de datos.
+    \item \textbf{No pudimos acceder al texto completo de 13 de los 24 artículos.} Decidimos trabajar solo con los 11 que pudimos leer completos, en vez de citar artículos solo por su resumen. Los demás quedaron registrados en el Anexo~C.
+    \item \textbf{La primera idea de fuente primaria no servía.} Las entrevistas de otro proyecto eran pocas y no estaban pensadas para nuestras preguntas, así que diseñamos una encuesta propia para nuestro público.
+    \item \textbf{La evidencia es casi toda extranjera.} No encontramos estudios chilenos, así que adaptamos los mensajes a alimentos y hábitos locales y lo declaramos como limitación.
+    \item \textbf{Poco tiempo disponible.} Cada integrante tiene entre 3 y 5 horas a la semana. Lo resolvimos con tareas en paralelo, como el diseño de los afiches y la web, y con cinco días de holgura antes de la entrega.
+    \item \pendiente{Agregar cualquier otra dificultad del período de difusión, por ejemplo con la impresión, los permisos para instalar afiches o la publicación de la web.}
+\end{itemize}
+
+\subsubsection{Comunicación y trabajo en equipo}
+
+En la clase del 14 de septiembre reflexionamos sobre la comunicación efectiva. Concluimos que comunicarse bien ayuda a retener la información con más precisión, evita ambigüedades y ahorra tener que repetir lo mismo varias veces. También notamos que la actitud personal influye en la disposición de los demás: una comunicación efectiva motiva a participar y a sentirse parte del proceso. Eso se tradujo en algo concreto: que cada tarea tuviera un responsable claro y que las decisiones se tomaran después de escuchar a todos, como en la lluvia de ideas.
+
+En una dinámica de mímica tuvimos que transmitir un mensaje solo con gestos. Nos costó, porque cada persona puede interpretar un gesto de forma distinta. Tuvimos que buscar gestos que todos entendieran. Esa experiencia nos sirvió para diseñar los afiches: una sola idea por pieza, imágenes fáciles de leer y textos cortos. En la misma dinámica vimos que formular preguntas específicas es difícil: mientras más se profundiza, más cuesta encontrar la pregunta precisa. Lo aplicamos en la encuesta, que parte con preguntas generales, avanza hacia otras más específicas y usa saltos para no preguntar lo que no corresponde.
+
+\pendiente{Opcional: agregar una o dos frases sobre cómo funcionó la coordinación del equipo (por ejemplo, el canal de comunicación que usaron, cada cuánto se reunían y cómo resolvieron desacuerdos).}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONCLUSIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Conclusiones}
+\section*{Conclusiones}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Conclusiones generales}
+\subsection*{Conclusiones generales}
+
+El proyecto partió de una intuición que compartíamos los cinco: la forma en que envejecemos depende de los hábitos que tenemos antes de llegar a la vejez. La investigación respaldó esa idea. Los estudios que revisamos, algunos con seguimientos de más de 20 años y otros con más de 100 mil personas, coinciden en que lo que se hace en la mediana edad se asocia con cómo se envejece después.
+
+La evidencia también nos ayudó a elegir qué decir. Los hábitos con respaldo más sólido son moverse, comer variado y con base vegetal, no fumar y tener buen apoyo social. Además, los hábitos se suman y se refuerzan entre sí. Con eso pasamos de un tema amplio, ``envejecer mejor'', a siete mensajes concretos que se pueden poner en un afiche.
+
+Aprendimos a ser cuidadosos con la evidencia. No todo lo que se repite sobre salud tiene respaldo firme, y un estudio puede mostrar una asociación sin probar una causa. Por eso dejamos fuera afirmaciones que sonaban bien pero que la evidencia no sostiene, y declaramos los límites de nuestra investigación: estudios mayoritariamente extranjeros, artículos a los que no tuvimos acceso y una encuesta que no es representativa.
+
+\pendiente{Agregar una o dos frases sobre lo que aportó la encuesta a la propuesta y sobre cómo resultó la difusión.}
+
+Por último, el proyecto fue también un ejercicio de liderazgo y trabajo en equipo. Definir responsables claros, planificar con holgura y escuchar todas las ideas antes de decidir nos permitió avanzar con poco tiempo disponible y adaptarnos cuando algo no resultó como esperábamos.
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Conclusiones específicas}
+\subsection*{Conclusiones específicas}
+
+\textbf{Objetivo 1: definir y justificar el público objetivo.} Elegir a personas de 40 a 59 años fue una decisión acertada. Es la etapa en que empiezan a acumularse las enfermedades crónicas y en que los hábitos todavía tienen el mayor efecto protector. Los estudios de Noruega y China lo muestran desde dos ángulos: los hábitos de la mediana edad predicen el envejecimiento décadas después, y cuando las enfermedades ya se acumularon cuesta más mantenerlos.
+
+\textbf{Objetivo 2: identificar hábitos con respaldo científico.} Identificamos cuatro hábitos con respaldo consistente: la actividad física, una alimentación variada y con base vegetal, no fumar y el apoyo social. Encontramos también evidencia más débil, o sin resultados significativos, sobre alimentos vegetales y cognición o sobre la frecuencia de comidas, y la usamos solo como apoyo. El conjunto de 11 artículos es suficiente para orientar mensajes de difusión, aunque no para hacer recomendaciones clínicas.
+
+\textbf{Objetivo 3: conocer al público mediante la encuesta.} La encuesta nos permitió conocer \pendiente{principales hallazgos: barrera más mencionada, tiempo sentado, conocimiento de la recomendación y canal de información más usado}. \pendiente{Indicar en qué coincidió con la evidencia y en qué nos sorprendió.} Su principal limitación es que es una muestra por conveniencia de \pend{} personas, por lo que sus resultados describen a quienes respondieron y no a toda la población.
+
+\textbf{Objetivo 4: diseñar la propuesta de difusión.} Logramos traducir la evidencia en siete mensajes simples, cada uno con su respaldo y su canal, y con criterios de redacción que evitan prometer más de lo que la evidencia permite. La combinación de piezas impresas con código QR, redes sociales y una página web permite llegar al público por varios caminos y dejar las fuentes disponibles para quien quiera profundizar. \pendiente{Agregar el resultado de la difusión según los indicadores de la Tabla~\ref{tab:indicadores}: qué se alcanzó y qué se haría distinto.}
+
+\textbf{Objetivo 5: organizar el trabajo del equipo.} La matriz RACI y la carta Gantt nos dieron una base clara: cada tarea tuvo un responsable y las 56 horas estimadas quedaron dentro de las 105 a 175 disponibles. Trabajar en paralelo y dejar holgura fue clave con tan poco tiempo por persona. \pendiente{Agregar si se cumplieron los plazos y qué ajustes se hicieron a la planificación.} Lo aprendido en clase sobre comunicación efectiva se notó en el trabajo: escuchar todas las ideas antes de decidir y buscar mensajes sin ambigüedades mejoró tanto la coordinación interna como el material para el público.
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Bibliografía}
+
+\printbibliography[title={Bibliografía}]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{\hspace*{1em}A\arabic{page}}
+
+\phantomsection
+\addcontentsline{toc}{section}{Anexos}
+\section*{Anexos}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Anexo A: Ecuación de búsqueda}
+\subsection*{Anexo A: Ecuación de búsqueda}
+
+Ecuación diseñada para Scopus. En Web of Science es la misma con el campo \texttt{TS=}, y los filtros de año, tipo de documento e idioma se aplican a mano.
+
+{\footnotesize
+\begin{verbatim}
+TITLE-ABS-KEY ( ( "middle-aged" OR "middle age*" OR "midlife" OR "mid-life" )
+  AND ( "healthy aging" OR "healthy ageing" OR "successful aging"
+        OR "successful ageing" OR "aging well" OR "ageing well" )
+  AND ( "physical activity" OR "sedentary behavio*" OR exercise
+        OR diet OR nutrition OR lifestyle )
+  AND ( "chronic disease*" OR "noncommunicable disease*"
+        OR "non-communicable disease*" OR sarcopenia OR "muscle mass"
+        OR "functional decline" OR "cognitive decline" ) )
+AND PUBYEAR > 2018 AND DOCTYPE ( ar OR re )
+AND LANGUAGE ( english OR spanish )
+\end{verbatim}
+}
+
+Si la búsqueda daba muy pocos resultados se quitaba el último bloque. Si daba demasiados se agregaba \verb|AND ( "Chile" OR "Latin America*" )|.
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Anexo B: Cuestionario de la encuesta}
+\subsection*{Anexo B: Cuestionario de la encuesta}
+
+\textbf{Título:} Actividad física, salud y tecnología (40 a 59 años). \textbf{Plataforma:} Google Forms (\url{https://forms.gle/Zse5FkoZ6dcC9Akt7}).
+
+\textbf{Texto de presentación:} ``Hola. Esta encuesta es parte de un proyecto universitario que busca entender cómo las personas de 40 a 59 años viven su actividad física, su salud y su relación con la tecnología. Responder toma unos 10 minutos. Su participación es voluntaria y los datos que usted comparta se usarán solo para este proyecto.''
+
+Las preguntas marcadas con (*) son obligatorias. ``Otro'' indica que la pregunta permite escribir una respuesta propia. Entre corchetes se indican los saltos condicionales.
+
+{\small
+\begin{enumerate}[leftmargin=2em, itemsep=0.4em]
+    \item Nombre (*). Respuesta corta.
+    \item Apellido (*). Respuesta corta.
+    \item Correo electrónico (*). Respuesta corta.
+
+    \item[] \textit{Datos de perfil}
+    \item ¿Me podría indicar su edad? (*) 40 a 44 años / 45 a 49 años / 50 a 54 años / 55 a 59 años.
+    \item ¿Sufre de alguna enfermedad crónica? (*) Sí / No / Prefiero no responder. [Solo quien responde ``Sí'' pasa a la pregunta 6.]
+
+    \item[] \textit{Enfermedad crónica}
+    \item ¿Cuál o cuáles? (*, selección múltiple) Hipertensión (presión alta) / Diabetes / Colesterol o triglicéridos altos / Artrosis o artritis / Enfermedad respiratoria (asma, EPOC) / Enfermedad del corazón / Hipotiroidismo / Depresión o ansiedad / Otro.
+
+    \item[] \textit{Actividad principal}
+    \item ¿A qué se dedica actualmente o cómo ocupa la mayor parte de su día? (*) Trabajo a tiempo completo / Trabajo part-time / Trabajo independiente o emprendimiento / Labores del hogar o cuidado de familiares / Buscando trabajo / Jubilado(a) o pensionado(a) / Estudiante / Otro.
+
+    \item[] \textit{Rutina y actividad física}
+    \item ¿Cómo es un día normal para usted, desde que se levanta hasta que se acuesta? Párrafo, opcional.
+    \item En un día normal, ¿cuánto tiempo diría que pasa sentado(a) o en reposo, sin contar las horas de sueño? (*) Menos de 4 horas / Entre 4 y 6 horas / Entre 7 y 9 horas / 10 horas o más.
+    \item ¿En qué momentos del día ocurre principalmente? (*, selección múltiple) En el trabajo / En traslados (auto, micro, metro) / Viendo televisión o usando el celular o computador / Durante las comidas / Descansando o durmiendo siesta / Otro.
+
+    \item[] \textit{Barreras y fuentes de información}
+    \item ¿Siente que su rutina actual es suficiente para mantenerse saludable? (*) Sí / No / No estoy seguro(a). [Quien responde ``No'' o ``No estoy seguro(a)'' pasa a la pregunta 12; quien responde ``Sí'', a la 13.]
+
+    \item[] \textit{Razones}
+    \item ¿Cuál siente usted que es la razón de su estilo de vida con poco ejercicio o poco cuidado de la salud? (*, selección múltiple) Falta de tiempo / No sé bien qué ejercicios hacer / Cansancio o falta de energía / Falta de motivación / Dolor, lesiones o problemas de salud / Costo (gimnasio, clases, implementos) / No tengo lugares cercanos o seguros / No tengo con quién hacerlo / Otro.
+
+    \item[] \textit{Motivación y fuentes de información}
+    \item ¿Qué le motivaría más a realizar actividad física? (*, hasta 3 opciones) Cuidar o mejorar mi salud / Indicación de un médico / Bajar de peso o verme mejor / Tener más energía / Reducir el estrés / Hacerlo acompañado(a) / Ver mi progreso o tener metas claras / Una rutina guiada y fácil de seguir / Otro.
+    \item Si hoy decidiera empezar a hacer más ejercicio, ¿cuál cree que sería el mayor impedimento para lograrlo? (*) Mismas opciones que la pregunta 12.
+    \item ¿Cómo suele buscar información cuando tiene una duda sobre salud o quiere aprender una rutina nueva? (*, selección múltiple) Le pregunto a un médico u otro profesional de salud / Busco en Google / Veo videos en YouTube / Redes sociales (Facebook, Instagram, TikTok) / Le pregunto a familiares o amigos / Uso aplicaciones de salud o ejercicio / Le pregunto a un asistente de inteligencia artificial (ChatGPT u otro) / No suelo buscar información / Otro.
+    \item ¿Qué tan confiable le resulta la información que encuentra? (*) Muy confiable / Bastante confiable / Poco confiable / Nada confiable / No suelo buscar información.
+
+    \item[] \textit{Salud y bienestar en el envejecimiento}
+    \item ¿Ha notado cambios en su fuerza física, su equilibrio o sus niveles de energía en los últimos años? (*) Sí / No. [Quien responde ``Sí'' pasa a las preguntas 18 a 20; quien responde ``No'', a la 21.]
+
+    \item[] \textit{Cambios que ha notado}
+    \item ¿En qué ha notado cambios? (*, selección múltiple) Fuerza física / Equilibrio / Niveles de energía.
+    \item ¿Cuánto han afectado estos cambios su capacidad para hacer las cosas que le gustan? (*) Nada / Un poco / Bastante / Me impiden hacer algunas cosas.
+    \item ¿Podría darnos un ejemplo? Párrafo, opcional.
+
+    \item[] \textit{Preocupaciones a futuro}
+    \item Cuando piensa en el futuro y en el proceso de envejecer, ¿qué es lo que más le preocupa respecto a su salud física? (*) Perder fuerza o movilidad / Caídas o problemas de equilibrio / Dolor de articulaciones o espalda / Enfermedades crónicas (diabetes, presión alta, corazón) / Subir de peso / Perder independencia (depender de otros) / No me preocupa / Otro.
+    \item ¿Está tomando medidas para prevenirlo? (*) Sí / No. [Solo quien responde ``Sí'' pasa a la pregunta 23.]
+
+    \item[] \textit{Medidas de prevención}
+    \item ¿Cuáles medidas está tomando? (*, selección múltiple) Hago ejercicio regularmente / Cuido mi alimentación / Me hago controles médicos / Tomo medicamentos o suplementos / Duermo y descanso mejor / Otro.
+
+    \item[] \textit{Recomendaciones de ejercicio}
+    \item ¿Conoce cuánto tiempo o con qué frecuencia recomiendan los expertos hacer ejercicio a alguien de su edad? (*) Sí, la conozco / Tengo una idea general / No la conozco.
+    \item Si la conoce, ¿cuál es esa recomendación? Párrafo, opcional.
+    \item En su opinión, ¿cuánto tiempo de actividad física es el ideal para alguien que quiere mantenerse saludable? (*) Menos de 1 hora a la semana / Entre 1 y 2 horas a la semana / Entre 2 horas y media y 5 horas a la semana / Más de 5 horas a la semana / No sé.
+\end{enumerate}
+}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Anexo C: Artículos identificados sin acceso al texto completo}
+\subsection*{Anexo C: Artículos identificados sin acceso al texto completo}
+
+Estos 13 artículos cumplían el tema de la búsqueda, pero no pudimos obtener su texto completo. Se dejan como registro del proceso y no se usaron como evidencia en el informe.
+
+{\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.4cm}|>{\centering\arraybackslash}p{0.9cm}|>{\raggedright\arraybackslash}p{7.2cm}|>{\raggedright\arraybackslash}p{3.3cm}|}
+    \hline
+    \textbf{Primer autor} & \textbf{Año} & \textbf{Título} & \textbf{Revista} \\ \hline
+    \endhead
+    Tessier et al. & 2025 & Optimal dietary patterns for healthy aging & Nature Medicine \\ \hline
+    Ardisson Korat et al. & 2024 & Dietary protein intake in midlife in relation to healthy aging: Results from the prospective Nurses' Health Study cohort & The American Journal of Clinical Nutrition \\ \hline
+    Shi et al. & 2024 & Sedentary behaviors, light-intensity physical activity, and healthy aging & JAMA Network Open \\ \hline
+    Lin et al. & 2020 & Physical activity and successful aging among middle-aged and older adults: A systematic review and meta-analysis of cohort studies & Aging \\ \hline
+    Roberts et al. & 2021 & Healthy aging: Nutrition matters. Start early and screen often & Advances in Nutrition \\ \hline
+    Gauci et al. & 2022 & Dietary patterns in middle age: Effects on concurrent neurocognition and risk of age-related cognitive decline & Nutrition Reviews \\ \hline
+    Chen et al. & 2026 & Individual sedentary activities and cognitive function in middle-aged and older adults: A systematic review & Journal of Alzheimer's Disease \\ \hline
+    Li et al. & 2020 & Healthy lifestyle and life expectancy free of cancer, cardiovascular disease, and type 2 diabetes: Prospective cohort study & BMJ \\ \hline
+    Chuang et al. & 2024 & Impact of physical activity on disability-free and disabled life expectancies in middle-aged and older adults: Data from the Healthy Aging Longitudinal Study in Taiwan & Geriatrics \& Gerontology International \\ \hline
+    Zhou et al. & 2021 & Association between combined lifestyle factors and healthy ageing in Chinese adults: The Singapore Chinese Health Study & The Journals of Gerontology, Series A \\ \hline
+    Hamm et al. & 2025 & Combinations of light, moderate, and vigorous physical activity in midlife and old age: Implications for healthy cognitive aging & Annals of Behavioral Medicine \\ \hline
+    Krivanek et al. & 2021 & Promoting successful cognitive aging: A ten-year update & Journal of Alzheimer's Disease \\ \hline
+    Wagner et al. & 2020 & Long-term trajectories of body weight, diet, and physical activity from midlife through late life and subsequent cognitive decline in women & American Journal of Epidemiology \\ \hline
+\end{longtable}
+}
+
+\end{document}
