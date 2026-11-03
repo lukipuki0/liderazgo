@@ -1,0 +1,25 @@
+:root{--verde:#2f7d5b;--verde2:#e7f3ec;--tinta:#1f2a26;--gris:#5b6661;--ambar:#f4a236}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tinta);line-height:1.6;font-size:18px;background:#fbfcfb}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #e3e8e5;z-index:10}
+nav .in{max-width:1080px;margin:auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;flex-wrap:wrap}
+nav .logo{font-weight:800;color:var(--verde);font-size:1.2rem;margin-right:auto;text-decoration:none}
+nav a{color:var(--tinta);text-decoration:none;font-size:.95rem}nav a:hover{color:var(--verde)}
+header{background:linear-gradient(135deg,var(--verde),#4fa57e);color:#fff;padding:5rem 1.2rem 4rem;text-align:center}
+header h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:.2rem 0}header p{max-width:680px;margin:1rem auto;font-size:1.2rem}
+.btn{display:inline-block;background:var(--ambar);color:#1f2a26;padding:.8rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;margin-top:1rem}
+section{max-width:1080px;margin:auto;padding:4rem 1.2rem}
+h2{font-size:2rem;color:var(--verde);margin-top:0}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:#fff;border:1px solid #e3e8e5;border-radius:16px;padding:1.4rem;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.card .n{display:inline-flex;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--verde2);color:var(--verde);font-weight:800;align-items:center;justify-content:center}
+.card h3{margin:.6rem 0 .4rem;font-size:1.15rem}.fuente{font-size:.85rem;color:var(--gris)}
+.alt{background:var(--verde2);max-width:none}.alt>div{max-width:1080px;margin:auto}
+details{background:#fff;border-radius:12px;padding:1rem 1.3rem;margin:.8rem 0;border:1px solid #d6e6dc}
+summary{cursor:pointer;font-weight:700;font-size:1.15rem}
+.dato{border-left:4px solid var(--ambar);padding-left:.9rem;margin:1rem 0}
+.aviso{background:#fff7ea;border:1px solid #f3d7a6;border-radius:12px;padding:1rem 1.3rem}
+ol.refs li{margin-bottom:.6rem;font-size:.95rem}a{color:var(--verde)}
+.quiz button{font:inherit;padding:.5rem 1rem;margin:.3rem;border-radius:999px;border:2px solid var(--verde);background:#fff;cursor:pointer}
+.quiz button.sel{background:var(--verde);color:#fff}#res{font-weight:700;margin-top:1rem}
+footer{background:var(--tinta);color:#cfd8d3;text-align:center;padding:2rem 1rem;font-size:.9rem}footer a{color:#fff}
