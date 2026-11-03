@@ -1,0 +1,13 @@
+{
+  "title": "Envejecer Mejor · Blog con conversación",
+  "brief": "Propuesta visual de blog para personas de 40 a 59 años con la identidad pastel existente: artículo destacado, últimas lecturas por tema y vista previa de artículo con conversación. Textos y comentarios explícitamente de muestra; formulario deshabilitado, sin envíos ni almacenamiento. Proyecto secundario y fuentes sin verificar. No es una implementación de producción.",
+  "artboards": [
+    {
+      "file": "01-calma.html",
+      "title": "Calma cotidiana · Blog y conversación",
+      "tradeoff": "Prioriza descubrir lecturas y conversar sobre un artículo; portada y vista previa conviven en una única maqueta responsive, no en páginas separadas. Temas con anclas, comentarios ficticios y formulario deshabilitado ilustran el recorrido sin funcionalidad real. Papers, autoría y equipo pendientes de validación editorial.",
+      "width": 1440,
+      "height": 1100
+    }
+  ]
+}
