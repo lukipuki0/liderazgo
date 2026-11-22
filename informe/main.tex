@@ -8,9 +8,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%% ------------------------------ %%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Lo que falta completar está marcado con \pendiente{...} (texto) y \pend
-% (celdas de tablas). Ambos se ven en rojo en el PDF; para encontrarlos todos
-% basta con buscar "pend" en este archivo.
+% Los gráficos de la encuesta se generan con analisis/encuesta.py y
+% analisis/graficos.py (paleta de la presentación). Si cambian las respuestas,
+% basta con volver a correr ambos scripts y compilar.
 
 \documentclass[12pt, letterpaper, table, xcdraw]{extarticle}
 
@@ -65,6 +65,14 @@
 \definecolor{DarkGrey}{gray}{0.075}
 \definecolor{LightGrey}{gray}{0.925}
 
+% Paleta de la presentación Envejecer Mejor
+\definecolor{emRosado}{HTML}{D9628F}
+\definecolor{emRosadoClaro}{HTML}{FFE1EC}
+\definecolor{emVerde}{HTML}{78963A}
+\definecolor{emVerdeClaro}{HTML}{E6F3C9}
+\definecolor{emVerdeMedio}{HTML}{B4D97A}
+\definecolor{emOliva}{HTML}{55722A}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
@@ -112,9 +120,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Marcas de contenido pendiente
-\newcommand{\pendiente}[1]{\textcolor{red}{\textbf{[PENDIENTE: #1]}}}
-\newcommand{\pend}{\textcolor{red}{\textbf{XX}}}
+% Gráficos de la encuesta: \grafico{archivo}{título}{label}
+\newcommand{\grafico}[3]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.82\textwidth]{assets/images/#1.pdf}
+        \caption{\leyendaFont{#2}}
+        \label{fig:#3}
+    \end{figure}
+}
 
 % Portada
 \newcommand{\membrete}[1]{\fontsize{12}{16}\selectfont\noindent #1}
@@ -172,7 +186,7 @@
 
     \tituloPortada{%
         Envejecer mejor\\
-        Informe de investigación
+        Informe final
     }
 
     \vspace*{3cm}
@@ -188,7 +202,7 @@
     \vspace*{2.5cm}
 
     \datosPortada{%
-        \datoPortada{Asignatura}{ICI5476 -- Taller de Liderazgo y Trabajo en Equipo}
+        \datoPortada{Asignatura}{ICI5476, Taller de Liderazgo y Trabajo en Equipo}
         \datoPortada{Profesora}{María José Herrera}
         \datoPortada{Paralelo y grupo}{Paralelo 1, Grupo 11}
         \datoPortada{Fecha de entrega}{23 de noviembre de 2026}
@@ -280,7 +294,7 @@ La primera es que en esa etapa empiezan a aparecer las enfermedades crónicas. E
 
 La segunda es que los hábitos de la mediana edad predicen cómo se envejece después. En Noruega, los hábitos de personas de 45 a 59 años predijeron su envejecimiento exitoso más de 20 años después \parencite{bosnes2019}, y una revisión sobre nutrición y salud cognitiva propone que la prevención de la demencia se dirija a personas de 40 y 50 años, mucho antes de que aparezca \parencite{puri2023}.
 
-La tercera es práctica: es un grupo que sigue activo, por lo que se le puede llegar con afiches, redes sociales y una página web. Este último punto era un supuesto del equipo, y por eso la encuesta incluye preguntas sobre cómo se informan.
+La tercera es práctica: es un grupo que sigue activo y que se puede alcanzar con afiches, redes sociales y una página web. Al principio esto era solo un supuesto del equipo, así que agregamos a la encuesta preguntas sobre cómo se informan. Las respuestas lo confirmaron en parte: casi la mitad busca en Google cuando tiene una duda de salud (sección~\ref{sec:encuesta}).
 
 \subsection{Herramienta de recolección de datos}
 
@@ -317,17 +331,17 @@ El 5 de octubre, en clase, armamos la herramienta de recolección de datos. Tien
 
 \subsection{Búsqueda y selección de artículos}
 
-La ecuación se pensó para Scopus y Web of Science. En la práctica, la usamos como guía para buscar en otras dos herramientas: primero Consensus, un buscador de artículos académicos, y después Europe PMC, una base de datos de literatura biomédica de acceso abierto. \pendiente{explicar en una o dos frases por qué se buscó en Consensus y Europe PMC en vez de Scopus o Web of Science}.
+La ecuación se pensó para Scopus y Web of Science, pero no terminamos buscando ahí. Lucas propuso usar dos herramientas a las que era más fácil acceder, y el grupo estuvo de acuerdo: primero Consensus, un buscador de artículos académicos, y después Europe PMC, una base de datos de literatura biomédica de acceso abierto. La ecuación siguió sirviendo como guía, porque sus cuatro grupos de palabras definían qué buscar en cualquiera de las dos.
 
 De la búsqueda inicial seleccionamos 13 artículos. Como complemento revisamos 67 registros de Europe PMC y agregamos 11 más, con lo que llegamos a 24 artículos que cumplían el tema de la búsqueda. Pudimos obtener el texto completo de 11 de ellos (5 de la selección inicial y 6 de la complementaria). Los otros 13 no se usaron como evidencia, porque no pudimos leerlos completos; quedan registrados en el Anexo~C. La Figura~\ref{fig:flujo} resume el proceso.
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        caja/.style={draw, rounded corners=2pt, align=flush center, font=\footnotesize, inner sep=5pt},
-        flecha/.style={-{Stealth}, thick}
+        caja/.style={draw=emVerdeMedio, line width=0.9pt, fill=white, rounded corners=5pt, align=flush center, font=\footnotesize, inner sep=5pt, text=emOliva},
+        flecha/.style={-{Stealth}, thick, draw=emVerde}
     ]
-        \node[caja, fill=gray!10, text width=12.5cm] (eq)
+        \node[caja, fill=emVerdeClaro, text width=12.5cm] (eq)
             {Base: ecuación de búsqueda con cuatro grupos de palabras (mediana edad,\\envejecimiento saludable, hábitos y enfermedades), artículos desde 2019};
         \node[caja, text width=5.6cm, below=0.8cm of eq.south west, anchor=north west] (a)
             {Búsqueda inicial en Consensus\\\textbf{13 artículos seleccionados}};
@@ -335,10 +349,10 @@ De la búsqueda inicial seleccionamos 13 artículos. Como complemento revisamos 
             {Búsqueda complementaria\\en Europe PMC: 67 registros\\\textbf{11 seleccionados}};
         \node[caja, text width=5.8cm, below=1cm of eq.south |- b.south] (c)
             {\textbf{24 artículos identificados}};
-        \node[caja, text width=5.8cm, below=1.4cm of c] (d)
+        \node[caja, draw=emRosado, text width=5.8cm, below=1.4cm of c] (d)
             {\textbf{11 artículos con texto completo}\\(5 iniciales y 6 complementarios)};
         \coordinate (mid) at ($(c.south)!0.5!(d.north)$);
-        \node[caja, fill=gray!10, text width=3.6cm, anchor=west] (x) at ([xshift=0.8cm]mid -| c.east)
+        \node[caja, draw=emRosado, fill=emRosadoClaro, text width=3.6cm, anchor=west] (x) at ([xshift=0.8cm]mid -| c.east)
             {13 sin acceso al texto\\completo (Anexo C)};
         \node[caja, text width=9cm, below=0.8cm of d] (e)
             {Registro en la ficha común y síntesis por tema (sección~\ref{sec:levantamiento})};
@@ -387,7 +401,9 @@ La Tabla~\ref{tab:bloques} muestra los bloques de la encuesta y para qué sirve 
     }
 \end{table}
 
-\textbf{Aplicación.} El formulario se difundió entre el \pendiente{fecha de inicio} y el \pendiente{fecha de cierre} a través de \pendiente{canales: por ejemplo WhatsApp, redes sociales, familiares y conocidos}. Se recibieron \pendiente{número total de respuestas} respuestas, de las cuales \pendiente{número} fueron válidas \pendiente{criterio: por ejemplo, edad dentro del rango y formulario completo}. Como el formulario se difundió por redes cercanas al equipo, se trata de una muestra por conveniencia: sirve para conocer al público, pero no representa a toda la población de 40 a 59 años.
+\textbf{Aplicación.} La primera respuesta llegó el 25 de octubre y la última el 22 de noviembre. Compartimos el enlace por WhatsApp, en la cuenta de Instagram del proyecto y directamente con familiares y conocidos de 40 a 59 años. Nos propusimos llegar a 20 respuestas y a mediados de noviembre todavía faltaban dos, así que dejamos el formulario abierto unos días más, dentro de la holgura que habíamos reservado. Las 20 respuestas se usaron en el análisis: el formulario solo ofrece rangos de edad entre 40 y 59 años y no deja enviar sin contestar las preguntas obligatorias.
+
+Como el enlace circuló entre personas cercanas al equipo, la muestra es por conveniencia. Sirve para conocer a nuestro público, pero no representa a toda la población de 40 a 59 años, y con 20 personas cada respuesta equivale a 5 puntos porcentuales. Por eso en los resultados damos primero el número de personas y después el porcentaje.
 
 \textbf{Resguardo de los datos.} El formulario pide nombre, apellido y correo. Esos datos no se publican ni se usan en el análisis, y los resultados se presentan solo de forma agregada.
 
@@ -469,110 +485,91 @@ Hay que leer estos resultados con cuidado. La mayoría de los estudios son obser
 \subsection{Levantamiento de la información: resultados de la encuesta}
 \label{sec:encuesta}
 
-% Para agregar un gráfico de Google Forms: guardar la imagen en assets/images/
-% y escribir, por ejemplo: \imagen{assets/images/edad.png}{Edad de los encuestados}{edad}
-\pendiente{Esta sección se completa cuando se cierre la encuesta. En cada subsección hay que reemplazar las XX por los valores y, si se quiere, agregar el gráfico que entrega Google Forms (ver el comentario en el código). Los porcentajes se calculan sobre las respuestas válidas o, si la pregunta es condicional, sobre quienes la vieron.}
+Respondieron 20 personas. Los resultados van por bloque, en el mismo orden del cuestionario. En las preguntas de selección múltiple los porcentajes suman más de 100, y en las preguntas condicionales el porcentaje se calcula sobre quienes las vieron. Cada gráfico indica cuántas personas forman la base, y en rosado aparecen las respuestas que comentamos en el texto.
 
 \subsubsection{Perfil de la muestra}
 
-Respondieron \pend{} personas. La Tabla~\ref{tab:edad} muestra su distribución por edad. Del total, \pend\,\% declaró tener alguna enfermedad crónica; las más frecuentes fueron \pendiente{las 2 o 3 más marcadas en la pregunta 6}. En cuanto a su actividad principal, \pendiente{resumir la pregunta 7, por ejemplo qué porcentaje trabaja a tiempo completo}.
+La muestra se concentra entre los 50 y los 54 años, con 9 personas; el resto se reparte entre los 40 a 44 (4), los 45 a 49 (3) y los 55 a 59 años (4). Dieciséis personas trabajan, 13 de ellas a tiempo completo, y las otras cuatro se dedican a las labores del hogar o al cuidado de familiares (Figura~\ref{fig:perfil}).
 
-\tabla{Distribución de la muestra por edad (pregunta 4)}{edad}{|l|c|c|}{%
-    \filaTabla{\textbf{Rango de edad} & \textbf{n} & \textbf{\%}}
-    \filaTabla{40 a 44 años & \pend & \pend}
-    \filaTabla{45 a 49 años & \pend & \pend}
-    \filaTabla{50 a 54 años & \pend & \pend}
-    \filaTabla{55 a 59 años & \pend & \pend}
-    \filaTabla{\textbf{Total} & \pend & 100}
-}
+Cinco personas (25\,\%) declararon tener una enfermedad crónica. Las cinco tienen hipertensión y tres de ellas también hipotiroidismo. La artrosis, la depresión o ansiedad y la fibromialgia aparecen una vez cada una.
+
+\grafico{perfil}{Edad y actividad principal de las personas encuestadas (preguntas 4 y 7)}{perfil}
 
 \subsubsection{Rutina y sedentarismo}
 
-La Tabla~\ref{tab:sentado} muestra cuánto tiempo pasan sentadas las personas en un día normal. Los momentos en que más ocurre son \pendiente{las opciones más marcadas en la pregunta 10, por ejemplo en el trabajo o frente a pantallas}. \pendiente{Opcional: dos o tres ejemplos breves y anónimos de cómo describen su día en la pregunta 8.}
+Trece personas dicen pasar menos de 4 horas al día sentadas o en reposo, sin contar el sueño, y solo dos declaran 7 horas o más (Figura~\ref{fig:sedentarismo}). Al leer cómo describen un día normal, la cifra parece baja. Varias personas cuentan jornadas de trabajo de 8 a 12 horas, traslados en micro o en auto y televisión en la noche. Una de ellas, que marcó menos de 4 horas, resumió así su día: ``ducha, vestir, traslado al trabajo, desayuno, trabajo, colación, trabajo, traslado al domicilio, onces, ducha, dormir''. Como es una estimación de cada persona y no una medición, es probable que el tiempo sentado real sea mayor que el declarado.
 
-\tabla{Tiempo diario sentado o en reposo, sin contar el sueño (pregunta 9)}{sentado}{|l|c|c|}{%
-    \filaTabla{\textbf{Tiempo} & \textbf{n} & \textbf{\%}}
-    \filaTabla{Menos de 4 horas & \pend & \pend}
-    \filaTabla{Entre 4 y 6 horas & \pend & \pend}
-    \filaTabla{Entre 7 y 9 horas & \pend & \pend}
-    \filaTabla{10 horas o más & \pend & \pend}
-}
+Más que el número de horas, nos sirvió saber cuándo ocurre. El trabajo (8 menciones), las pantallas (7), las comidas (7) y los traslados (6) concentran casi todas las respuestas, y solo 3 personas mencionan el descanso o la siesta. La gente se sienta sobre todo por obligación, de modo que las pausas en la jornada y los traslados son los momentos más directos para sumar movimiento.
 
-\subsubsection{Barreras y motivaciones}
+\grafico{sedentarismo}{Tiempo diario sentado y momentos en que ocurre (preguntas 9 y 10)}{sedentarismo}
 
-El \pend\,\% siente que su rutina actual no es suficiente para mantenerse saludable y el \pend\,\% no está seguro (pregunta 11). La Tabla~\ref{tab:impedimento} muestra el mayor impedimento que mencionan para empezar a hacer más ejercicio. Entre las razones de su estilo de vida (pregunta 12), las más marcadas fueron \pendiente{2 o 3 razones con su porcentaje}. Lo que más los motivaría a moverse sería \pendiente{las 3 opciones más marcadas en la pregunta 13}.
+\subsubsection{Percepción de la rutina, barreras y motivaciones}
 
-\tabla{Mayor impedimento para empezar a hacer más ejercicio (pregunta 14)}{impedimento}{|l|c|c|}{%
-    \filaTabla{\textbf{Impedimento} & \textbf{n} & \textbf{\%}}
-    \filaTabla{Falta de tiempo & \pend & \pend}
-    \filaTabla{No sé bien qué ejercicios hacer & \pend & \pend}
-    \filaTabla{Cansancio o falta de energía & \pend & \pend}
-    \filaTabla{Falta de motivación & \pend & \pend}
-    \filaTabla{Dolor, lesiones o problemas de salud & \pend & \pend}
-    \filaTabla{Costo (gimnasio, clases, implementos) & \pend & \pend}
-    \filaTabla{No tengo lugares cercanos o seguros & \pend & \pend}
-    \filaTabla{No tengo con quién hacerlo & \pend & \pend}
-    \filaTabla{Otro & \pend & \pend}
-}
+Trece de las 20 personas sienten que su rutina no basta para mantenerse sanas, seis creen que sí y una no está segura (pregunta 11). Esa sensación no depende mucho del tiempo sentado: 8 de las 13 personas que se sientan menos de 4 horas igual dicen que su rutina no es suficiente. Es algo más común entre quienes tienen una enfermedad crónica (4 de 5) que entre quienes no la tienen (9 de 15).
+
+Al preguntarles por el mayor impedimento para empezar a hacer más ejercicio, la falta de motivación y la falta de tiempo empataron con 8 personas cada una. El cansancio y el dolor o las lesiones quedaron muy atrás, con 2 cada uno (Figura~\ref{fig:barreras}). La falta de tiempo se concentra en quienes trabajan a tiempo completo, que suman 7 de las 8 menciones.
+
+Las 14 personas que sienten que su rutina no basta, o que dudan, también explicaron por qué. Volvieron a aparecer la motivación (7) y el tiempo (6), seguidas del cansancio (4). Los obstáculos prácticos casi no aparecen: el costo y no tener con quién hacerlo los marcaron 3 personas cada uno, y no saber qué ejercicios hacer o no tener lugares cercanos, una persona cada uno. Para este grupo el problema es más de tiempo y de ánimo que de acceso o de información.
+
+\grafico{barreras}{Mayor impedimento para hacer más ejercicio y razones del poco ejercicio (preguntas 14 y 12)}{barreras}
+
+Cuidar o mejorar la salud es lo que más los motivaría a moverse (17 de 20). Le siguen bajar de peso o verse mejor (10), reducir el estrés (9) y tener más energía (8) (Figura~\ref{fig:motivaciones}). Hacerlo acompañado y la indicación de un médico los eligieron 4 personas cada uno. En la presentación de avances, con 12 respuestas, habíamos informado que la mitad no tenía con quién hacer ejercicio. Ese dato estaba mal leído y no se sostiene con la muestra completa: solo 3 personas lo marcaron, aunque 2 de ellas dicen que les motivaría hacerlo con alguien.
+
+\grafico{motivaciones}{Lo que más motivaría a hacer actividad física (pregunta 13)}{motivaciones}
 
 \subsubsection{Fuentes de información}
 
-La Tabla~\ref{tab:fuentes} muestra dónde buscan información cuando tienen una duda de salud o quieren aprender una rutina. Se podía marcar más de una opción, así que los porcentajes no suman 100. Sobre la confianza en esa información (pregunta 16), \pendiente{resumir, por ejemplo qué porcentaje la considera muy o bastante confiable}.
+Google (9 personas) y el médico u otro profesional de salud (8) son las fuentes más usadas. YouTube, las redes sociales y los asistentes de inteligencia artificial tienen 3 menciones cada uno (Figura~\ref{fig:fuentes}). Una persona dice no buscar información y, de las 19 que sí buscan, 12 usan una sola fuente. Quince personas consideran muy o bastante confiable lo que encuentran y cuatro lo ven poco confiable; tres de esas cuatro buscan en Google.
 
-\tabla{Fuentes de información sobre salud y ejercicio (pregunta 15, selección múltiple)}{fuentes}{|l|c|c|}{%
-    \filaTabla{\textbf{Fuente} & \textbf{n} & \textbf{\%}}
-    \filaTabla{Médico u otro profesional de salud & \pend & \pend}
-    \filaTabla{Google & \pend & \pend}
-    \filaTabla{YouTube & \pend & \pend}
-    \filaTabla{Redes sociales (Facebook, Instagram, TikTok) & \pend & \pend}
-    \filaTabla{Familiares o amigos & \pend & \pend}
-    \filaTabla{Aplicaciones de salud o ejercicio & \pend & \pend}
-    \filaTabla{Asistente de inteligencia artificial & \pend & \pend}
-    \filaTabla{No suelo buscar información & \pend & \pend}
-}
+De aquí sacamos dos cosas para la difusión. La página web tiene que poder encontrarse en Google y mostrar sus fuentes, porque es ahí donde busca la mayoría y donde aparece la desconfianza. Y como el médico sigue siendo una referencia, el material no debe competir con él: la web aclara que su contenido no reemplaza una consulta profesional.
+
+\grafico{fuentes}{Fuentes de información sobre salud y confianza en ellas (preguntas 15 y 16)}{fuentes}
 
 \subsubsection{Cambios percibidos, preocupaciones y prevención}
 
-El \pend\,\% ha notado cambios en su fuerza, su equilibrio o su energía en los últimos años, sobre todo en \pendiente{la opción más marcada en la pregunta 18}. Para el \pend\,\% esos cambios afectan bastante o les impiden hacer algunas cosas (pregunta 19). Cuando piensan en envejecer, lo que más les preocupa es \pendiente{las 2 opciones más elegidas en la pregunta 21}. El \pend\,\% dice estar tomando medidas para prevenirlo, principalmente \pendiente{las medidas más marcadas en la pregunta 23}.
+Dieciocho de las 20 personas han notado cambios en su fuerza, su equilibrio o su energía en los últimos años. Las dos que no los notan tienen menos de 50 años. El cambio más común es en la energía (15 de 18), seguido de la fuerza (10), y solo una persona mencionó el equilibrio (Figura~\ref{fig:cambios}). A 10 de esas 18 personas los cambios les afectan bastante o les impiden hacer algunas cosas. Los ejemplos que dieron son de la vida diaria: ``me canso con facilidad'', ``menos fuerza al levantarme después de estar de rodillas'', ``no puedo levantar mucho peso''.
+
+\grafico{cambios}{Cambios percibidos en los últimos años y cuánto afectan (preguntas 18 y 19)}{cambios}
+
+Lo que más les preocupa de envejecer son las enfermedades crónicas (8 personas) y perder independencia, es decir, depender de otros (7) (Figura~\ref{fig:preocupaciones}). Si se juntan las opciones relacionadas con perder capacidad física (independencia, fuerza o movilidad, dolor de articulaciones y caídas), suman 12 de 20. Nadie marcó ``no me preocupa''.
+
+Aun así, 12 de las 20 personas no están haciendo nada para prevenir lo que les preocupa, y 9 de las 13 que sienten que su rutina no basta tampoco toman medidas. Las 8 que sí previenen se apoyan sobre todo en la alimentación y en los controles médicos (6 cada una). Solo 2 hacen ejercicio regularmente, aunque es el hábito con más respaldo en los estudios que revisamos.
+
+\grafico{preocupaciones}{Preocupaciones sobre el envejecimiento y medidas de prevención (preguntas 21 y 23)}{preocupaciones}
 
 \subsubsection{Conocimiento de la recomendación de actividad física}
 
-El \pend\,\% dice conocer la recomendación de actividad física para su edad, el \pend\,\% tiene una idea general y el \pend\,\% no la conoce (pregunta 24). La Tabla~\ref{tab:ideal} compara lo que las personas creen que es el tiempo ideal con la recomendación de la OMS, que corresponde a la opción ``entre 2 horas y media y 5 horas a la semana'' \parencite{oms2020}.
+Solo 3 de las 20 personas dicen conocer la recomendación de actividad física para su edad, 8 tienen una idea general y 9 no la conocen (Figura~\ref{fig:recomendacion}). Seis intentaron describirla: tres hablaron de hacer ejercicio tres veces por semana, dos de hacerlo a diario (una con caminatas de 30 minutos o más) y una lo explicó en términos generales. Ninguna habló de minutos a la semana, que es como la OMS expresa la meta.
 
-\tabla{Tiempo de actividad física que se considera ideal (pregunta 26)}{ideal}{|l|c|c|}{%
-    \filaTabla{\textbf{Respuesta} & \textbf{n} & \textbf{\%}}
-    \filaTabla{Menos de 1 hora a la semana & \pend & \pend}
-    \filaTabla{Entre 1 y 2 horas a la semana & \pend & \pend}
-    \filaTabla{Entre 2 horas y media y 5 horas a la semana (recomendación OMS) & \pend & \pend}
-    \filaTabla{Más de 5 horas a la semana & \pend & \pend}
-    \filaTabla{No sé & \pend & \pend}
-}
+Cuando les preguntamos cuánto tiempo de actividad física es ideal, 9 personas eligieron la opción que corresponde a la recomendación de la OMS, entre 2 horas y media y 5 horas a la semana \parencite{oms2020}. De las otras 11, seis creen que basta con 2 horas o menos, tres no saben y dos eligieron más de 5 horas. Conocer la recomendación tampoco parece cambiar mucho lo que hacen: toman medidas 5 de las 11 personas que la conocen o tienen una idea, y 3 de las 9 que no la conocen. Son muy pocos casos para sacar una conclusión de esa diferencia.
+
+\grafico{recomendacion}{Conocimiento de la recomendación y tiempo que se considera ideal (preguntas 24 y 26)}{recomendacion}
 
 \subsection{Cruce entre la evidencia y la encuesta}
 \label{sec:cruce}
 
-Las dos fuentes responden preguntas distintas. Los artículos dicen qué hábitos sirven, y la encuesta dice qué le cuesta a la gente, qué le preocupa y dónde se informa. Cuando ambas coinciden, el mensaje va con más seguridad. Cuando no coinciden, lo anotamos como una limitación o como algo que el material tiene que explicar mejor.
+Las dos fuentes responden preguntas distintas. Los artículos dicen qué hábitos sirven y la encuesta dice qué le cuesta a la gente, qué le preocupa y dónde se informa. Cuando coinciden, el mensaje va con más seguridad; cuando no, lo tomamos como algo que el material tiene que explicar mejor.
 
-La Tabla~\ref{tab:cruce} pone lado a lado lo que dice la evidencia y lo que respondió el público, y lo que eso implica para el material de difusión. La última columna ya está escrita según lo que esperamos encontrar; si los resultados muestran otra cosa, se ajusta.
+La Tabla~\ref{tab:cruce} pone lado a lado lo que dice la evidencia, lo que respondió el público y lo que eso significó para el material de difusión.
 
 {\footnotesize
 \renewcommand{\arraystretch}{1.3}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{4.4cm}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}p{1.8cm}|>{\raggedright\arraybackslash}p{4.15cm}|>{\raggedright\arraybackslash}p{4.15cm}|}
     \caption{\leyendaFont{Cruce entre la evidencia, la encuesta y el material de difusión}}
     \label{tab:cruce}\\
     \hline
-    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Implicancia para el material} \\ \hline
+    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Qué hicimos en el material} \\ \hline
     \endfirsthead
     \hline
-    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Implicancia para el material} \\ \hline
+    \textbf{Lo que dice la evidencia} & \textbf{Preguntas} & \textbf{Lo que dice la encuesta} & \textbf{Qué hicimos en el material} \\ \hline
     \endhead
-    Cualquier nivel de actividad física ayuda \parencite{morenoagostino2020} & 9, 10 y 11 & \pendiente{tiempo sentado y si sienten que su rutina basta} & Mensaje ``algo es mejor que nada'' y propuestas para moverse en los momentos en que más se está sentado. \\ \hline
-    La meta es de 150 a 300 minutos semanales \parencite{oms2020} & 24 a 26 & \pendiente{qué porcentaje conoce la meta} & Si pocos la conocen, el afiche la dice en horas: ``2 horas y media a la semana, en partes''. \\ \hline
-    Incluso poca actividad se asocia a beneficios \parencite{morenoagostino2020}, y conviene aumentarla de forma gradual y con orientación \parencite{zhang2025} & 12 y 14 & \pendiente{barrera principal} & Si es la falta de tiempo, proponer sesiones cortas; si es no saber qué hacer, incluir una rutina guiada en la web. \\ \hline
-    El apoyo social predice envejecer bien \parencite{bosnes2019} & 12 y 13 & \pendiente{cuántos marcan ``no tengo con quién'' o ``hacerlo acompañado''} & Invitar a hacer actividad con otras personas y mostrar el apoyo social como parte de la salud. \\ \hline
-    Los hábitos tienen más efecto antes de que se acumulen las enfermedades \parencite{zhu2025} & 5, 6, 17 a 19 & \pendiente{porcentaje con enfermedad crónica y con cambios percibidos} & Mensaje ``empieza ahora'', conectado con los cambios que la persona ya nota. \\ \hline
-    Nunca es tarde para mejorar la alimentación \parencite{zhou2023} & 22 y 23 & \pendiente{cuántos cuidan su alimentación como medida de prevención} & Consejos concretos con alimentos locales: legumbres, pescado, verduras, menos sal. \\ \hline
-    Canales de difusión & 15 y 16 & \pendiente{fuentes más usadas y confianza} & Priorizar los canales más usados y mostrar siempre las fuentes para ganar confianza. \\ \hline
+    Cualquier nivel de actividad física ayuda \parencite{morenoagostino2020} & 9, 10 y 11 & 13 de 20 sienten que su rutina no basta. Se sientan sobre todo en el trabajo, frente a pantallas, en las comidas y en los traslados & Mensaje ``moverse, aunque sea poco, ya suma'', con ideas para moverse en las pausas del trabajo y en los traslados \\ \hline
+    La meta es de 150 a 300 minutos semanales \parencite{oms2020} & 24 a 26 & Solo 3 conocen la recomendación y 11 no eligen la opción de la OMS como tiempo ideal & La meta se dice en horas y no en minutos: ``2 horas y media a 5 horas a la semana'' \\ \hline
+    Incluso poca actividad se asocia a beneficios \parencite{morenoagostino2020} & 12 y 14 & La falta de motivación y la de tiempo empatan como mayor impedimento (8 cada una). El tiempo pesa en quienes trabajan a tiempo completo & Proponer sesiones cortas que caben en la jornada y motivar desde la salud, que es lo que más los mueve (17 de 20) \\ \hline
+    El apoyo social predice envejecer bien \parencite{bosnes2019} & 12 y 13 & 3 personas no tienen con quién hacer ejercicio y 4 se motivarían haciéndolo acompañadas & Se mantiene el mensaje sobre la compañía, como uno más y no como el principal \\ \hline
+    Los hábitos protegen más antes de que se acumulen las enfermedades \parencite{zhu2025} & 5, 6 y 17 a 19 & 5 tienen una enfermedad crónica. 18 notan cambios, sobre todo de energía, y a 10 les afectan bastante & Mensaje ``empieza hoy'', conectado con lo que ya notan: cansancio y menos fuerza \\ \hline
+    Nunca es tarde para mejorar la alimentación \parencite{zhou2023} & 22 y 23 & 12 no toman medidas. De las 8 que sí, 6 cuidan su alimentación y solo 2 hacen ejercicio & Reforzar el ejercicio como medida de prevención y dar consejos de alimentación con productos conocidos \\ \hline
+    Canales de difusión & 15 y 16 & Google (9) y el médico (8) son las fuentes más usadas, y 15 de 20 confían en lo que encuentran & Página web con las fuentes a la vista y el aviso de que no reemplaza una consulta médica \\ \hline
 \end{longtable}
 }
 \clearpage
@@ -626,28 +623,42 @@ Para que el mensaje se entienda sin ambigüedades seguimos cinco criterios:
 
 \subsubsection{Canales y piezas}
 
-\textbf{Afiches y folletos impresos.} Diez piezas impresas, cada una con uno de los mensajes clave y un código QR a la página web. Se distribuirán en \pendiente{lugares concretos, por ejemplo CESFAM, juntas de vecinos, ferias, lugares de trabajo o la universidad}.
+La propuesta contemplaba tres canales. Los tres se diseñaron, pero en la difusión solo funcionaron dos.
 
-\textbf{Redes sociales.} Publicaciones en la cuenta de Instagram del proyecto, \href{https://www.instagram.com/envejecer.mejor}{@envejecer.mejor}, con carruseles que explican un hábito por publicación e historias con preguntas o datos breves. Se publicará \pendiente{frecuencia, por ejemplo dos veces por semana} durante el período de difusión.
+\textbf{Página web.} Es la pieza central. La programamos con HTML, CSS y JavaScript y la publicamos gratis en GitHub Pages, en \url{https://lukipuki0.github.io/liderazgo/}. Usa los mismos colores, el logo y los tréboles de la presentación, para que se reconozca como parte del mismo proyecto (Figura~\ref{fig:web}). Tiene cinco secciones: los siete mensajes, cada hábito explicado con más detalle, una lista de chequeo para que la persona marque qué hábitos ya tiene, las referencias completas y una presentación del equipo. Arriba de todo avisa que el contenido es educativo y no reemplaza una consulta profesional.
 
-\textbf{Página web.} Un sitio informativo programado con HTML, CSS y JavaScript y publicado en un hosting gratuito, disponible en \pendiente{URL de la página}. Reúne los siete mensajes, explica cada hábito con más detalle, incluye \pendiente{secciones finales del sitio, por ejemplo una rutina guiada y una sección de mitos} y muestra las referencias de este informe.
+\imagen{assets/images/web.png}{Portada de la página web del proyecto}{web}
 
-\pendiente{Ajustar la prioridad de los canales según la pregunta 15 de la encuesta: si la mayoría se informa por profesionales de salud, reforzar los afiches en centros de salud; si es por redes o YouTube, reforzar las publicaciones y videos cortos.}
+\textbf{Redes sociales.} Abrimos la cuenta de Instagram \href{https://www.instagram.com/envejecer.mejor}{@envejecer.mejor}, donde publicamos un hábito por publicación y compartimos el enlace a la encuesta y a la web.
+
+\textbf{Afiches y folletos impresos.} Diseñamos diez piezas, cada una con uno de los mensajes clave y un código QR que lleva a la página web. No alcanzamos a repartirlas durante el período de difusión, así que quedan listas para usarse más adelante.
+
+La encuesta ayudó a ordenar las prioridades. Como la mayoría busca en Google o le pregunta al médico, la web quedó como el canal principal: es lo que aparece al buscar y es el lugar donde caben las fuentes completas. Si el proyecto continúa, el mejor lugar para los afiches serían los centros de salud, porque ahí está la otra fuente en la que más confían.
 
 \subsubsection{Calendario e indicadores}
 
-Según la carta Gantt, el diseño de afiches, folletos y publicaciones va del 21 de octubre al 1 de noviembre; la página web, del 21 de octubre al 10 de noviembre; la revisión de contenidos y fuentes, del 3 al 10 de noviembre; y la difusión, del 4 al 15 de noviembre. Para saber si la difusión funcionó, seguiremos los indicadores de la Tabla~\ref{tab:indicadores}.
+Según la carta Gantt, el diseño de afiches, folletos y publicaciones iba del 21 de octubre al 1 de noviembre; la página web, del 21 de octubre al 10 de noviembre; la revisión de contenidos y fuentes, del 3 al 10 de noviembre; y la difusión, del 4 al 15 de noviembre. La Tabla~\ref{tab:indicadores} compara lo planificado con lo que se logró.
 
-\tabla{Indicadores de la difusión}{indicadores}{|l|c|c|}{%
-    \filaTabla{\textbf{Indicador} & \textbf{Meta} & \textbf{Resultado}}
-    \filaTabla{Afiches y folletos impresos distribuidos & 10 & \pend}
-    \filaTabla{Lugares donde se distribuyeron & \pend & \pend}
-    \filaTabla{Publicaciones en redes sociales & \pend & \pend}
-    \filaTabla{Alcance o visualizaciones en redes sociales & \pend & \pend}
-    \filaTabla{Visitas a la página web & \pend & \pend}
-}
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Indicadores de la difusión}}
+    \label{tab:indicadores}
+    {\small
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{5.2cm}|}
+        \hline
+        \textbf{Indicador} & \textbf{Meta} & \textbf{Resultado} \\ \hline
+        Página web publicada & Publicada al 10 de noviembre & Logrado. Publicada el 3 de noviembre \\ \hline
+        Cuenta de Instagram & Activa durante la difusión & Logrado. Cuenta @envejecer.mejor activa \\ \hline
+        Afiches y folletos diseñados & 10 piezas & Logrado \\ \hline
+        Afiches y folletos distribuidos & 10 piezas & No logrado. No se repartieron \\ \hline
+        Respuestas a la encuesta & 20 & Logrado. Se cerró el 22 de noviembre, más tarde de lo previsto \\ \hline
+    \end{tabularx}
+    }
+\end{table}
 
-\pendiente{Describir cómo resultó la difusión: qué se alcanzó a hacer, qué cambió respecto del plan y, si se puede, agregar fotos de los afiches instalados o capturas de las publicaciones y de la web.}
+La difusión digital se cumplió y la impresa no. Este informe no incluye cifras de alcance en Instagram ni de visitas a la web, así que no podemos decir a cuántas personas llegó el material. Medirlo sería lo primero en una segunda etapa.
+
 
 \subsection{Detalles del trabajo}
 
@@ -687,15 +698,15 @@ Cada integrante puede dedicar entre 3 y 5 horas a la semana, es decir, el grupo 
 
 \tabla{Tareas, fechas y horas estimadas}{horas}{|l|c|c|c|}{%
     \filaTabla{\textbf{Tarea} & \textbf{Fechas} & \textbf{Días} & \textbf{Horas}}
-    \filaTabla{1. Definir el rango etario & 30 sep -- 6 oct & 7 & 2}
-    \filaTabla{2. Investigar hábitos y enfermedades & 5 oct -- 18 oct & 14 & 15}
-    \filaTabla{3. Definir mensajes y formato & 14 oct -- 21 oct & 8 & 5}
-    \filaTabla{4. Diseñar afiches, folletos y publicaciones & 21 oct -- 1 nov & 12 & 6}
-    \filaTabla{5. Desarrollar la página web & 21 oct -- 10 nov & 21 & 6}
-    \filaTabla{6. Preparar la presentación de avances & 26 oct -- 1 nov & 7 & 4}
-    \filaTabla{7. Revisar contenidos y fuentes & 3 nov -- 10 nov & 8 & 7}
-    \filaTabla{8. Difundir el material & 4 nov -- 15 nov & 12 & 4}
-    \filaTabla{9. Redactar el informe final y la propuesta & 5 nov -- 17 nov & 13 & 7}
+    \filaTabla{1. Definir el rango etario & 30 sep al 6 oct & 7 & 2}
+    \filaTabla{2. Investigar hábitos y enfermedades & 5 oct al 18 oct & 14 & 15}
+    \filaTabla{3. Definir mensajes y formato & 14 oct al 21 oct & 8 & 5}
+    \filaTabla{4. Diseñar afiches, folletos y publicaciones & 21 oct al 1 nov & 12 & 6}
+    \filaTabla{5. Desarrollar la página web & 21 oct al 10 nov & 21 & 6}
+    \filaTabla{6. Preparar la presentación de avances & 26 oct al 1 nov & 7 & 4}
+    \filaTabla{7. Revisar contenidos y fuentes & 3 nov al 10 nov & 8 & 7}
+    \filaTabla{8. Difundir el material & 4 nov al 15 nov & 12 & 4}
+    \filaTabla{9. Redactar el informe final y la propuesta & 5 nov al 17 nov & 13 & 7}
     \filaTabla{\textbf{Total} & & & \textbf{56}}
 }
 
@@ -706,15 +717,15 @@ Cada integrante puede dedicar entre 3 y 5 horas a la semana, es decir, el grupo 
         x unit=0.185cm,
         y unit title=0.5cm,
         y unit chart=0.55cm,
-        hgrid style/.style={draw=black!15},
+        hgrid style/.style={draw=emVerdeClaro},
         hgrid,
         vgrid={*{6}{draw=none}, dotted},
         title label font=\scriptsize\bfseries,
         bar label font=\scriptsize,
         milestone label font=\scriptsize\itshape,
-        bar/.append style={fill=teal!45},
+        bar/.append style={fill=emVerdeMedio, draw=emVerde},
         bar height=0.55,
-        milestone/.append style={fill=orange},
+        milestone/.append style={fill=emRosado, draw=emRosado},
         milestone height=0.55
     ]{2026-09-30}{2026-11-23}
         \gantttitle{}{1}
@@ -729,52 +740,63 @@ Cada integrante puede dedicar entre 3 y 5 horas a la semana, es decir, el grupo 
         \ganttbar{7. Revisar contenidos y fuentes}{2026-11-03}{2026-11-10} \\
         \ganttbar{8. Difundir el material}{2026-11-04}{2026-11-15} \\
         \ganttbar{9. Redactar el informe final}{2026-11-05}{2026-11-17} \\
-        \ganttbar[bar/.append style={fill=gray!30}]{Holgura}{2026-11-18}{2026-11-22} \\
+        \ganttbar[bar/.append style={fill=emVerdeClaro, draw=emVerdeMedio}]{Holgura}{2026-11-18}{2026-11-22} \\
+        \ganttbar[bar/.append style={fill=emRosadoClaro, draw=emRosado}]{Encuesta abierta (real)}{2026-10-25}{2026-11-22} \\
         \ganttmilestone{Presentación de avances (2 nov)}{2026-11-02} \\
         \ganttmilestone{Entrega del informe (23 nov)}{2026-11-23}
     \end{ganttchart}
-    \caption{\leyendaFont{Carta Gantt del proyecto}}
+    \caption{\leyendaFont{Carta Gantt del proyecto. En rosado, el período real en que la encuesta estuvo abierta}}
     \label{fig:gantt}
 \end{figure}
 
 \subsubsection{Hitos y avance}
 
-La Tabla~\ref{tab:hitos} resume los hitos del proyecto y su estado.
+La Tabla~\ref{tab:hitos} resume los hitos del proyecto y su estado al cierre.
 
-\tabla{Hitos del proyecto}{hitos}{|l|p{8cm}|c|}{%
-    \filaTabla{\textbf{Fecha} & \textbf{Hito} & \textbf{Estado}}
-    \filaTabla{\pendiente{fecha} & Lluvia de ideas y elección del tema & Logrado}
-    \filaTabla{30 de septiembre & Inicio del trabajo planificado & Logrado}
-    \filaTabla{\pendiente{fecha} & Planificación: tareas, carta Gantt, matriz RACI y horas & Logrado}
-    \filaTabla{5 de octubre & Público objetivo (40 a 59 años) y herramienta de recolección & Logrado}
-    \filaTabla{19 de octubre & 11 artículos reunidos y registrados en la ficha & Logrado}
-    \filaTabla{\pendiente{fecha} & Encuesta diseñada y publicada & Logrado}
-    \filaTabla{2 de noviembre & Presentación de avances & \pend}
-    \filaTabla{10 de noviembre & Página web terminada & \pend}
-    \filaTabla{15 de noviembre & Término de la difusión & \pend}
-    \filaTabla{23 de noviembre & Entrega del informe final y la propuesta & \pend}
-}
+\begin{table}[!htbp]
+    \centering
+    \caption{\leyendaFont{Hitos del proyecto}}
+    \label{tab:hitos}
+    {\small
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.4cm}|}
+        \hline
+        \textbf{Fecha} & \textbf{Hito} & \textbf{Estado} \\ \hline
+        Septiembre & Lluvia de ideas y elección del tema (Avance 1) & Logrado \\ \hline
+        30 de septiembre & Planificación: tareas, carta Gantt, matriz RACI y horas & Logrado \\ \hline
+        5 de octubre & Público objetivo (40 a 59 años) y herramienta de recolección & Logrado \\ \hline
+        19 de octubre & 11 artículos reunidos y registrados en la ficha & Logrado \\ \hline
+        25 de octubre & Encuesta publicada y primera respuesta & Logrado \\ \hline
+        2 de noviembre & Presentación de avances & Logrado \\ \hline
+        3 de noviembre & Página web publicada & Logrado, antes del plazo \\ \hline
+        15 de noviembre & Término de la difusión & Parcial: web e Instagram, sin afiches \\ \hline
+        22 de noviembre & Cierre de la encuesta con 20 respuestas & Logrado, con atraso \\ \hline
+        23 de noviembre & Entrega del informe final y la propuesta & Logrado \\ \hline
+    \end{tabularx}
+    }
+\end{table}
 
-Según la carta Gantt, al 2 de noviembre debían estar terminadas las tareas 1, 2, 3, 4 y 6, y la página web debía ir a la mitad. Eso equivale a unas 35 de las 56 horas, cerca del 62\,\% del proyecto. \pendiente{Indicar el avance real a esa fecha y al cierre (por ejemplo, ``al 2 de noviembre llevábamos un XX\,\%''), qué tareas se atrasaron, por qué y cómo se recuperaron; mencionar si se usó la holgura.}
+Según la carta Gantt, al 2 de noviembre debían estar terminadas las tareas 1, 2, 3, 4 y 6, y la página web debía ir a la mitad. Eso equivale a unas 35 de las 56 horas, cerca del 62\,\% del proyecto. En la presentación de avances informamos un 60\,\%, es decir, un desfase pequeño que venía sobre todo de la página web. Ese atraso se recuperó pronto: publicamos el sitio el 3 de noviembre, antes del 10 que marcaba la carta Gantt.
+
+Al cierre, todas las tareas quedaron terminadas salvo una parte de la difusión: los afiches y folletos se diseñaron, pero no se repartieron. El otro atraso fue la encuesta. Para llegar a las 20 respuestas que buscábamos nos faltaban dos a mediados de noviembre, y las conseguimos recién el 22, dentro de los cinco días de holgura que habíamos dejado antes de la entrega. Por eso la sección de resultados de la encuesta y el cruce con la evidencia se terminaron al final, durante esa holgura.
 
 \subsubsection{Dificultades y cómo las resolvimos}
 
-\begin{itemize}
-    \item \textbf{La búsqueda daba muy pocos o demasiados resultados.} Ajustamos la ecuación por bloques: si salían pocos, quitábamos el último grupo de palabras; si salían demasiados, acotábamos. Al final complementamos la búsqueda inicial con una segunda base de datos.
-    \item \textbf{No pudimos acceder al texto completo de 13 de los 24 artículos.} Decidimos trabajar solo con los 11 que pudimos leer completos, en vez de citar artículos solo por su resumen. Los demás quedaron registrados en el Anexo~C.
-    \item \textbf{La primera idea de fuente primaria no servía.} Las entrevistas de otro proyecto eran pocas y no estaban pensadas para nuestras preguntas, así que diseñamos una encuesta propia para nuestro público.
-    \item \textbf{La evidencia es casi toda extranjera.} No encontramos estudios chilenos, así que adaptamos los mensajes a alimentos y hábitos locales y lo declaramos como limitación.
-    \item \textbf{Poco tiempo disponible.} Cada integrante tiene entre 3 y 5 horas a la semana. Lo resolvimos con tareas en paralelo, como el diseño de los afiches y la web, y con cinco días de holgura antes de la entrega.
-    \item \pendiente{Agregar cualquier otra dificultad del período de difusión, por ejemplo con la impresión, los permisos para instalar afiches o la publicación de la web.}
-\end{itemize}
+La primera dificultad apareció en la búsqueda de artículos, que a veces daba muy pocos resultados y otras veces demasiados. Ajustamos la ecuación por bloques: si salían pocos, quitábamos el último grupo de palabras, y si salían demasiados, acotábamos. Además, por propuesta de Lucas, cambiamos Scopus y Web of Science por Consensus y Europe PMC, a las que era más fácil acceder.
+
+Después nos encontramos con que no podíamos leer completos 13 de los 24 artículos identificados. Preferimos trabajar solo con los 11 que sí pudimos leer, en vez de citar artículos a partir de su resumen. Los otros 13 quedaron registrados en el Anexo~C.
+
+La fuente primaria también cambió. La idea inicial era reutilizar entrevistas de otro proyecto, pero eran pocas y respondían a otras preguntas, así que diseñamos una encuesta propia para nuestro público. Esa encuesta trajo su propio problema: las respuestas llegaron lento y las dos últimas recién el 22 de noviembre. Lo resolvimos dejando el formulario abierto más tiempo y usando la holgura del cronograma.
+
+La evidencia es casi toda extranjera y no encontramos estudios chilenos. Adaptamos los mensajes a alimentos y hábitos conocidos en Chile y lo dejamos declarado como limitación.
+
+Por último, el tiempo. Cada integrante tiene entre 3 y 5 horas a la semana, así que hicimos tareas en paralelo, como el diseño de los afiches y la web, y dejamos cinco días de holgura antes de la entrega. Aun así, los afiches impresos no se alcanzaron a repartir y la difusión quedó concentrada en la web y en Instagram.
 
 \subsubsection{Comunicación y trabajo en equipo}
 
-En la clase del 14 de septiembre reflexionamos sobre la comunicación efectiva. Concluimos que comunicarse bien ayuda a retener la información con más precisión, evita ambigüedades y ahorra tener que repetir lo mismo varias veces. También notamos que la actitud personal influye en la disposición de los demás: una comunicación efectiva motiva a participar y a sentirse parte del proceso. Eso se tradujo en algo concreto: que cada tarea tuviera un responsable claro y que las decisiones se tomaran después de escuchar a todos, como en la lluvia de ideas.
+En la clase del 14 de septiembre reflexionamos sobre la comunicación efectiva. Concluimos que comunicarse bien ayuda a retener la información con más precisión, evita ambigüedades y ahorra tener que repetir lo mismo varias veces. También notamos que la actitud personal influye en la disposición de los demás: cuando alguien se comunica bien, los otros se animan a participar y se sienten parte del proceso. Eso se tradujo en algo concreto, que cada tarea tuviera un responsable claro y que las decisiones se tomaran después de escuchar a todos, como en la lluvia de ideas o en el cambio de bases de datos que propuso Lucas.
 
-En una dinámica de mímica tuvimos que transmitir un mensaje solo con gestos. Nos costó, porque cada persona puede interpretar un gesto de forma distinta. Tuvimos que buscar gestos que todos entendieran. Esa experiencia nos sirvió para diseñar los afiches: una sola idea por pieza, imágenes fáciles de leer y textos cortos. En la misma dinámica vimos que formular preguntas específicas es difícil: mientras más se profundiza, más cuesta encontrar la pregunta precisa. Lo aplicamos en la encuesta, que parte con preguntas generales, avanza hacia otras más específicas y usa saltos para no preguntar lo que no corresponde.
-
-\pendiente{Opcional: agregar una o dos frases sobre cómo funcionó la coordinación del equipo (por ejemplo, el canal de comunicación que usaron, cada cuánto se reunían y cómo resolvieron desacuerdos).}
+En una dinámica de mímica tuvimos que transmitir un mensaje solo con gestos. Nos costó, porque cada persona puede interpretar un gesto de forma distinta y tuvimos que buscar gestos que todos entendieran. Esa experiencia nos sirvió para diseñar los afiches y la web: una sola idea por pieza, imágenes fáciles de leer y textos cortos. En la misma dinámica vimos que formular preguntas específicas es difícil, porque mientras más se profundiza, más cuesta encontrar la pregunta precisa. Lo aplicamos en la encuesta, que parte con preguntas generales, avanza hacia otras más específicas y usa saltos para no preguntar lo que no corresponde.
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONCLUSIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -785,28 +807,28 @@ En una dinámica de mímica tuvimos que transmitir un mensaje solo con gestos. N
 
 El proyecto partió de una intuición que compartíamos los cinco: la forma en que envejecemos depende de los hábitos que tenemos antes de llegar a la vejez. La investigación respaldó esa idea. Los estudios que revisamos, algunos con seguimientos de más de 20 años y otros con más de 100 mil personas, coinciden en que lo que se hace en la mediana edad se asocia con cómo se envejece después.
 
-La evidencia también nos ayudó a elegir qué decir. Los hábitos con respaldo más sólido son moverse, comer variado y con base vegetal, no fumar y tener buen apoyo social. Además, los hábitos se suman y se refuerzan entre sí. Con eso pasamos de un tema amplio, ``envejecer mejor'', a siete mensajes concretos que se pueden poner en un afiche.
+La evidencia nos ayudó a elegir qué decir. Los hábitos con respaldo más sólido son moverse, comer variado y con base vegetal, no fumar y tener buen apoyo social, y además se suman y se refuerzan entre sí. Con eso pasamos de un tema amplio, ``envejecer mejor'', a siete mensajes concretos que caben en un afiche.
 
-Aprendimos a ser cuidadosos con la evidencia. No todo lo que se repite sobre salud tiene respaldo firme, y un estudio puede mostrar una asociación sin probar una causa. Por eso dejamos fuera afirmaciones que sonaban bien pero que la evidencia no sostiene, y declaramos los límites de nuestra investigación: estudios mayoritariamente extranjeros, artículos a los que no tuvimos acceso y una encuesta que no es representativa.
+La encuesta nos mostró la otra mitad del problema. Casi todas las personas que respondieron ya notan que tienen menos energía o menos fuerza, y dos de cada tres sienten que su rutina no basta. Aun así, la mayoría no está haciendo nada para prevenirlo y casi nadie sabe cuánto ejercicio se recomienda. Lo que más las frena es el tiempo y el ánimo, mucho más que el costo, los lugares o no saber qué ejercicios hacer. Por eso el material insiste en que moverse poco ya suma, da la meta en horas y no en minutos, y parte desde la salud, que es lo que más las motiva.
 
-\pendiente{Agregar una o dos frases sobre lo que aportó la encuesta a la propuesta y sobre cómo resultó la difusión.}
+Aprendimos a ser cuidadosos con la evidencia. No todo lo que se repite sobre salud tiene respaldo firme, y un estudio puede mostrar una asociación sin probar una causa. También nos equivocamos una vez: en la presentación de avances leímos mal un dato parcial de la encuesta, y lo corregimos con la muestra completa. Dejamos fuera afirmaciones que sonaban bien pero que la evidencia no sostiene, y declaramos los límites del trabajo: estudios casi todos extranjeros, artículos que no pudimos leer completos y una encuesta pequeña y no representativa.
 
-Por último, el proyecto fue también un ejercicio de liderazgo y trabajo en equipo. Definir responsables claros, planificar con holgura y escuchar todas las ideas antes de decidir nos permitió avanzar con poco tiempo disponible y adaptarnos cuando algo no resultó como esperábamos.
+La difusión se cumplió a medias. La página web y la cuenta de Instagram funcionaron, pero los afiches quedaron diseñados y sin repartir. Por último, el proyecto fue también un ejercicio de liderazgo y trabajo en equipo. Tener responsables claros, planificar con holgura y escuchar todas las ideas antes de decidir nos permitió avanzar con poco tiempo y adaptarnos cuando algo no salió como esperábamos, como el cambio de bases de datos o el atraso de la encuesta.
 
 \clearpage
 \phantomsection
 \addcontentsline{toc}{section}{Conclusiones específicas}
 \section*{Conclusiones específicas}
 
-\textbf{Objetivo 1: definir y justificar el público objetivo.} Elegir a personas de 40 a 59 años fue una decisión acertada. Es la etapa en que empiezan a acumularse las enfermedades crónicas y en que los hábitos todavía tienen el mayor efecto protector. Los estudios de Noruega y China lo muestran desde dos ángulos: los hábitos de la mediana edad predicen el envejecimiento décadas después, y cuando las enfermedades ya se acumularon cuesta más mantenerlos.
+\textbf{Objetivo 1: definir y justificar el público objetivo.} Elegir a personas de 40 a 59 años fue acertado. Es la etapa en que empiezan a acumularse las enfermedades crónicas y en que los hábitos todavía tienen el mayor efecto protector. Los estudios de Noruega y China lo muestran desde dos ángulos: los hábitos de la mediana edad predicen el envejecimiento décadas después, y cuando las enfermedades ya se acumularon cuesta más mantenerlos. La encuesta lo confirma desde la experiencia de las personas: 18 de 20 ya notan cambios en su energía o su fuerza, y todas las de 50 años o más.
 
-\textbf{Objetivo 2: identificar hábitos con respaldo científico.} Identificamos cuatro hábitos con respaldo consistente: la actividad física, una alimentación variada y con base vegetal, no fumar y el apoyo social. Encontramos también evidencia más débil, o sin resultados significativos, sobre alimentos vegetales y cognición o sobre la frecuencia de comidas, y la usamos solo como apoyo. El conjunto de 11 artículos es suficiente para orientar mensajes de difusión, aunque no para hacer recomendaciones clínicas.
+\textbf{Objetivo 2: identificar hábitos con respaldo científico.} Identificamos cuatro hábitos con respaldo consistente: la actividad física, una alimentación variada y con base vegetal, no fumar y el apoyo social. También encontramos evidencia más débil, o sin resultados significativos, sobre alimentos vegetales y cognición o sobre la frecuencia de comidas, y la usamos solo como apoyo. Los 11 artículos alcanzan para orientar mensajes de difusión, pero no para hacer recomendaciones clínicas.
 
-\textbf{Objetivo 3: conocer al público mediante la encuesta.} La encuesta nos permitió conocer \pendiente{principales hallazgos: barrera más mencionada, tiempo sentado, conocimiento de la recomendación y canal de información más usado}. \pendiente{Indicar en qué coincidió con la evidencia y en qué nos sorprendió.} Su principal limitación es que es una muestra por conveniencia de \pend{} personas, por lo que sus resultados describen a quienes respondieron y no a toda la población.
+\textbf{Objetivo 3: conocer al público mediante la encuesta.} Con 20 respuestas pudimos conocer la rutina, las barreras y las fuentes de información de nuestro público. Los frenos principales son la falta de motivación y de tiempo (8 personas cada uno), y el tiempo pesa sobre todo en quienes trabajan a tiempo completo. Solo 3 personas conocen la recomendación de actividad física, y Google y el médico son las fuentes que más usan. La encuesta coincidió con la evidencia en que el momento para actuar es ahora, porque los cambios ya se notan, y nos sorprendió en dos cosas: lo poco que pesó no tener con quién hacer ejercicio y que, de las 8 personas que sí previenen, solo 2 lo hagan con ejercicio. Su principal limitación es que es una muestra por conveniencia de 20 personas, así que describe a quienes respondieron y no a toda la población.
 
-\textbf{Objetivo 4: diseñar la propuesta de difusión.} Logramos traducir la evidencia en siete mensajes simples, cada uno con su respaldo y su canal, y con criterios de redacción que evitan prometer más de lo que la evidencia permite. La combinación de piezas impresas con código QR, redes sociales y una página web permite llegar al público por varios caminos y dejar las fuentes disponibles para quien quiera profundizar. \pendiente{Agregar el resultado de la difusión según los indicadores de la Tabla~\ref{tab:indicadores}: qué se alcanzó y qué se haría distinto.}
+\textbf{Objetivo 4: diseñar la propuesta de difusión.} Tradujimos la evidencia en siete mensajes simples, cada uno con su respaldo y su canal, y con criterios de redacción que evitan prometer más de lo que la evidencia permite. La página web quedó publicada con los mensajes, el detalle de cada hábito, una lista de chequeo y las fuentes, y la cuenta de Instagram sirvió para difundir el material y la encuesta. Los afiches no se repartieron. Si lo hiciéramos de nuevo, repartiríamos los afiches antes y en centros de salud, donde está el médico, la otra fuente en la que más confía el público, y mediríamos desde el principio el alcance y las visitas.
 
-\textbf{Objetivo 5: organizar el trabajo del equipo.} La matriz RACI y la carta Gantt nos dieron una base clara: cada tarea tuvo un responsable y las 56 horas estimadas quedaron dentro de las 105 a 175 disponibles. Trabajar en paralelo y dejar holgura fue clave con tan poco tiempo por persona. \pendiente{Agregar si se cumplieron los plazos y qué ajustes se hicieron a la planificación.} Lo aprendido en clase sobre comunicación efectiva se notó en el trabajo: escuchar todas las ideas antes de decidir y buscar mensajes sin ambigüedades mejoró tanto la coordinación interna como el material para el público.
+\textbf{Objetivo 5: organizar el trabajo del equipo.} La matriz RACI y la carta Gantt nos dieron una base clara: cada tarea tuvo un responsable y las 56 horas estimadas quedaron dentro de las 105 a 175 disponibles. Casi todos los plazos se cumplieron, y la web incluso salió antes. Hubo dos ajustes: la encuesta se cerró el 22 de noviembre, usando la holgura, y la difusión impresa quedó pendiente. Lo aprendido en clase sobre comunicación efectiva se notó en el trabajo: escuchar todas las ideas antes de decidir y buscar mensajes sin ambigüedades mejoró tanto la coordinación interna como el material para el público.
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

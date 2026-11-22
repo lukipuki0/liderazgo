@@ -1,0 +1,207 @@
+{
+ "n": 20,
+ "fechas": [
+  "2026-10-25T22:06:14.115000",
+  "2026-11-22T07:31:00.635000"
+ ],
+ "edad": {
+  "base": 20,
+  "conteo": {
+   "50 a 54 años": 9,
+   "40 a 44 años": 4,
+   "55 a 59 años": 4,
+   "45 a 49 años": 3
+  }
+ },
+ "cronica": {
+  "base": 20,
+  "conteo": {
+   "No": 15,
+   "Sí": 5
+  }
+ },
+ "ocupacion": {
+  "base": 20,
+  "conteo": {
+   "Trabajo a tiempo completo": 13,
+   "Labores del hogar o cuidado de familiares": 4,
+   "Trabajo independiente o emprendimiento": 2,
+   "Trabajo part-time": 1
+  }
+ },
+ "sentado": {
+  "base": 20,
+  "conteo": {
+   "Menos de 4 horas": 13,
+   "Entre 4 y 6 horas": 5,
+   "Entre 7 y 9 horas": 1,
+   "10 horas o más": 1
+  }
+ },
+ "rutina_suficiente": {
+  "base": 20,
+  "conteo": {
+   "No": 13,
+   "Sí": 6,
+   "No estoy seguro(a)": 1
+  }
+ },
+ "impedimento": {
+  "base": 20,
+  "conteo": {
+   "Falta de motivación": 8,
+   "Falta de tiempo": 8,
+   "Cansancio o falta de energía": 2,
+   "Dolor, lesiones o problemas de salud": 2
+  }
+ },
+ "confianza": {
+  "base": 20,
+  "conteo": {
+   "Bastante confiable": 13,
+   "Poco confiable": 4,
+   "Muy confiable": 2,
+   "No suelo buscar información": 1
+  }
+ },
+ "nota_cambios": {
+  "base": 20,
+  "conteo": {
+   "Sí": 18,
+   "No": 2
+  }
+ },
+ "afectan": {
+  "base": 18,
+  "conteo": {
+   "Bastante": 7,
+   "Un poco": 6,
+   "Me impiden hacer algunas cosas": 3,
+   "Nada": 2
+  }
+ },
+ "preocupacion": {
+  "base": 20,
+  "conteo": {
+   "Enfermedades crónicas (diabetes, presión alta, corazón)": 8,
+   "Perder independencia (depender de otros)": 7,
+   "Perder fuerza o movilidad": 2,
+   "Dolor de articulaciones o espalda": 2,
+   "Caídas o problemas de equilibrio": 1
+  }
+ },
+ "toma_medidas": {
+  "base": 20,
+  "conteo": {
+   "No": 12,
+   "Sí": 8
+  }
+ },
+ "conoce_recomendacion": {
+  "base": 20,
+  "conteo": {
+   "No la conozco": 9,
+   "Tengo una idea general": 8,
+   "Sí, la conozco": 3
+  }
+ },
+ "tiempo_ideal": {
+  "base": 20,
+  "conteo": {
+   "Entre 2 horas y media y 5 horas a la semana": 9,
+   "Entre 1 y 2 horas a la semana": 5,
+   "No sé": 3,
+   "Más de 5 horas a la semana": 2,
+   "Menos de 1 hora a la semana": 1
+  }
+ },
+ "cuales_cronicas": {
+  "base": 5,
+  "conteo": {
+   "Hipertensión (presión alta)": 5,
+   "Hipotiroidismo": 3,
+   "Depresión o ansiedad": 1,
+   "Otro: Fibromialgia": 1,
+   "Artrosis o artritis": 1
+  }
+ },
+ "momentos_sentado": {
+  "base": 20,
+  "conteo": {
+   "En el trabajo": 8,
+   "Viendo televisión o usando el celular o computador": 7,
+   "Durante las comidas": 7,
+   "En traslados (auto, micro, metro)": 6,
+   "Descansando o durmiendo siesta": 3,
+   "Otro: Después de almuerzo": 1
+  }
+ },
+ "razones": {
+  "base": 14,
+  "conteo": {
+   "Falta de motivación": 7,
+   "Falta de tiempo": 6,
+   "Cansancio o falta de energía": 4,
+   "Costo (gimnasio, clases, implementos)": 3,
+   "No tengo con quién hacerlo": 3,
+   "No tengo lugares cercanos o seguros": 1,
+   "No sé bien qué ejercicios hacer": 1,
+   "Dolor, lesiones o problemas de salud": 1
+  }
+ },
+ "motivaciones": {
+  "base": 20,
+  "conteo": {
+   "Cuidar o mejorar mi salud": 17,
+   "Bajar de peso o verme mejor": 10,
+   "Reducir el estrés": 9,
+   "Tener más energía": 8,
+   "Hacerlo acompañado(a)": 4,
+   "Indicación de un médico": 4,
+   "Una rutina guiada y fácil de seguir": 1
+  }
+ },
+ "fuentes": {
+  "base": 20,
+  "conteo": {
+   "Busco en Google": 9,
+   "Le pregunto a un médico u otro profesional de salud": 8,
+   "Veo videos en YouTube": 3,
+   "Redes sociales (Facebook, Instagram, TikTok)": 3,
+   "Le pregunto a un asistente de inteligencia artificial (ChatGPT u otro)": 3,
+   "Uso aplicaciones de salud o ejercicio": 2,
+   "No suelo buscar información": 1,
+   "Le pregunto a familiares o amigos": 1
+  }
+ },
+ "en_que_cambios": {
+  "base": 18,
+  "conteo": {
+   "Niveles de energía": 15,
+   "Fuerza física": 10,
+   "Equilibrio": 1
+  }
+ },
+ "medidas": {
+  "base": 8,
+  "conteo": {
+   "Cuido mi alimentación": 6,
+   "Me hago controles médicos": 6,
+   "Hago ejercicio regularmente": 2,
+   "Duermo y descanso mejor": 2,
+   "Tomo medicamentos o suplementos": 2
+  }
+ },
+ "cruces": {
+  "tiempo_en_tiempo_completo": 7,
+  "tiempo_total": 8,
+  "rutina_no_basta_y_sin_medidas": 9,
+  "rutina_no_basta": 13,
+  "cronica_rutina_no_basta": 4,
+  "sin_cronica_rutina_no_basta": 9,
+  "medidas_con_ejercicio": 2,
+  "notan_cambios_50_59": 13,
+  "personas_50_59": 13,
+  "trabajan": 16
+ }
+}
