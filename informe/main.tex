@@ -40,7 +40,12 @@
 \usepackage{accsupp}
 \usepackage{csquotes}
 \usepackage[style=apa, citestyle=apa, backend=biber]{biblatex}
-\addbibresource{referencias.bib}
+% Rutas que funcionan tanto si se compila desde informe/ (local) como desde la
+% raíz del repositorio (Overleaf sincronizado con GitHub).
+\IfFileExists{referencias.bib}
+    {\addbibresource{referencias.bib}}
+    {\addbibresource{informe/referencias.bib}}
+\graphicspath{{./}{informe/}}
 
 \usepackage[fixed]{fontawesome5}
 \usepackage{ifxetex,ifluatex}
