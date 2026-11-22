@@ -1,0 +1,366 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ------------------------------ %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | Formato escuela - INF PUCV | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | by Sebastian Garcia        | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% | @sebaignacioo              | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% |                            | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% |            2023            | %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ------------------------------ %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, letterpaper, table, xcdraw]{extarticle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PAQUETES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[a-1b]{pdfx}
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{paracol}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{subcaption}
+
+% Definiendo márgenes
+\usepackage[left=3cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\usepackage{accsupp}
+\usepackage{csquotes}
+\usepackage[style=apa, citestyle=apa, backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage[fixed]{fontawesome5}
+\usepackage{ifxetex,ifluatex}
+\usepackage{scrlfile}
+\usepackage{xparse}
+\usepackage{titlesec}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{chngcntr}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{array,tabularx}
+\usepackage{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ESTILOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pgfplotsset{width=15cm, compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\tikzstyle{arrow} = [very thick,->,>=stealth]
+
+\usemintedstyle{autumn}
+\definecolor{DarkGrey}{gray}{0.075}
+\definecolor{LightGrey}{gray}{0.925}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black,
+    citebordercolor=white,
+    linktoc=all
+}
+
+% Índice y listados
+\renewcommand{\cftsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftfigleader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cfttableader}{\hspace*{1em}\cftdotfill{0.95\cftdotsep}}
+\renewcommand{\cftdotsep}{4}
+\renewcommand{\cftfigpresnum}{\bfseries Figura }
+\cftsetindents{figure}{0em}{5.5em}
+\renewcommand{\cfttabpresnum}{\bfseries Tabla }
+\cftsetindents{table}{0em}{5.5em}
+
+\renewcommand{\arraystretch}{2}
+
+% Leyendas y numeración de figuras y tablas
+\captionsetup{
+  labelfont={bf,small},
+  singlelinecheck=false,
+  justification=centering
+}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+% Listas
+\setlist{noitemsep}
+
+% Párrafos: sangría de 1cm y 1em de espacio entre ellos
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{1em}
+\titlespacing{\section}{0pt}{0pt}{1em-\parskip}
+\titlespacing{\subsection}{0pt}{0pt}{0.8em-\parskip}
+\titlespacing{\subsubsection}{0pt}{0pt}{0.65em-\parskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Portada
+\newcommand{\membrete}[1]{\fontsize{12}{16}\selectfont\noindent #1}
+\newcommand{\tituloPortada}[1]{\fontsize{18}{22}\selectfont\noindent {\bfseries #1}\\}
+\newcommand{\alumnos}[1]{\fontsize{12}{16}\selectfont\noindent \textbf{#1}}
+\newcommand{\datoPortada}[2]{\fontsize{12}{16}\selectfont\noindent #1: \textbf{#2}\\}
+\newcommand{\datosPortada}[1]{#1}
+\newcommand{\fechaPortada}[1]{\fontsize{14}{18}\selectfont\noindent #1}
+
+\newcommand{\palabrasClave}[1]{\noindent \textbf{Palabras clave: }\textit{#1}}
+
+% Imágenes: \imagen{ruta}{título}{label}
+\newcommand{\leyendaFont}[1]{\fontsize{10}{12}\selectfont #1}
+
+\newcommand{\imagen}[3]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{#1}
+        \caption{\leyendaFont{#2}}
+        \label{fig:#3}
+    \end{figure}
+}
+
+% Tablas: \tabla{título}{label}{columnas}{filas}
+\newcommand{\filaTabla}[1]{#1\\\hline}
+
+\newcommand{\tabla}[4]{%
+    \begin{table}[!htbp]
+        \centering
+        \caption{\leyendaFont{#1}}
+        \label{tab:#2}
+        {\scriptsize
+            \begin{tabular}{#3}
+                \hline #4
+            \end{tabular}
+        }
+    \end{table}
+}
+
+% Anexos en PDF: \pdfExterno{título}{ruta}[páginas]
+\NewDocumentCommand{\pdfExterno}{m m o}{%
+    \phantomsection
+    \addcontentsline{toc}{subsection}{#1}
+    \IfValueTF{#3}{%
+        \includepdf[pages={#3}, pagecommand={\thispagestyle{plain}}]{#2}
+    }{%
+        % TODO: Da error si no se especifican las páginas
+        \includepdf[pagecommand={\thispagestyle{plain}}]{#2}
+    }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\pagenumbering{gobble}
+
+\begin{center}
+    \membrete{%
+        PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO\\
+        FACULTAD DE INGENIERÍA\\
+        ESCUELA DE INGENIERÍA INFORMÁTICA\\
+    }
+
+    \vspace*{5cm}
+
+    \tituloPortada{%
+        Formato para informes de la\\
+        Escuela de Ingeniería Informática
+    }
+
+    \vspace*{4cm}
+
+    \alumnos{%
+        Nombre alumno 1\\
+        Nombre alumno 2\\
+        Nombre alumno 3\\
+    }
+
+    \vspace*{3cm}
+
+    \datosPortada{%
+        \datoPortada{Asignatura}{Nombre de asignatura}
+        \datoPortada{Fecha de entrega}{31 de diciembre de 2023}
+    }
+
+    \vspace*{4cm}
+
+    \fechaPortada{Diciembre de 2023}
+\end{center}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ÍNDICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\phantomsection
+\addcontentsline{toc}{section}{Resumen}
+\section*{Resumen}
+
+% TODO: Completar sección
+\lipsum[1-3]
+
+% TODO: Completar palabras clave
+\phantomsection
+\addcontentsline{toc}{subsection}{Palabras clave}
+\palabrasClave{ejemplo, proyecto, investigación, desarrollo, análisis, implementación, diseño, programación, tecnología, innovación, ciencia, ingeniería, software, hardware, sistemas, automatización, control, robótica.}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Lista de figuras}
+\listoffigures
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Lista de tablas}
+\listoftables
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRODUCCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\phantomsection
+\addcontentsline{toc}{section}{Introducción}
+\section*{Introducción}
+
+% TODO: Completar sección
+\lipsum[1-3]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESCRIPCIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Descripción}
+\subsection{Descripción general}
+
+% TODO: Completar sección
+\lipsum[1-2]
+
+\subsection{Objetivos}
+\subsubsection{Objetivo general}
+
+% TODO: Completar sección
+\lipsum[1-2] \parencite{knuth1984texbook}
+
+\subsubsection{Objetivos específicos}
+
+% TODO: Completar sección
+\lipsum[1]
+\begin{enumerate}
+    \item \lipsum[1][1-2] \parencite{shannon1948mathematical}
+    \item \lipsum[1][1-2]
+    \item \lipsum[1][1-2] \parencite{lamport1994latex}
+    \item \lipsum[1][1-2]
+    \item \lipsum[1][1-2]
+\end{enumerate}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DESARROLLO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Desarrollo}
+\subsection{Subdesarrollo 1}
+
+% TODO: Completar sección
+\lipsum[1-3] \parencite{knuth1978tex}
+\subsection{Diagrama de proceso de negocios}
+
+% TODO: Completar sección
+\imagen{assets/images/1.bpmn.png}{Diagrama de proceso de negocios}{figura1}
+
+\subsection{Subdesarrollo 2}
+
+% TODO: Completar sección
+\lipsum[1][1-3]
+\begin{enumerate}
+    \item \lipsum[1][1-2]
+    \item \lipsum[1][1-2] \parencite{goossens1997latex}
+    \item \lipsum[1][1-2]
+    \item \lipsum[1][1-2]
+\end{enumerate}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESULTADOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Resultados}
+\subsection{Descripción general}
+
+% TODO: Completar sección
+\lipsum[1-2] \parencite{turing1937computable}
+
+\tabla{Tabla de ejemplo}{tabla1}{|c|c|c|}{%
+    \filaTabla{\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3}}
+    \filaTabla{10 & 5.6 & A}
+    \filaTabla{25 & 3.2 & B}
+    \filaTabla{8 & 7.1 & C}
+    \filaTabla{12 & 9.5 & D}
+    \filaTabla{20 & 2.3 & E}
+}
+
+\lipsum[1][1-8]
+
+\subsection{Análisis}
+
+% TODO: Completar sección
+\lipsum[1][1-6]
+\imagen{assets/images/1.bpmn.png}{Diagrama de proceso de negocios 2}{figura2}
+\lipsum[1][1-4]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONCLUSIÓN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Conclusión}
+\section*{Conclusión}
+
+% TODO: Completar sección
+\lipsum[1][1-15]
+
+\lipsum[2][1-10]
+
+\lipsum[3][1-6]
+
+\lipsum[4][1-18]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\phantomsection
+\addcontentsline{toc}{section}{Bibliografía}
+
+\printbibliography[title={Bibliografía}]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ANEXOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{\hspace*{1em}A\arabic{page}}
+
+\phantomsection
+\addcontentsline{toc}{section}{Anexos}
+
+% TODO: Cambiar anexo 1 por archivo definitivo
+\pdfExterno{Anexo 1: La percepción de la Inteligencia Artificial en contextos educativos tras el lanzamiento de ChatGPT: disrupción o pánico}{assets/pdf/1-ai-en-educacion.pdf}[1-9]
+\clearpage
+
+\end{document}
