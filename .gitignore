@@ -1,0 +1,22 @@
+# Datos sensibles de la encuesta
+# El repositorio es público: las respuestas originales tienen nombre, apellido y
+# correo de cada persona, así que nunca se suben. Solo se publican resultados
+# agregados (analisis/resultados.json y los gráficos).
+*(Respuestas)*
+*.xlsx
+*.xls
+*.ods
+*.csv
+*.tsv
+
+# Credenciales y variables de entorno
+.env
+.env.*
+*credentials*.json
+
+# Archivos temporales de Office y del sistema
+~$*
+.~lock.*#
+Thumbs.db
+desktop.ini
+.DS_Store
