@@ -20,3 +20,20 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Archivos auxiliares de LaTeX (compilación desde la raíz)
+/*.aux
+/*.bbl
+/*.bcf
+/*.blg
+/*.fdb_latexmk
+/*.fls
+/*.log
+/*.out
+/*.run.xml
+/*.toc
+/*.lof
+/*.lot
+/*.synctex.gz
+/*.xmpi
+/main.pdf
